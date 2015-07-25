@@ -1,0 +1,25 @@
+%h1 Listing bookmarks
+
+%table
+  %thead
+    %tr
+      %th Bookmarkable
+      %th Bookmarkable type
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @bookmarks.each do |bookmark|
+      %tr
+        %td= bookmark.bookmarkable_id
+        %td= bookmark.bookmarkable_type
+        %td= bookmark.user_id
+        %td= link_to 'Show', dashboard_bookmark_path
+        %td= link_to 'Edit', edit_dashboard_bookmark_path(bookmark)
+        %td= link_to 'Destroy', dashboard_bookmark_path, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Bookmark', new_dashboard_bookmark_path

@@ -1,0 +1,19 @@
+= form_for @bookmark do |f|
+  - if @bookmark.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@bookmark.errors.count, "error")} prohibited this bookmark from being saved:"
+      %ul
+        - @bookmark.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :bookmarkable_id
+    = f.number_field :bookmarkable_id
+  .field
+    = f.label :bookmarkable_type
+    = f.text_field :bookmarkable_type
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,25 @@
+%h1 Listing messages
+
+%table
+  %thead
+    %tr
+      %th Send from
+      %th Send to
+      %th Content
+      %th
+      %th
+      %th
+
+  %tbody
+    - @messages.each do |message|
+      %tr
+        %td= message.send_from_id
+        %td= message.send_to_id
+        %td= message.content
+        %td= link_to 'Show', dashboard_message_path
+        %td= link_to 'Edit', edit_dashboard_message_path(message)
+        %td= link_to 'Destroy', dashboard_message_path, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Message', new_dashboard_message_path

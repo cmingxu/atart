@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @artist.name
+%p
+  %b Short desc:
+  = @artist.short_desc
+%p
+  %b Desc:
+  = @artist.desc
+%p
+  %b Artworks count:
+  = @artist.artworks_count
+
+= link_to 'Edit', edit_artist_path(@artist)
+\|
+= link_to 'Back', artists_path
