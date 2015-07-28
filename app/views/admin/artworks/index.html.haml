@@ -18,10 +18,10 @@
         %td= artwork.desc
         %td= artwork.artist_id
         %td= artwork.images
-        %td= link_to 'Show', artwork
-        %td= link_to 'Edit', edit_artwork_path(artwork)
-        %td= link_to 'Destroy', artwork, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', admin_artwork_path(artwork)
+        %td= link_to 'Edit', edit_admin_artwork_path(artwork)
+        %td= link_to 'Destroy', admin_artwork_path(artwork), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Artwork', new_artwork_path
+= link_to 'New Artwork', new_admin_artwork_path

@@ -3,4 +3,7 @@ class Admin::BaseController < ApplicationController
 
   def index
   end
+
+  def statistics
+  end
 end

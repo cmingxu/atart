@@ -17,6 +17,7 @@
 #  updated_at             :datetime
 #  roles                  :string(255)
 #  visible                :boolean          default(TRUE)
+#  uuid                   :string(255)
 #
 
 FactoryGirl.define do

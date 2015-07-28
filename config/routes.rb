@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   namespace :admin do
+  get 'products/index'
+  end
+
+  namespace :admin do
+  get 'users/index'
+  end
+
+  namespace :admin do
   get 'orders/index'
   end
 
@@ -19,10 +27,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/' => "base#index"
-    get 'base/index'
-    get 'statistics' => 'base/statistics'
+    get '/statistics' => 'base#statistics'
     resources :artworks
     resources :artists
+    resources :products
     resources :users
     resources :messages
     resources :bookmarks

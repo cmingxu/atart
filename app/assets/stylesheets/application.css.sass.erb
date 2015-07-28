@@ -6,26 +6,38 @@ $fc-main-font-color: #E5E5E5
 $sidebar-width: 160px
 
 body
-  background-image: url(<%= asset_path('ZenBG.png') %>)
-  background-repeat: repeat
+  background-color: #f2f2f2
 
+.fc-header
+  background-color: #e16f1d
 .fc-container
   padding-top: 50px
   padding-left: $sidebar-width + 30
   background-color: #fff
   position: relative
+  background-color: #f2f2f2
 .fc-sidebar
   width: $sidebar-width
   position: absolute
   left: 0px
   top: 50px
   border-right: 1px solid $fc-main-font-color
+  background-color: white
+  li
+    border: 1px solid lighten(gray, 30%)
+    border-bottom: none
+    padding: 6px 0px
+    &:last-child
+      border-bottom: 1px solid lighten(gray, 30%)
 .fc-main
   width: 100%
   min-height: 1000px
 .fc-nav > li > a
   color: #777
 
+.fc-footer
+  background-color: #353535
+  padding: 40px 0px
 
 .ke-container
   width: 400px!important

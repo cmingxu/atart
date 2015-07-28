@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150725153238) do
+ActiveRecord::Schema.define(version: 20150728074250) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -60,11 +60,29 @@ ActiveRecord::Schema.define(version: 20150725153238) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "status",     limit: 255
-    t.integer  "user_id",    limit: 4
-    t.integer  "artist_id",  limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "status",         limit: 255
+    t.integer  "user_id",        limit: 4
+    t.integer  "artist_id",      limit: 4
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.integer  "product_id",     limit: 4
+    t.string   "pay_method",     limit: 255
+    t.decimal  "pay_amount",                 precision: 8, scale: 2
+    t.string   "transaction_id", limit: 255
+    t.string   "bank",           limit: 255
+    t.datetime "paid_at"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.decimal  "price",                        precision: 8, scale: 2
+    t.integer  "artist_id",      limit: 4
+    t.decimal  "preorder_price",               precision: 8, scale: 2
+    t.text     "name",           limit: 65535
+    t.text     "short_desc",     limit: 65535
+    t.text     "desc",           limit: 65535
+    t.text     "images",         limit: 65535
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
   end
 
   create_table "simple_captcha_data", force: :cascade do |t|
@@ -77,12 +95,12 @@ ActiveRecord::Schema.define(version: 20150725153238) do
   add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "",   null: false
-    t.string   "encrypted_password",     limit: 255, default: "",   null: false
+    t.string   "email",                  limit: 255,                         default: "",   null: false
+    t.string   "encrypted_password",     limit: 255,                         default: "",   null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,    null: false
+    t.integer  "sign_in_count",          limit: 4,                           default: 0,    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
@@ -90,8 +108,12 @@ ActiveRecord::Schema.define(version: 20150725153238) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "roles",                  limit: 255
-    t.boolean  "visible",                limit: 1,   default: true
+    t.boolean  "visible",                limit: 1,                           default: true
     t.string   "uuid",                   limit: 255
+    t.string   "avatar",                 limit: 255
+    t.decimal  "lng",                                precision: 9, scale: 5
+    t.decimal  "lat",                                precision: 9, scale: 5
+    t.string   "area",                   limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
