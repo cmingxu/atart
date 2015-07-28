@@ -1,5 +1,8 @@
 class Admin::ArtistsController < Admin::BaseController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
+  before_filter do
+    @breadcrumb = [OpenStruct.new(href: admin_artists_path, text: "艺术家管理")]
+  end
 
   # GET /artists
   # GET /artists.json

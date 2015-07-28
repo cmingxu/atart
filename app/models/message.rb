@@ -11,4 +11,6 @@
 #
 
 class Message < ActiveRecord::Base
+  belongs_to :send_from, class_name: :user, foreign_key: :send_from_id
+  belongs_to :send_to, class_name: :user, foreign_key: :send_to_id
 end

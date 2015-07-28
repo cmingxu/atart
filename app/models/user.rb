@@ -27,9 +27,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :folders
-  has_many :entities
-
   scope :normal_user, -> { where( "roles LIKE '%user%'" ) }
   scope :admin, -> { where( "roles LIKE '%admin%'" ) }
 

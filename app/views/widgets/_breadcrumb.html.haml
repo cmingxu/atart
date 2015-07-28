@@ -1,0 +1,7 @@
+%ul.uk-breadcrumb
+  %li 
+    %span 后台管理
+  - if defined?(@breadcrumb)
+    - @breadcrumb.each do |b|
+      %li
+        %a{href: b.href}= b.text
