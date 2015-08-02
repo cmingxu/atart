@@ -1,5 +1,4 @@
-
-%table
+%table.uk-table
   %thead
     %tr
       %th Bookmarkable
@@ -15,3 +14,7 @@
         %td= bookmark.bookmarkable_id
         %td= bookmark.bookmarkable_type
         %td= bookmark.user_id
+        %td
+          = link_to bookmark.bookmarkable.name, send("#{bookmark.bookmarkable_type.downcase}_path", bookmark)
+          = link_to "删除", dashboard_bookmark_path(bookmark), method: :delete
+
