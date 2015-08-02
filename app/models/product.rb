@@ -15,6 +15,12 @@
 #
 
 class Product < ActiveRecord::Base
+  validates :artist_id, presence: { message: "艺术家不能空" }
+  validates :name, presence: { message: "作品名字不能空" }
+  validates :name, uniqueness: { scope: :artist_id, message: "产品名字重复了" }
+  validates :price, presence: { message: "价格必须" }
+  validates :price, numericality: { message: "价格需是数字" }
+
   belongs_to :artist
   belongs_to :order
 

@@ -4,6 +4,7 @@
   %thead
     %th 序号
     %th 名称
+    %th 艺术家
     %th 图片
     %th 价格
     %th 上架
@@ -13,7 +14,8 @@
       %tr
         %td= link_to product.id, edit_admin_product_path(product)
         %td= link_to product.name, edit_admin_product_path(product)
-        %td= image_tag product.images.first
+        %td= link_to product.artist.name, edit_admin_artist_path(product.artist)
+        %td
         %td= product.price
         %td
         %td

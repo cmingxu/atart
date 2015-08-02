@@ -1,0 +1,17 @@
+= form_for [:admin, @product], html: { class: 'uk-form uk-form-horizontal' } do |f|
+
+  .uk-form-row
+    = f.label :artist_id, "艺术家", class: 'uk-form-label'
+    = f.select :artist_id, options_from_collection_for_select(Artist.all, :id, :name, f.object.artist_id), class: 'uk-form-control'
+  .uk-form-row
+    = f.label :name, "名称", class: 'uk-form-label'
+    = f.text_field :name, class: 'uk-form-control'
+  .uk-form-row
+    = f.label :price, "价格", class: 'uk-form-label'
+    = f.number_field :price, class: 'uk-form-control'
+  .uk-form-row
+    = f.label :desc, "详情", class: 'uk-form-label'
+    = f.text_area :desc, class: 'uk-form-control'
+  .uk-form-row
+    = f.submit "保存", class: 'uk-button uk-button-primary uk-container-center'
+
