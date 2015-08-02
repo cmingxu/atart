@@ -1,0 +1,23 @@
+你要买的商品是
+= @product.name
+
+价格为
+= @product.price
+
+%br
+请填写送货地址
+%br
+= form_for @order do |f|
+  = hidden_field_tag :product_id, params[:product_id]
+  联系地址
+  = f.text_field :ship_address
+  %br
+  联系人
+  = f.text_field :contact_name
+  %br
+  联系电话
+  = f.text_field :contact_phone
+  %br
+  = f.text_field :pay_method
+
+  = f.submit

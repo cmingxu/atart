@@ -23,6 +23,11 @@ class Product < ActiveRecord::Base
 
   belongs_to :artist
   belongs_to :order
+  has_many :bookmarks, as: :bookmarkable
 
   mount_uploader :images, ProductImageUploader
+
+  def buyable?
+    true
+  end
 end

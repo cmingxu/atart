@@ -9,5 +9,6 @@ class DiscoversController < ApplicationController
   end
 
   def shop
+    @products = Product.page params[:page]
   end
 end

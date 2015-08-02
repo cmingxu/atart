@@ -14,6 +14,10 @@
 #  transaction_id :string(255)
 #  bank           :string(255)
 #  paid_at        :datetime
+#  ship_address   :string(255)
+#  contact_name   :string(255)
+#  contact_phone  :string(255)
+#  remark         :text(65535)
 #
 
 require 'rails_helper'

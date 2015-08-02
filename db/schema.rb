@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802081839) do
+ActiveRecord::Schema.define(version: 20150802093345) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -85,14 +85,18 @@ ActiveRecord::Schema.define(version: 20150802081839) do
     t.string   "status",         limit: 255
     t.integer  "user_id",        limit: 4
     t.integer  "artist_id",      limit: 4
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
     t.integer  "product_id",     limit: 4
     t.string   "pay_method",     limit: 255
-    t.decimal  "pay_amount",                 precision: 8, scale: 2
+    t.decimal  "pay_amount",                   precision: 8, scale: 2
     t.string   "transaction_id", limit: 255
     t.string   "bank",           limit: 255
     t.datetime "paid_at"
+    t.string   "ship_address",   limit: 255
+    t.string   "contact_name",   limit: 255
+    t.string   "contact_phone",  limit: 255
+    t.text     "remark",         limit: 65535
   end
 
   create_table "products", force: :cascade do |t|

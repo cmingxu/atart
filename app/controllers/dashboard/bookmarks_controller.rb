@@ -4,7 +4,7 @@ class Dashboard::BookmarksController < Dashboard::BaseController
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = current_user.bookmarks.page params[:page]
   end
 
   # GET /bookmarks/1
@@ -56,7 +56,7 @@ class Dashboard::BookmarksController < Dashboard::BaseController
   def destroy
     @bookmark.destroy
     respond_to do |format|
-      format.html { redirect_to bookmarks_url, notice: 'Bookmark was successfully destroyed.' }
+      format.html { redirect_to dashboard_bookmarks_url, notice: '成功删除关注' }
       format.json { head :no_content }
     end
   end

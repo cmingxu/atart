@@ -18,6 +18,10 @@
 #  roles                  :string(255)
 #  visible                :boolean          default(TRUE)
 #  uuid                   :string(255)
+#  avatar                 :string(255)
+#  lng                    :decimal(9, 5)
+#  lat                    :decimal(9, 5)
+#  area                   :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -29,6 +33,9 @@ class User < ActiveRecord::Base
 
   scope :normal_user, -> { where( "roles LIKE '%user%'" ) }
   scope :admin, -> { where( "roles LIKE '%admin%'" ) }
+
+  has_many :orders
+  has_many :bookmarks
 
   before_create do |u|
     u.roles = 'user'

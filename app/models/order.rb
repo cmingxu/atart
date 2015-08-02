@@ -14,9 +14,43 @@
 #  transaction_id :string(255)
 #  bank           :string(255)
 #  paid_at        :datetime
+#  ship_address   :string(255)
+#  contact_name   :string(255)
+#  contact_phone  :string(255)
+#  remark         :text(65535)
 #
 
 class Order < ActiveRecord::Base
+  include AASM
+
+  validates :ship_address, presence: { message: "送货地址不能空" }
+  validates :contact_name, presence: { message: "送货联系人不能空" }
+  validates :contact_phone, presence: { message: "送货联系电话不能空" }
+
   belongs_to :user
-  has_one :product
+  belongs_to :product
+
+  aasm column: :status, :whiny_transitions => false do
+    state :new_placed, initial: true
+    state :confirmed
+    state :paid
+    state :canceled
+    state :shiped
+
+    event :user_confirm do
+      transitions from: [:new_placed], to: [:confirmed]
+    end
+
+    event :pay do
+      transitions from: [:confirmed], to: [:paid]
+    end
+
+    event :cancel do
+      transitions from: [:paid], to: [:canceled]
+    end
+
+    event :ship do
+      transitions from: [:paid], to: [:shiped]
+    end
+  end
 end

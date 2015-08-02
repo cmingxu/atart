@@ -18,6 +18,10 @@
 #  roles                  :string(255)
 #  visible                :boolean          default(TRUE)
 #  uuid                   :string(255)
+#  avatar                 :string(255)
+#  lng                    :decimal(9, 5)
+#  lat                    :decimal(9, 5)
+#  area                   :string(255)
 #
 
 require 'rails_helper'

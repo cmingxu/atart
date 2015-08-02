@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  namespace :admin do
-  get 'comments/index'
-  end
-
-  namespace :admin do
-  get 'comments/edit'
-  end
-
   resources :events, only: [:index, :show]
+  resources :products, only: [:index, :show]
+  resources :orders, only: [:new, :create, :show] do
+    member do
+      get :confirm_order_page
+      patch :confirm_order
+    end
+  end
 
   resource :discover do
     member do

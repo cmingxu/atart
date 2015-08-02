@@ -1,5 +1,3 @@
-%h1 Listing artworks
-
 %table
   %thead
     %tr
@@ -18,10 +16,4 @@
         %td= artwork.desc
         %td= artwork.artist_id
         %td= artwork.images
-        %td= link_to 'Show', dashboard_artwork_path
-        %td= link_to 'Edit', edit_dashboard_artwork_path(artwork)
-        %td= link_to 'Destroy', dashboard_artwork_path, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
-
-= link_to 'New Artwork', new_dashboard_artwork_path

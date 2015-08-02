@@ -1,2 +1,22 @@
-%h1 Dashboard::Orders#index
-%p Find me in app/views/dashboard/orders/index.html.haml
+%table.uk-table
+  %thead
+    %th 订单号
+    %th 商品
+    %th 图片
+    %th 艺术家
+    %th 下单时间
+    %th 操作
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= order.id
+        %td= link_to order.product.name, product_path(order.product), target: "_blank"
+        %td= order.product.id
+        %td= order.product.artist.name
+        %td= order.created_at
+        %td= order.status
+
+
+
+
+  
