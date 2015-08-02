@@ -1,22 +1,13 @@
-= form_for @artist do |f|
-  - if @artist.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@artist.errors.count, "error")} prohibited this artist from being saved:"
-      %ul
-        - @artist.errors.full_messages.each do |msg|
-          %li= msg
+= form_for [:admin, @artist], html: { class: 'uk-form uk-form-horizontal' } do |f|
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :short_desc
-    = f.text_area :short_desc
-  .field
-    = f.label :desc
-    = f.text_area :desc
-  .field
-    = f.label :artworks_count
-    = f.number_field :artworks_count
-  .actions
-    = f.submit 'Save'
+  .uk-form-row
+    = f.label :name, "姓名", class: 'uk-form-label'
+    = f.text_field :name, class: 'uk-form-control'
+  .uk-form-row
+    = f.label :short_desc, "描述", class: 'uk-form-label'
+    = f.text_area :short_desc, class: 'uk-form-control'
+  .uk-form-row
+    = f.label :desc, class: 'uk-form-label'
+    = f.text_area :desc, class: 'uk-form-control'
+  .uk-form-row
+    = f.submit "保存", class: 'uk-button uk-button-primary uk-container-center'

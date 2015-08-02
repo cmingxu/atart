@@ -1,6 +1,6 @@
 default: &default
   sitename: ""
-  title: "建构中国"
+  title: "atart"
   domain: ""
   description: ""
 

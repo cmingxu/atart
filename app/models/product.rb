@@ -17,4 +17,6 @@
 class Product < ActiveRecord::Base
   belongs_to :artist
   belongs_to :order
+
+  mount_uploader :images, ProductImageUploader
 end

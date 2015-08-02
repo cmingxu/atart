@@ -7,7 +7,7 @@ class Admin::ArtworksController < Admin::BaseController
   # GET /artworks
   # GET /artworks.json
   def index
-    @artworks = Artwork.all
+    @artworks = Artwork.page params[:page]
   end
 
   # GET /artworks/1

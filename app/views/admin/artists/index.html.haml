@@ -1,27 +1,17 @@
-%h1 Listing artists
-
-%table
+= link_to "录入艺术家", new_admin_artist_path, class: 'uk-button uk-float-right uk-button-primary'
+%table.uk-table.uk-table-hover
   %thead
     %tr
-      %th Name
-      %th Short desc
-      %th Desc
-      %th Artworks count
-      %th
-      %th
-      %th
+      %th 标号
+      %th 姓名
+      %th 产品数量
+      %th 操作
 
   %tbody
     - @artists.each do |artist|
       %tr
-        %td= artist.name
-        %td= artist.short_desc
-        %td= artist.desc
+        %td= link_to artist.id, edit_admin_artist_path(artist)
+        %td= link_to artist.name, edit_admin_artist_path(artist)
         %td= artist.artworks_count
-        %td= link_to 'Show', admin_artist_path(artist)
-        %td= link_to 'Edit', edit_admin_artist_path(artist)
-        %td= link_to 'Destroy', admin_artist_path, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Artist', new_admin_artist_path
+        %td
+          = link_to "增加商品", new_admin_product_path(artist_id: artist.id)

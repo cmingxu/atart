@@ -1,2 +1,21 @@
-%h1 Admin::Products#index
-%p Find me in app/views/admin/products/index.html.haml
+= link_to "录入商品", new_admin_product_path, class: 'uk-button uk-float-right uk-button-primary'
+
+%table.uk-table.uk-table-hover
+  %thead
+    %th 序号
+    %th 名称
+    %th 图片
+    %th 价格
+    %th 上架
+    %th 操作
+  %tbody
+    - @products.each do |product|
+      %tr
+        %td= link_to product.id, edit_admin_product_path(product)
+        %td= link_to product.name, edit_admin_product_path(product)
+        %td= image_tag product.images.first
+        %td= product.price
+        %td
+        %td
+  
+= paginate @products

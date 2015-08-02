@@ -1,4 +1,4 @@
-class DiscoverController < ApplicationController
+class DiscoversController < ApplicationController
   def hot
   end
 

@@ -1,0 +1,23 @@
+%table.uk-table.uk-table-hover
+  %thead
+    %tr
+      %th 序号
+      %th 名称
+      %th 画廊
+      %th 艺术家
+      %th 地址
+      %th 经纬度
+      %th 时间
+      %th 操作
+
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= event.name
+        %td= event.gallery
+        %td= event.artist_name
+        %td= event.address
+        %td= event.lng
+        %td= event.lat
+        %td= event.begin_at
+        %td= event.end_at

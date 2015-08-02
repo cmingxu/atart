@@ -4,5 +4,6 @@ class Admin::OrdersController < Admin::BaseController
   end
 
   def index
+    @orders = Order.page params[:page]
   end
 end

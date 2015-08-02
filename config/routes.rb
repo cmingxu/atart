@@ -1,19 +1,13 @@
 Rails.application.routes.draw do
   namespace :admin do
-  get 'products/index'
+  get 'comments/index'
   end
 
   namespace :admin do
-  get 'users/index'
+  get 'comments/edit'
   end
 
-  namespace :admin do
-  get 'orders/index'
-  end
-
-  namespace :dashboard do
-  get 'orders/index'
-  end
+  resources :events, only: [:index, :show]
 
   resource :discover do
     member do
@@ -35,6 +29,8 @@ Rails.application.routes.draw do
     resources :messages
     resources :bookmarks
     resources :orders
+    resources :events
+    resources :comments
   end
 
   namespace :dashboard do

@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @event.name
+%p
+  %b Gallery:
+  = @event.gallery
+%p
+  %b Artist name:
+  = @event.artist_name
+%p
+  %b Address:
+  = @event.address
+%p
+  %b Lng:
+  = @event.lng
+%p
+  %b Lat:
+  = @event.lat
+%p
+  %b Begin at:
+  = @event.begin_at
+%p
+  %b End at:
+  = @event.end_at
+
+= link_to 'Edit', edit_event_path(@event)
+\|
+= link_to 'Back', events_path

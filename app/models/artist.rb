@@ -12,4 +12,6 @@
 #
 
 class Artist < ActiveRecord::Base
+  validates :name, presence: { message: "艺术家姓名不能空" }
+  validates :name, uniqueness: { message: "艺术家姓名不能重复" }
 end

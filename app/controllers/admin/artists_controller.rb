@@ -7,7 +7,7 @@ class Admin::ArtistsController < Admin::BaseController
   # GET /artists
   # GET /artists.json
   def index
-    @artists = Artist.all
+    @artists = Artist.page params[:page]
   end
 
   # GET /artists/1
@@ -17,6 +17,7 @@ class Admin::ArtistsController < Admin::BaseController
 
   # GET /artists/new
   def new
+    @breadcrumb << OpenStruct.new(href: new_admin_artist_path, text: "创建艺术家")
     @artist = Artist.new
   end
 
@@ -31,9 +32,10 @@ class Admin::ArtistsController < Admin::BaseController
 
     respond_to do |format|
       if @artist.save
-        format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
+        format.html { redirect_to admin_artists_path, notice: '艺术家创建成功' }
         format.json { render :show, status: :created, location: @artist }
       else
+        flash.now[:notice] = @artist.errors.full_messages.first
         format.html { render :new }
         format.json { render json: @artist.errors, status: :unprocessable_entity }
       end
@@ -45,7 +47,7 @@ class Admin::ArtistsController < Admin::BaseController
   def update
     respond_to do |format|
       if @artist.update(artist_params)
-        format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
+        format.html { redirect_to admin_artists_path, notice: '艺术家修改成功' }
         format.json { render :show, status: :ok, location: @artist }
       else
         format.html { render :edit }
@@ -59,7 +61,7 @@ class Admin::ArtistsController < Admin::BaseController
   def destroy
     @artist.destroy
     respond_to do |format|
-      format.html { redirect_to artists_url, notice: 'Artist was successfully destroyed.' }
+      format.html { redirect_to admin_artists_url, notice: '艺术家删除成功' }
       format.json { head :no_content }
     end
   end
