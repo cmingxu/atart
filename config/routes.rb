@@ -36,6 +36,10 @@ Rails.application.routes.draw do
     get '/' => "base#index"
     get 'base/index'
     get 'settings' => 'base#settings'
+
+    patch "update_avatar" => 'base#update_avatar'
+    patch "change_password" => 'base#change_password'
+
     resources :messages
     resources :artworks
     resources :orders

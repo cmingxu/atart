@@ -35,7 +35,11 @@ class User < ActiveRecord::Base
   scope :admin, -> { where( "roles LIKE '%admin%'" ) }
 
   has_many :orders
-  has_many :bookmarks
+  has_many :bookmarks, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :artworks, dependent: :destroy
+
+  mount_uploader :avatar, UserAvatarUploader
 
   before_create do |u|
     u.roles = 'user'

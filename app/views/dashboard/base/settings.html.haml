@@ -1,4 +1,19 @@
 .uk-grid
+  = image_tag current_user.avatar
+  = form_tag dashboard_update_avatar_path, method: :patch, multipart: true do
+    = file_field_tag :avatar
+    %br
+    = submit_tag "更新头像"
+
+.uk-grid
+  = form_tag dashboard_change_password_path, method: :patch do
+    %br
+    = text_field_tag "password"
+    %br
+    = text_field_tag "password_confirmation"
+    = submit_tag "新密码"
+
+.uk-grid
   .uk-panel.uk-panel-box.uk-width-1-4
     .uk-panel-badge.uk-badge
       \/

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802093345) do
+ActiveRecord::Schema.define(version: 20150803140507) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150802093345) do
     t.text     "images",     limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "user_id",    limit: 4
   end
 
   create_table "bookmarks", force: :cascade do |t|

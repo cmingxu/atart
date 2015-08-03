@@ -4,10 +4,9 @@
       = image_tag "logo.png", style: "height: 30px"
       - if user_signed_in?
         = link_to "退出登录", destroy_user_session_path, method: :delete, class: "uk-button uk-button-danger uk-float-right"
-        - if params[:controller] == "welcome"
-          = link_to uk_icon(:desktop) + "我的后台", dashboard_path, class: "uk-button uk-float-right uk-margin-right"
-        - else
-          = link_to uk_icon(:home) + "回到首页", root_path, class: "uk-button uk-float-right uk-margin-right"
+        = link_to uk_icon(:desktop) + "个人后台", dashboard_path, class: "uk-button uk-float-right uk-margin-right"
+        = link_to uk_icon(:desktop) + "网站后台", admin_path, class: "uk-button uk-float-right uk-margin-right"
+        = link_to uk_icon(:home) + "回到首页", root_path, class: "uk-button uk-float-right uk-margin-right"
   
       - else
         = link_to "登录", new_user_session_path, class: 'uk-button uk-button-danger uk-float-right', role: 'button'

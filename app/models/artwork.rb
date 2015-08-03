@@ -9,8 +9,10 @@
 #  images     :text(65535)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 class Artwork < ActiveRecord::Base
   has_many :bookmarks, as: :bookmarkable
+  belongs_to :user
 end

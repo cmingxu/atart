@@ -21,11 +21,13 @@ class Product < ActiveRecord::Base
   validates :price, presence: { message: "价格必须" }
   validates :price, numericality: { message: "价格需是数字" }
 
+  serialize :images, Array
+
   belongs_to :artist
   belongs_to :order
   has_many :bookmarks, as: :bookmarkable
 
-  mount_uploader :images, ProductImageUploader
+  mount_uploaders :images, ProductImageUploader
 
   def buyable?
     true

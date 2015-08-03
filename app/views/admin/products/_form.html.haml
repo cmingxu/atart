@@ -1,4 +1,4 @@
-= form_for [:admin, @product], html: { class: 'uk-form uk-form-horizontal' } do |f|
+= form_for [:admin, @product], html: { class: 'uk-form uk-form-horizontal', multipart: true } do |f|
 
   .uk-form-row
     = f.label :artist_id, "艺术家", class: 'uk-form-label'
@@ -13,5 +13,33 @@
     = f.label :desc, "详情", class: 'uk-form-label'
     = f.text_area :desc, class: 'uk-form-control'
   .uk-form-row
+    = f.label :images, "图片", class: 'uk-form-label'
+    = f.file_field :images, multiple: true, class: 'uk-form-control', onchange: 'preview_image(this)'
+  .uk-form-row
+    .uk-grid#image_data
+      - f.object.images.each do |i|
+        .uk-width-1-4
+          = image_tag i.url
+
+  .uk-form-row
     = f.submit "保存", class: 'uk-button uk-button-primary uk-container-center'
 
+:javascript
+  function preview_image(input){
+    var image_data = "";
+    var rank_data = "";
+      for(var i=0;i<input.files.length;i++)
+        {
+          var file = input.files[i];
+            if(!/image\/\w+/.test(file.type)){
+              alert("请确保文件为图像类型");
+                return false;
+              }
+              var reader = new FileReader();
+              reader.readAsDataURL(file);
+              reader.onload = function(e){
+                image_data += '<div class="uk-width-1-4"><img src="'+ e.target.result+'" class=""/></div>';
+                $('#image_data').append(image_data)
+              }
+            }
+  }
