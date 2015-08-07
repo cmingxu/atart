@@ -1,0 +1,8 @@
+.second-navi { position: relative; height: 44px; background: #e5e6e1; margin-bottom: 29px; }
+.second-navi-inner { text-align: center; }
+.second-navi ul { margin: 0 auto; /* position: absolute; right: 50%; top: 0; text-align: center; padding-top: 15px; padding-right: 50px; margin: 0; white-space: nowrap;  */}
+.second-navi ul li { margin-left: 75px; /* position: relative; display: inline-block; vertical-align: top; */ }
+.second-navi ul li:nth-of-type(1) { margin-left: 0; }
+.second-navi ul li.current:after { content: ''; position: absolute; left: 50%; margin-left: -5px; bottom: -10px; width: 0; height: 0; border: 5px solid transparent; border-top: 10px solid #231815; border-bottom: 0; }
+.second-navi ul a { display: block; height: 44px; text-decoration: none; font: 13px/44px "Microsoft Yahei"; color: #252525; }
+.second-navi ul a:visited {  }

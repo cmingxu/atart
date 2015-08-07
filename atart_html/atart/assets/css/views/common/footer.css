@@ -1,0 +1,19 @@
+.wechat-ico { display: inline-block; width: 22px; height: 19px; background: url(../../../img/split.png) -290px -300px no-repeat; }
+.weibo-ico  { display: inline-block; width: 22px; height: 19px; background: url(../../../img/split.png) -260px -270px no-repeat; }
+
+.footer {
+    position: relative; background: #b03c15; color: #aaa;
+}
+.footer::after { content: ''; display: block; height: 1px; width: 100%; position: absolute; top: 59px; left: 0; background: rgba(230,230,230,0.2); }
+.footer .footer-top    { height: 43px; padding-top: 16px; background: #252525; margin-left: 26%; }
+.footer .footer-top .sns-link { display: inline-block; vertical-align: top; text-decoration: none; padding: 3px; margin-left: 12px; }
+.footer .footer-bottom {
+    height: 136px; padding-top: 23px; padding-right: 10px; padding-left: 8px; background: #252525; margin-left: 26%;
+    font: 10px/20px Helverica; color: #878a8a;
+}
+
+
+@media (max-width: 768px) {
+    .footer .footer-top,
+    .footer .footer-bottom { margin-left: 8%; }
+}

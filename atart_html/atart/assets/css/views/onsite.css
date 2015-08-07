@@ -1,0 +1,34 @@
+body {  }
+
+.show-list {}
+.show-list { padding: 0; margin: 0; }
+.show-list li { position: relative; display: block; padding: 0; }
+.show-list li a { position: relative; display: block; background-repeat: no-repeat; background-size: cover; background-position: center; min-height: 356px; }
+.show-list li img { width: 100%; opacity: 0; }
+.show-list li::after { content: ''; background: #fe700a; opacity: 0.2; position: absolute; left: 0; top: 0; bottom: 0; width: 30%; }
+.show-list li .show-detail { position: absolute; left: 30%; top: 30%; margin-top: -100px; margin-left: -300px; }
+.show-list li .show-name { display: block; font: 50px/80px "Myriad Pro", "Microsoft Yahei"; color: #fff; padding-left: 20px; word-spacing: 3px; letter-spacing: 50px; text-shadow: 0 0 2px #666; }
+.show-list li .place     { display: block; font: 54px/50px "Myriad Pro", "Microsoft Yahei"; color: #fff; padding-top: 40px; padding-bottom: 90px; }
+.show-list li .time      { display: block; font: 30px/50px "Myriad Pro", "Microsoft Yahei"; color: #fff; padding-left: 100px; }
+.show-list li .location  { position: absolute; right: 60px; bottom: 30px; font: 10px/10px "Myriad Pro", "Microsoft Yahei"; color: #fff; }
+.show-list li .location::after { content: ''; display: inline-block; width: 12px; height: 17px; background: url(../../img/split.png) -30px -40px no-repeat; vertical-align: bottom; margin-left: 15px; }
+
+@media (max-width: 960px) {
+    .show-list li .show-detail { left: 30%; top: 30%; margin-top: -90px; margin-left: -220px; }
+    .show-list li .show-name { font-size: 40px; line-height: 60px; padding-left: 20px; word-spacing: 2px; letter-spacing: 40px; text-shadow: 0 0 2px #666; }
+    .show-list li .place     { font-size: 44px; padding-top: 20px; padding-bottom: 50px; }
+    .show-list li .time      { font-size: 20px; padding-left: 100px; }
+}
+@media (max-width: 768px) {
+    .show-list li .show-detail { left: 30%; top: 30%; margin-top: -60px; margin-left: -140px; }
+    .show-list li .show-name { font-size: 30px; line-height: 40px; padding-left: 20px; word-spacing: 1px; letter-spacing: 30px; text-shadow: 0 0 2px #666; }
+    .show-list li .place     { font-size: 34px; padding-top: 20px; padding-bottom: 20px; }
+    .show-list li .time      { font-size: 14px; line-height: 30px; padding-left: 50px; }
+}
+@media (max-width: 520px) {
+    .show-list li .show-detail { left: 30%; top: 30%; margin-top: -40px; margin-left: -100px; }
+    .show-list li .show-name { font-size: 20px; line-height: 30px; padding-left: 20px; word-spacing: 1px; letter-spacing: 20px; text-shadow: 0 0 2px #666; }
+    .show-list li .place     { padding-left: 15px; }
+    .show-list li .time      { padding-left: 40px; }
+    .show-list li .location  { display: none; }
+}

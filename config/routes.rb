@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resource :discover do
-    member do
+    collection do
       get :hot
       get :channel
       get :fund_raising
@@ -50,6 +50,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get 'onsite' => 'welcome#onsite'
 
 
   devise_for :users, controllers: {

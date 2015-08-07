@@ -1,0 +1,16 @@
+body { background: #f5f6f1; }
+
+.page-content {}
+
+.show-list { margin-left: 17px; font-size: 0; }
+.show-list .container { position: relative; box-sizing: border-box; display: inline-block; padding-right: 17px; vertical-align: top; padding-bottom: 17px; position: relative;}
+.show-list .container .img-wrapper {  box-sizing: border-box; display: inline-block; vertical-align: top; background-repeat: no-repeat; background-size: cover; background-position: center; min-height: 356px;  }
+.show-list .container img { width: 100%; opacity: 0;}
+.show-list .container p { box-sizing: border-box; display: inline-block; vertical-align: top; margin: 0; padding: 20px; }
+
+@media (max-width: 768px) {
+    .detail .detail-inner { text-align: center; }
+    .show-list .container,
+    .show-list .container .img-wrapper,
+    .show-list .container p { display: block; width: auto !important; }
+}

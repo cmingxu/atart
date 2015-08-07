@@ -1,6 +1,0 @@
-= render :partial => "widgets/discover_header"
-
-- @products.each do |product|
-  = product.name
-  = product.price
-  = link_to "我要买", new_order_path(product_id: product.id)

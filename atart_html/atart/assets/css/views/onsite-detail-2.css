@@ -1,0 +1,10 @@
+body {  }
+
+.img-list { padding: 0; margin: 0; }
+.img-list li { position: relative; display: block; padding: 0; margin: 0; }
+.img-list li img { display: block; width: 100%; }
+.img-list li .detail { position: absolute; margin-left: -44px; margin-top: -44px; }
+.img-list li .detail::before { content: ''; position: absolute; left: 0; top: 0; width: 84px; height: 84px; border: 2px solid #fff; background: rgba(89,89,89,0.8); }
+.img-list li .detail .desc { display: none; font: 11px/20px "Myriad Pro", "Microsoft Yahei"; color: #333; background: #fff; width: 358px; min-height: 88px; padding: 14px 12px; box-sizing: border-box; text-decoration: none; letter-spacing: 1px; word-spacing: 2px; }
+.img-list li .detail { padding-left: 98px; }
+.img-list li .detail:hover .desc { display: block; }

@@ -1,0 +1,43 @@
+.banner-list {  }
+.banner-list ul { margin: 0; padding: 0; }
+.banner-list li { display: block; }
+.banner-list li a { position: relative; display: block; background-repeat: no-repeat; background-size: cover; background-position: center; min-height: 356px; }
+.banner-list li img { width: 100%; opacity: 0; }
+
+.banner-list li .desc { position: absolute; bottom: 40%; margin-bottom: -20px; left: 50%; width:80%; margin-left: -40%; font: 30px/40px "Myriad Pro", "Microsoft Yahei"; color: #fff; text-align: left; text-shadow: 0 0 2px #666; }
+.banner-list li .desc .more { display: inline-block; background: rgba(0,0,0,0.8); border-radius: 100px; padding: 0 20px; line-height: 30px; margin-top: 20px; }
+.banner-list li .location  { position: absolute; right: 4%; bottom: 2%; font: 10px/10px "Myriad Pro", "Microsoft Yahei"; color: rgba(255,255,255,0.8); text-shadow: 0 0 2px #666; }
+.banner-list li .location::after { content: ''; display: inline-block; width: 12px; height: 17px; background: url(../../img/split.png) -30px -40px no-repeat; vertical-align: bottom; margin-left: 15px; }
+
+
+@media (max-width: 768px) {
+    .banner-list li .desc { width:90%; margin-left: -45%; font: 20px/24px "Myriad Pro", "Microsoft Yahei"; text-align: center; }
+    .banner-list li .desc .more { font-size: 18px; line-height: 22px; padding: 0 15px; margin-top: 30px; }
+}
+@media (max-width: 520px) {
+    .banner-list li .desc { bottom: 37%; width:96%; margin-left: -48%; font: 10px/14px "Myriad Pro", "Microsoft Yahei"; text-align: center; }
+    .banner-list li .desc .more { font-size: 12px; line-height: 15px; padding: 0 10px; margin-top: 40px; }
+    .banner-list li .location { display: none; }
+}
+
+./* carousel-home { position: relative; }
+.role-prev,
+.role-next { display: block; width: 30px; height: 30px; position: absolute; bottom: 3%; left: 50%; overflow: hidden; text-indent: -1000px; }
+.role-prev { margin-left: -38px; background: url(../../img/split.png) -180px -190px no-repeat; }
+.role-next { margin-left: 8px;  background: url(../../img/split.png) -220px -230px no-repeat; }
+
+.role-list { overflow: hidden; padding: 0; margin: 0; height: auto !important; }
+.role-list li { float: left; display: block; }
+.role-list li a { position: relative; display: block; min-height: 300px; background-size: cover; }
+.role-list li .role-banner { background-repeat: no-repeat; background-position: center 0; }
+
+.role-list li a .desc {  position: absolute; bottom: 45%; margin-bottom: -20px; left: 50%; width:80%; margin-left: -40%; font: 30px/40px "Myriad Pro", "Microsoft Yahei"; color: #fff; text-align: left; text-shadow: 0 0 2px #666; }
+.role-list li a .desc .more { display: inline-block; background: rgba(0,0,0,0.8); border-radius: 100px; padding: 0 20px; line-height: 30px; margin-top: 20px; }
+.role-list li a .location  { position: absolute; right: 4%; bottom: 2%; font: 10px/10px "Myriad Pro", "Microsoft Yahei"; color: rgba(255,255,255,0.8); }
+.role-list li a .location::after { content: ''; display: inline-block; width: 12px; height: 17px; background: url(../../img/split.png) -30px -40px no-repeat; vertical-align: bottom; margin-left: 15px; }
+
+
+@media (max-width: 768px) {
+    .role-list li a .desc {  font-size: 20px; line-height: 25px; bottom: 35%; margin-bottom: 0; }
+}
+ */

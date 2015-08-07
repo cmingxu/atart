@@ -1,0 +1,38 @@
+body { background: #f5f6f1; }
+
+.page-content { position: relative; padding: 130px 0 180px 0; }
+
+.page-content::before { z-index: 1; content: ''; width: 800px; display: block; position: absolute; right: 42%; top: 0; bottom: 0; background: url(../../img/login-bg.jpg) bottom center no-repeat; background-size: contain; }
+.login-box { position: relative; z-index: 2; margin-left: 60%; box-sizing: border-box; padding: 25px 35px; width: 380px; height: 480px; background: rgba(255,255,255,0.9); border-radius: 8px; box-shadow: 0 0 4px rgba(0,0,0,0.3); }
+@media (max-width: 1440px ) {
+    .page-content:before { right: auto; left: 0; }
+    .login-box {  }
+}
+@media (max-width: 960px ) {
+    .page-content { padding: 50px 0; }
+    .page-content:before { width: 100%; background-size: cover; }
+    .login-box { margin: 0 auto; }
+}
+@media (max-width: 380px ) {
+    .login-box { width: 300px; margin: 0 auto; padding: 20px; }
+}
+
+.login-box .title-bar { overflow: hidden; padding-bottom: 50px; }
+.login-box .title-bar .title { font: 17px/17px "Microsoft Yahei"; color: #aaa; }
+.login-box .title-bar .register { float: right; text-decoration: none; font: 14px/17px "Microsoft Yahei"; color: #fe700a; }
+.login-box .title-bar .register:hover { text-decoration: underline; }
+
+.login-box .login-input { display: block; position: relative; padding: 9px 0 9px 54px; border: 1px solid #c9c9c7; border-radius: 100px; margin-bottom: 28px; }
+.login-box .login-input input { height: 26px; width: 220px; border: 0; padding: 0; margin: 0; outline: 0; border-left: 1px solid #4a4a4a; padding-left: 10px; background: transparent; }
+.login-box .login-input.username::before { content: ''; position: absolute; left: 17px; top: 9px; width: 21px; height: 24px; background: url(../../img/split.png) -80px -90px no-repeat; }
+.login-box .login-input.password::before { content: ''; position: absolute; left: 17px; top: 9px; width: 21px; height: 24px; background: url(../../img/split.png) -110px -120px no-repeat; }
+
+.login-box .login-opts { display: block; font: 12px/12px "Microsoft Yahei"; color: #0d0d0d; overflow: hidden; }
+.login-box .login-opts .auto-login input { margin-right: 7px; }
+.login-box .login-opts .fgt-psw { float: right; text-decoration: none; }
+.login-box .login-opts .fgt-psw:hover { text-decoration: underline; }
+.login-box .login-btn { margin: 40px 0 35px 0; display: block; height: 45px; background: #fe700a; border: 0; padding: 0; width: 100%; font: 18px/45px "Microsoft Yahei"; color: #fff; letter-spacing: 20px; text-indent: 10px; }
+
+.login-box .third-party-login { font: 12px/24px "Microsoft Yahei"; color: #4a4a4a; }
+.login-box .third-party-login a { color: #000; margin-right: 10px; text-decoration: none; }
+.login-box .third-party-login a:hover { text-decoration: underline; }

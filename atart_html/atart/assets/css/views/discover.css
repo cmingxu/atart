@@ -1,0 +1,25 @@
+body { background: #f5f6f1; }
+
+.page-content {}
+.item-list { font-size: 0; padding: 0; text-align: left; margin: 0 auto; }
+.item-list li { position: relative; display: inline-block; vertical-align: top; width: 363px; padding: 0 9px 80px 9px; }
+.item-list li .img { display: block; position: relative; }
+.item-list li.video-item .img::after { content: ''; position: absolute; left: 50%; top: 50%; width: 90px; height: 60px; margin-left: -45px; margin-top: -30px; background: url(../../img/split.png) -1070px -1080px no-repeat; }
+.item-list li.voice-item .img::after { content: ''; position: absolute; left: 50%; top: 50%; width: 70px; height: 64px; margin-left: -35px; margin-top: -32px; background: url(../../img/split.png) -1170px -1150px no-repeat; }
+.item-list li .title { display: block; font: 11px/20px "Myriad Pro"; color: #252525; text-decoration: none; letter-spacing: 1px; word-spacing: 2px; padding: 20px 0; }
+.item-list li .poster { position: absolute; left: 9px; bottom: 43px; }
+.item-list li .poster .avatar { display: inline-block; vertical-align: top; }
+.item-list li .poster .name { display: inline-block;  vertical-align: top; padding-left: 16px; font: 13px/39px "Myriad Pro"; color: #252525; }
+.item-list li .location { position: absolute; right: 12px; bottom: 43px; display: inline-block;  font: 13px/39px "Myriad Pro"; color: #252525; }
+.item-list li .location::before { content:''; vertical-align: top; display: inline-block; width: 12px; height: 17px; background: url(../../img/split.png) -30px -40px no-repeat; margin-right: 14px; margin-top: 11px; }
+
+
+@media (max-width: 765px ) {
+    .item-list { width: auto; }
+    .item-list li { display: block; width: auto; margin-left: 7px; margin-right: 7px; }
+    .item-list li .img img { width: 100%; height: auto; }
+}
+@media (min-width: 766px ) { .item-list { width: 766px; } }
+@media (min-width: 1149px ) { .item-list { width: 1149px; } }
+@media (min-width: 1532px ) { .item-list { width: 1532px; } }
+@media (min-width: 1915px ) { .item-list { width: 1915px; } }

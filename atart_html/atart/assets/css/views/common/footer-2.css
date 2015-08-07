@@ -1,0 +1,47 @@
+.footer {
+    position: relative; background: #b03c15; color: #aaa;
+}
+.footer .footer-top    { position: relative; text-align: center; padding: 180px 0; background: #252525; }
+.footer .footer-top::after { content: ''; display: block; height: 1px; width: 100%; position: absolute; left: 0; bottom: -1px; background: #737373; border-bottom: 1px solid #252525; }
+.footer .footer-top .footer-sns { position: relative; }
+.footer .footer-top .footer-sns .sns-group { display: inline-block; position: relative; width: 50%; }
+.footer .footer-top .footer-sns .sns-link { padding: 0; width: 49%; display: inline-block; text-align: center; text-decoration: none; }
+.footer .footer-top .footer-sns .sns-link i { display: inline-block; width: 150px; height: 150px; vertical-align: top; }
+.footer .footer-top .footer-sns .sns-link i.wechat-ico   { background: url(../../../img/split.png) -320px -330px no-repeat; }
+.footer .footer-top .footer-sns .sns-link i.weibo-ico    { background: url(../../../img/split.png) -470px -480px no-repeat; }
+.footer .footer-top .footer-sns .sns-link i.ios-ico      { background: url(../../../img/split.png) -630px -640px no-repeat; }
+.footer .footer-top .footer-sns .sns-link i.android-ico  { background: url(../../../img/split.png) -790px -800px no-repeat; }
+.footer .footer-top .footer-sns.show .sns-link { opacity: 1; -webkit-animation: 'zoomin' .6s ease; }
+
+.footer .footer-top .app-download { display:none; text-align: center; padding-top: 80px; }
+.footer .footer-top .app-download a { display: inline-block; width: 196px; height: 34px; margin-bottom: 40px; }
+.footer .footer-top .app-download a.apple   { background: url(../../../img/split.png) -625px -615px no-repeat; background-size: 1250px auto; }
+.footer .footer-top .app-download a.android { background: url(../../../img/split.png) -625px -615px no-repeat; background-size: 1250px auto; }
+
+
+@-webkit-keyframes 'zoomin' {
+    0%   {-webkit-transform: scale(0);}
+    50%  {-webkit-transform: scale(0);}
+    85%  {-webkit-transform: scale(1.2);}
+    100% {-webkit-transform: scale(1);}
+}
+
+.footer .footer-top .sns-link { opacity: 0; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; transition: all 0.5s;}
+.footer .footer-bottom {
+    height: 130px; padding-top: 23px; padding-left: 8px; background: #252525; margin-left: 26%;
+    font: 10px/20px Helverica; color: #878a8a;
+}
+
+@media (max-width: 768px) {
+    .footer .footer-bottom { margin-left: 8%; }
+    .footer .footer-top    { padding: 80px 0; }
+    .footer .footer-top .footer-sns .sns-link i { zoom: 0.7; }
+}
+@media (max-width: 520px) {
+    .footer .footer-top .footer-sns .sns-group { display: block; width: 80%; margin: 0 auto; }
+    .footer .footer-top .footer-sns .sns-group:nth-of-type(1) { margin-bottom: 40px; }
+    .footer .footer-top    { padding: 40px 0; }
+    .footer .footer-top .footer-sns .sns-link { }
+    .footer .footer-top .footer-sns .sns-link i { zoom: 0.5; }
+    .footer .footer-top .app-download { display:block; }
+}
