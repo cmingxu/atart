@@ -1,4 +1,3 @@
-
 /*!
 Pure v0.6.0
 Copyright 2014 Yahoo! Inc. All rights reserved.
@@ -138,41 +137,27 @@ body { background: #f5f6f1; }
 .items .title { position: absolute; right: 8%; bottom: 9%; font: 58px/68px "Myriad Pro", Helvetica; color: #fff; text-shadow: 0 0 2px #666; letter-spacing: 1px; margin-bottom: 5px; margin-right: 5px; }
 .items .shares { position: absolute; right: 5%; bottom: 6%; font: 18px/20px "Myriad Pro", Helvetica; color: #fff; word-spacing: 6px; letter-spacing: 1px; margin-bottom: 5px; margin-right: 5px; }
 
+body { background: #f5f6f1; }
 
-body .footer .footer-top { padding-top: 150px; }
-body .footer::after { top: 193px; }
-
-
-.item-list li { display: block; width: auto; margin-left: 7px; margin-right: 7px; }
-
-
-@media (max-width: 768px) {
-    .items { display: block; width: auto; }
-}
-
-@media (max-width: 960px) {
-    .items .title  { font-size: 36px }
-    .items .shares { font-size: 14px }
-}
-.footer {
+.footer2 {
     position: relative; background: #b03c15; color: #aaa;
 }
-.footer .footer-top    { position: relative; text-align: center; padding: 180px 0; background: #252525; }
-.footer .footer-top::after { content: ''; display: block; height: 1px; width: 100%; position: absolute; left: 0; bottom: -1px; background: #737373; border-bottom: 1px solid #252525; }
-.footer .footer-top .footer-sns { position: relative; }
-.footer .footer-top .footer-sns .sns-group { display: inline-block; position: relative; width: 50%; }
-.footer .footer-top .footer-sns .sns-link { padding: 0; width: 49%; display: inline-block; text-align: center; text-decoration: none; }
-.footer .footer-top .footer-sns .sns-link i { display: inline-block; width: 150px; height: 150px; vertical-align: top; }
-.footer .footer-top .footer-sns .sns-link i.wechat-ico   { background: url(<%= asset_path('split.png') %>) -320px -330px no-repeat; }
-.footer .footer-top .footer-sns .sns-link i.weibo-ico    { background: url(<%= asset_path('split.png') %>) -470px -480px no-repeat; }
-.footer .footer-top .footer-sns .sns-link i.ios-ico      { background: url(<%= asset_path('split.png') %>) -630px -640px no-repeat; }
-.footer .footer-top .footer-sns .sns-link i.android-ico  { background: url(<%= asset_path('split.png') %>) -790px -800px no-repeat; }
-.footer .footer-top .footer-sns.show .sns-link { opacity: 1; -webkit-animation: 'zoomin' .6s ease; }
+.footer2 .footer2-top    { position: relative; text-align: center; padding: 180px 0; background: #252525; }
+.footer2 .footer2-top::after { content: ''; display: block; height: 1px; width: 100%; position: absolute; left: 0; bottom: -1px; background: #737373; border-bottom: 1px solid #252525; }
+.footer2 .footer2-top .footer2-sns { position: relative; }
+.footer2 .footer2-top .footer2-sns .sns-group { display: inline-block; position: relative; width: 50%; }
+.footer2 .footer2-top .footer2-sns .sns-link { padding: 0; width: 49%; display: inline-block; text-align: center; text-decoration: none; }
+.footer2 .footer2-top .footer2-sns .sns-link i { display: inline-block; width: 150px; height: 150px; vertical-align: top; }
+.footer2 .footer2-top .footer2-sns .sns-link i.wechat-ico   { background: url(<%= asset_path('split.png') %>) -320px -330px no-repeat; }
+.footer2 .footer2-top .footer2-sns .sns-link i.weibo-ico    { background: url(<%= asset_path('split.png') %>) -470px -480px no-repeat; }
+.footer2 .footer2-top .footer2-sns .sns-link i.ios-ico      { background: url(<%= asset_path('split.png') %>) -630px -640px no-repeat; }
+.footer2 .footer2-top .footer2-sns .sns-link i.android-ico  { background: url(<%= asset_path('split.png') %>) -790px -800px no-repeat; }
+.footer2 .footer2-top .footer2-sns.show .sns-link { opacity: 1; -webkit-animation: 'zoomin' .6s ease; }
 
-.footer .footer-top .app-download { display:none; text-align: center; padding-top: 80px; }
-.footer .footer-top .app-download a { display: inline-block; width: 196px; height: 34px; margin-bottom: 40px; }
-.footer .footer-top .app-download a.apple   { background: url(<%= asset_path('split.png') %>) -625px -615px no-repeat; background-size: 1250px auto; }
-.footer .footer-top .app-download a.android { background: url(<%= asset_path('split.png') %>) -625px -615px no-repeat; background-size: 1250px auto; }
+.footer2 .footer2-top .app-download { display:none; text-align: center; padding-top: 80px; }
+.footer2 .footer2-top .app-download a { display: inline-block; width: 196px; height: 34px; margin-bottom: 40px; }
+.footer2 .footer2-top .app-download a.apple   { background: url(<%= asset_path('split.png') %>) -625px -615px no-repeat; background-size: 1250px auto; }
+.footer2 .footer2-top .app-download a.android { background: url(<%= asset_path('split.png') %>) -625px -615px no-repeat; background-size: 1250px auto; }
 
 
 @-webkit-keyframes 'zoomin' {
@@ -182,25 +167,26 @@ body .footer::after { top: 193px; }
     100% {-webkit-transform: scale(1);}
 }
 
-.footer .footer-top .sns-link { opacity: 0; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; transition: all 0.5s;}
-.footer .footer-bottom {
+.footer2 .footer2-top .sns-link { opacity: 0; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; transition: all 0.5s;}
+.footer2 .footer2-bottom {
     height: 130px; padding-top: 23px; padding-left: 8px; background: #252525; margin-left: 26%;
     font: 10px/20px Helverica; color: #878a8a;
 }
 
 @media (max-width: 768px) {
-    .footer .footer-bottom { margin-left: 8%; }
-    .footer .footer-top    { padding: 80px 0; }
-    .footer .footer-top .footer-sns .sns-link i { zoom: 0.7; }
+    .footer2 .footer2-bottom { margin-left: 8%; }
+    .footer2 .footer2-top    { padding: 80px 0; }
+    .footer2 .footer2-top .footer2-sns .sns-link i { zoom: 0.7; }
 }
 @media (max-width: 520px) {
-    .footer .footer-top .footer-sns .sns-group { display: block; width: 80%; margin: 0 auto; }
-    .footer .footer-top .footer-sns .sns-group:nth-of-type(1) { margin-bottom: 40px; }
-    .footer .footer-top    { padding: 40px 0; }
-    .footer .footer-top .footer-sns .sns-link { }
-    .footer .footer-top .footer-sns .sns-link i { zoom: 0.5; }
-    .footer .footer-top .app-download { display:block; }
+    .footer2 .footer2-top .footer2-sns .sns-group { display: block; width: 80%; margin: 0 auto; }
+    .footer2 .footer2-top .footer2-sns .sns-group:nth-of-type(1) { margin-bottom: 40px; }
+    .footer2 .footer2-top    { padding: 40px 0; }
+    .footer2 .footer2-top .footer2-sns .sns-link { }
+    .footer2 .footer2-top .footer2-sns .sns-link i { zoom: 0.5; }
+    .footer2 .footer2-top .app-download { display:block; }
 }
+
 .wechat-ico { display: inline-block; width: 22px; height: 19px; background: url(<%= asset_path('split.png') %>) -290px -300px no-repeat; }
 .weibo-ico  { display: inline-block; width: 22px; height: 19px; background: url(<%= asset_path('split.png') %>) -260px -270px no-repeat; }
 
@@ -220,9 +206,7 @@ body .footer::after { top: 193px; }
     .footer .footer-top,
     .footer .footer-bottom { margin-left: 8%; }
 }
-body { background: #f5f6f1; }
 
-.page-content {}
 .item-list { font-size: 0; padding: 0; text-align: left; margin: 0 auto; }
 .item-list li { position: relative; display: inline-block; vertical-align: top; width: 363px; padding: 0 9px 80px 9px; }
 .item-list li .img { display: block; position: relative; }
@@ -289,7 +273,6 @@ body { background: #f5f6f1; }
 }
  */
 
-.page-content {}
 .item-list { font-size: 0; padding: 0; text-align: left; margin: 0 auto; }
 .item-list li { position: relative; display: inline-block; vertical-align: top; width: 363px; padding: 0 9px 120px 9px; margin-bottom: 60px; }
 .item-list li .img { display: block; position: relative; }
@@ -315,7 +298,6 @@ body { background: #f5f6f1; }
 @media (min-width: 1915px ) { .item-list { width: 1915px; } }
 body { background: #f5f6f1; }
 
-.page-content {}
 .detail { background-size: cover; overflow: hidden; }
 .detail .detail-inner { background: rgba(254, 112, 10, 0.65); }
 
@@ -343,7 +325,6 @@ body { background: #f5f6f1; }
 }
 body { background: #f5f6f1; }
 
-.page-content {}
 
 .show-list { margin-left: 17px; font-size: 0; }
 .show-list .container { position: relative; box-sizing: border-box; display: inline-block; padding-right: 17px; vertical-align: top; padding-bottom: 17px; position: relative;}
@@ -359,17 +340,17 @@ body { background: #f5f6f1; }
 }
 body { background: #f5f6f1; }
 
-.page-content { position: relative; padding: 130px 0 180px 0; }
+.login-page-content { position: relative; padding: 130px 0 180px 0; }
 
-.page-content::before { z-index: 1; content: ''; width: 800px; display: block; position: absolute; right: 42%; top: 0; bottom: 0; background: url(<%= asset_path('login-bg.jpg') %>) bottom center no-repeat; background-size: contain; }
+.login-page-content::before { z-index: 1; content: ''; width: 800px; display: block; position: absolute; right: 42%; top: 0; bottom: 0; background: url(<%= asset_path('login-bg.jpg') %>) bottom center no-repeat; background-size: contain; }
 .login-box { position: relative; z-index: 2; margin-left: 60%; box-sizing: border-box; padding: 25px 35px; width: 380px; height: 480px; background: rgba(255,255,255,0.9); border-radius: 8px; box-shadow: 0 0 4px rgba(0,0,0,0.3); }
 @media (max-width: 1440px ) {
-    .page-content:before { right: auto; left: 0; }
+    .login-page-content:before { right: auto; left: 0; }
     .login-box {  }
 }
 @media (max-width: 960px ) {
-    .page-content { padding: 50px 0; }
-    .page-content:before { width: 100%; background-size: cover; }
+    .login-page-content { padding: 50px 0; }
+    .login-page-content:before { width: 100%; background-size: cover; }
     .login-box { margin: 0 auto; }
 }
 @media (max-width: 380px ) {
@@ -442,7 +423,6 @@ body {  }
 }
 body { background: #f5f6f1; }
 
-.page-content {}
 .item-list { font-size: 0; padding: 0; text-align: left; margin: 0 auto; }
 .item-list li { position: relative; display: inline-block; vertical-align: top; width: 363px; padding: 0 9px 180px 9px; }
 .item-list li .img { display: block; position: relative; }
@@ -472,3 +452,4 @@ body { background: #f5f6f1; }
 @media (min-width: 1149px ) { .item-list { width: 1149px; } }
 @media (min-width: 1532px ) { .item-list { width: 1532px; } }
 @media (min-width: 1915px ) { .item-list { width: 1915px; } }
+    .page-content:before { width: 100%; background-size: cover; }

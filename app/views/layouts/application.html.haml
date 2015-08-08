@@ -10,4 +10,7 @@
   %body
     = render :partial => "common/header"
     = yield
-    = render :partial => "common/footer_2"
+    - if controller_name == "welcome"
+      = render :partial => "common/footer_2"
+    - else
+      = render :partial => "common/footer"
