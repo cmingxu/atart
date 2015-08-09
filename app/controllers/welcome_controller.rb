@@ -5,4 +5,8 @@ class WelcomeController < ApplicationController
 
   def onsite
   end
+
+  def me
+    @footer  = "common/footer"
+  end
 end

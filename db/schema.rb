@@ -62,18 +62,6 @@ ActiveRecord::Schema.define(version: 20150803140507) do
     t.datetime "updated_at",                             null: false
   end
 
-  create_table "line_items", force: :cascade do |t|
-    t.string   "status",      limit: 255
-    t.integer  "user_id",     limit: 4
-    t.integer  "artist_id",   limit: 4
-    t.integer  "order_id",    limit: 4
-    t.decimal  "price",                   precision: 10
-    t.integer  "quantity",    limit: 4
-    t.decimal  "total_price",             precision: 10
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-  end
-
   create_table "messages", force: :cascade do |t|
     t.integer  "send_from_id", limit: 4
     t.integer  "send_to_id",   limit: 4

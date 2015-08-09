@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   end
 
   get 'onsite' => 'welcome#onsite'
+  get 'me' => 'welcome#me'
 
 
   devise_for :users, controllers: {

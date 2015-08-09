@@ -16,7 +16,7 @@
         <div class="navi pure-u-1 pure-u-md-2-5">
             <div class="pure-menu pure-menu-horizontal custom-can-transform">
                 <ul class="pure-menu-list">
-                  <li class="pure-menu-item <%= controller_name == 'welcome' ? 'current' : '' %>"> <%= link_to "首页", root_path %> </li>
+                  <li class="pure-menu-item <%= action_name == 'index' ? 'current' : '' %>"> <%= link_to "首页", root_path %> </li>
                   <li class="<%= controller_name == 'discovers' ? 'current' : '' %>"> <%= link_to "发现", hot_discover_path %>
                             <!-- # 二级目录 -->
                             <% if controller_name == "discovers" %>
@@ -30,8 +30,12 @@
                             </div>
                             <% end %>
                      </li>
-                     <li> <%= link_to "现场", onsite_path %> </li>
-                     <li><%= link_to "我", "" %></li>
+                     <li class="<%= action_name == "onsite" ? 'current' : '' %>"> <%= link_to "现场", onsite_path %> </li>
+                     <% if current_user %>
+                     <li class="<%= action_name == "me" ? 'current' : '' %>"><%= link_to "我", me_path %></li>
+                   <% else %>
+                     <li><%= link_to "我", new_user_session_path %></li>
+                   <% end %>
                     </li>
                 </ul>
             </div>
