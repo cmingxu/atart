@@ -29,7 +29,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, :omniauth_providers => [:qq_connect]
 
   scope :normal_user, -> { where( "roles LIKE '%user%'" ) }
   scope :admin, -> { where( "roles LIKE '%admin%'" ) }
@@ -40,6 +41,16 @@ class User < ActiveRecord::Base
   has_many :artworks, dependent: :destroy
 
   mount_uploader :avatar, UserAvatarUploader
+
+
+  def self.from_omniauth(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        #user.email = auth.info.nickname
+        user.password = Devise.friendly_token[0,20]
+      end
+  end
 
   before_create do |u|
     u.roles = 'user'

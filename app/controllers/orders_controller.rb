@@ -23,12 +23,24 @@ class OrdersController < ApplicationController
   end
 
   def confirm_order
+    @order = Order.find_by_id(@order)
+    Alipay::Service.create_direct_pay_by_user_url(
+      out_trade_no: '20150401000-0001',
+      subject: 'Order Name',
+      price: '10.00',
+      quantity: 12,
+      return_url: order_url(@order),
+      notify_url: notify_order_url(@order)
+    )
   end
 
   def confirm_order_page
   end
 
   def show
+  end
+
+  def alipay_notify
   end
 
   private

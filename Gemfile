@@ -73,4 +73,7 @@ gem 'ckeditor_rails'
 gem 'd3-rails'
 gem 'c3-rails'
 gem 'angularjs-rails'
+gem 'omniauth-qq-connect'
+gem 'omniauth-wechat-oauth2'
+gem 'alipay', '~> 0.8.0'
 

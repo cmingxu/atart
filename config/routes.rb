@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     member do
       get :confirm_order_page
       patch :confirm_order
+      post :notify
     end
   end
 
