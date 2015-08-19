@@ -1,49 +1,13 @@
-.uk-grid
-  = image_tag current_user.avatar
-  = form_tag dashboard_update_avatar_path, method: :patch, multipart: true do
-    = file_field_tag :avatar
-    %br
-    = submit_tag "更新头像"
+= image_tag current_user.avatar
+= form_tag dashboard_update_avatar_path, method: :patch, multipart: true do
+  = file_field_tag :avatar
+  %br
+  = submit_tag "更新头像"
 
-.uk-grid
-  = form_tag dashboard_change_password_path, method: :patch do
-    %br
-    = text_field_tag "password"
-    %br
-    = text_field_tag "password_confirmation"
-    = submit_tag "新密码"
+= form_tag dashboard_change_password_path, method: :patch do
+  %br
+  = text_field_tag "password"
+  %br
+  = text_field_tag "password_confirmation"
+  = submit_tag "新密码"
 
-.uk-grid
-  .uk-panel.uk-panel-box.uk-width-1-4
-    .uk-panel-badge.uk-badge
-      \/
-      = 1
-    %h3.uk-panel-title 新增用户情况
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-  .uk-panel.uk-panel-box.uk-width-1-4
-    .uk-panel-badge.uk-badge
-      \/
-      = 1
-    %h3.uk-panel-title 新增用户情况
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-  .uk-panel.uk-panel-box.uk-width-1-4
-    .uk-panel-badge.uk-badge
-      \/
-      = 1
-    %h3.uk-panel-title 新增用户情况
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    
-  .uk-panel.uk-panel-box.uk-width-1-4
-    .uk-panel-badge.uk-badge
-      \/
-      = 1
-    %h3.uk-panel-title 新增用户情况
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  .uk-panel.uk-panel-box.uk-width-1-4
-    .uk-panel-badge.uk-badge
-      \/
-      = 1
-    %h3.uk-panel-title 新增用户情况
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

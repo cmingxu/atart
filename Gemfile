@@ -52,7 +52,8 @@ group :development, :test do
   gem 'awesome_print'
 end
 
-
+gem 'uikit-sass-rails'
+gem 'bootstrap-sass', '~> 3.3.5'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'bower-rails'
 gem 'acts_as_list'
@@ -63,7 +64,6 @@ gem 'rmagick'
 gem 'devise'
 gem 'haml-rails', '~> 0.9'
 gem 'carrierwave' , github:'carrierwaveuploader/carrierwave'
-gem 'uikit-sass-rails'
 gem 'mini_magick'
 gem 'unicorn'
 gem 'mina'

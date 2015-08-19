@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require ckeditor-jquery
 //= require turbolinks
-//= require uikit
+//= require bootstrap-sprockets
 //= require c3
 //= require_tree .
 //

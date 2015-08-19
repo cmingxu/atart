@@ -1,55 +1,28 @@
 @import 'c3'
-@import "uikit"
-@import "uikit/almost-flat"
-
-$fc-main-font-color: #E5E5E5
-$sidebar-width: 160px
+@import "bootstrap-sprockets"
+@import "bootstrap"
 
 body
-  background-color: #f2f2f2
-
-.fc-header
-  background-color: #e16f1d
+  background-color: #ccd1e7
 .fc-container
+  padding-left: 160px
   padding-top: 50px
-  padding-left: $sidebar-width + 30
-  background-color: #fff
-  position: relative
-  background-color: #f2f2f2
 .fc-sidebar
-  width: $sidebar-width
+  width: 160px
   position: absolute
   left: 0px
-  top: 50px
-  border-right: 1px solid $fc-main-font-color
   background-color: white
-  li
-    border: 1px solid lighten(gray, 30%)
-    border-bottom: none
-    padding: 6px 0px
-    &:last-child
-      border-bottom: 1px solid lighten(gray, 30%)
-.fc-main
+  ul
+    width: 100%
+    min-height: 1000px
+    li
+      width: 100%
+
+.head
+  height: 50px
+  position: fixed
+  top: 0px
+  border-top: 3px solid orange
   width: 100%
-  min-height: 1000px
-  .uk-table
-    background-color: white
-.fc-nav > li > a
-  color: #777
-
-.fc-footer
-  background-color: #353535
-  padding: 40px 0px
-
-.ke-container
-  width: 400px!important
-.fc-nav
-  li
-    &:hover
-      a
-        color: white
-      background-color: #777
-
-.uk-form
-  .uk-form-control
-    width: 400px
+  background-color: white
+  box-shadow: 5px 0px 5px rgba(blue, .3)
