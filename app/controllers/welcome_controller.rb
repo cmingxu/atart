@@ -6,6 +6,15 @@ class WelcomeController < ApplicationController
   def onsite
   end
 
+  def onsitepage
+  end
+
+  def location
+  end
+
+  def channelpage
+  end
+
   def me
     @footer  = "common/footer"
   end

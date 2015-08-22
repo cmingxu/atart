@@ -11,6 +11,6 @@
     = render :partial => "common/header"
     = yield
     - if controller_name == "welcome"
-      = render :partial =>  @footer || "common/footer_2"
+      = render :partial =>  @footer || "common/footer"
     - else
       = render :partial => "common/footer"
