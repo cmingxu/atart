@@ -16,5 +16,15 @@
 #
 
 class Event < ActiveRecord::Base
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :artist_name, presence: true
+  validates :lng, presence: true
+  validates :lat, presence: true
+  validates :begin_at, presence: true
+  validates :end_at, presence: true
+
   has_many :bookmarks, as: :bookmarkable
+  has_many :event_markers, dependent: :destroy
+  mount_uploader :gallery, EventGallayUploader
 end

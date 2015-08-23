@@ -1,12 +1,38 @@
 = simple_form_for [:admin, @event], html: { class: 'form-horizontal' }, defaults: { wrapper_html: { class: 'col-md-6'} }  do |f|
   = f.input :name, label: "名称"
-  = f.input :gallery
   = f.input :artist_name, label: "艺术家"
   = f.input :address, label: "地址"
   = f.input :lat, label: "经纬度"
   = f.input :lng, label: "经纬度"
   = f.input :begin_at, label: "开始时间", as: :string
   = f.input :end_at, label: "结束时间", as: :string
+  = f.input :gallery
 
   .row
     = f.submit "保存", class: 'btn btn-primary'
+
+
+- if @event.gallery
+  %table.table
+    %thead
+      %th X
+      %th Y
+      %th 文本
+      %th 链接
+
+    - @event.event_markers.each do |em|
+      %tr
+        %td= em.x
+        %td= em.y
+        %td= em.word
+        %td= em.link
+        %td
+          = link_to "删除", remove_marker_admin_event_path(@event), method: :delete
+    = form_for em = @event.event_markers.build,  url: add_marker_admin_event_path(@event) do |f|
+      %tr
+        %td= f.text_field :x
+        %td= f.text_field :y
+        %td= f.text_field :word
+        %td= f.text_field :link
+        %td= f.submit "增加", class: 'btn btn-warning'
+

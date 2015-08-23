@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818141806) do
+ActiveRecord::Schema.define(version: 20150821144149) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 20150818141806) do
     t.integer  "commentable_id",   limit: 4
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+  end
+
+  create_table "event_markers", force: :cascade do |t|
+    t.integer  "x",          limit: 4
+    t.integer  "y",          limit: 4
+    t.string   "word",       limit: 255
+    t.string   "link",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "events", force: :cascade do |t|

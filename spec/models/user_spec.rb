@@ -22,6 +22,8 @@
 #  lng                    :decimal(9, 5)
 #  lat                    :decimal(9, 5)
 #  area                   :string(255)
+#  provider               :string(255)
+#  uid                    :string(255)
 #
 
 require 'rails_helper'
