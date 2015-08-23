@@ -12,7 +12,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 set :domain, '112.124.57.67'
 set :deploy_to, '/home/deploy/atart'
-set :repository, 'git@github.com:cmingxu/atart.git'
+set :repository, 'git@git.coding.net:cmingxu/atart.git'
 
 set :branch, ENV["br"] || 'master'
 set :user, 'deploy'
