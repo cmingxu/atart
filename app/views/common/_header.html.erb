@@ -1,25 +1,24 @@
-<!-- # 页头 -->
 <div class="header">
-    <div class="header-inner pure-g" id="header">
+    <div class="header-inner pure-g .pure-u-xl-1" id="header">
         <div class="logo-n-search pure-u-1 pure-u-md-3-5">
             <a class="logo" href="/">
-                <img src="<%= asset_path('logo.png') %>" alt="Logo" />
+                <img src="<%= asset_path('logo.png') %>" alt="Logo"/>
             </a>
             <div class="search-form">
                 <form>
-                    <input class="search-input" type="text"></input>
-                    <input class="search-btn" type="submit" value=""></input>
+                    <input class="search-input" type="text"/>
+                    <input class="search-btn" type="submit" value=""/>
                 </form>
             </div>
-            <a href="#" class="menu-toggle" id="header-menu-toggle"><s class="bar"></s><s class="bar"></s><s class="bar"></s></a>
+            <a href="#" class="menu-toggle" id="header-menu-toggle"><s class="bar"></s><s class="bar"></s><s
+                    class="bar"></s></a>
         </div>
         <div class="navi pure-u-1 pure-u-md-2-5">
             <div class="pure-menu pure-menu-horizontal custom-can-transform">
                 <ul class="pure-menu-list">
                   <li class="pure-menu-item <%= action_name == 'index' ? 'current' : '' %>"> <%= link_to "首页", root_path %> </li>
-                  <li class="<%= controller_name == 'discovers' ? 'current' : '' %>"> <%= link_to "发现", hot_discover_path %>
+                  <li class="pure-menu-item <%= controller_name == 'discovers' ? 'current' : '' %>"> <%= link_to "发现", hot_discover_path %>
                             <!-- # 二级目录 -->
-                            <% if controller_name == "discovers" %>
                             <div class="second-cate">
                                 <ul>
                                     <li><%= link_to "火力榜", hot_discover_path %> </li>
@@ -28,13 +27,12 @@
                                     <li><%= link_to "商城", shop_discover_path %></li>
                                 </ul>
                             </div>
-                            <% end %>
                      </li>
                      <li class="<%= action_name == "onsite" ? 'current' : '' %>"> <%= link_to "现场", onsite_path %> </li>
                      <% if current_user %>
-                     <li class="<%= action_name == "me" ? 'current' : '' %>"><%= link_to "我", me_path %></li>
+                     <li class="<%= action_name == "me" ? 'current' : '' %>"><%= link_to "我的风景", me_path %></li>
                    <% else %>
-                     <li><%= link_to "我", new_user_session_path %></li>
+                     <li><%= link_to "我的风景", new_user_session_path %></li>
                    <% end %>
                     </li>
                 </ul>
