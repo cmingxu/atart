@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821144149) do
+ActiveRecord::Schema.define(version: 20150823151328) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -38,6 +38,24 @@ ActiveRecord::Schema.define(version: 20150821144149) do
     t.integer  "user_id",           limit: 4
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.string   "name",           limit: 255
+    t.string   "en_name",        limit: 255
+    t.string   "image",          limit: 255
+    t.boolean  "enabled",        limit: 1,   default: false
+    t.integer  "moderator_id",   limit: 4
+    t.integer  "artworks_count", limit: 4,   default: 0
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  create_table "channels_artworks", force: :cascade do |t|
+    t.integer  "channel_id", limit: 4
+    t.integer  "artwork_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "comments", force: :cascade do |t|

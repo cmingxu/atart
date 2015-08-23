@@ -15,4 +15,5 @@
 class Artwork < ActiveRecord::Base
   has_many :bookmarks, as: :bookmarkable
   belongs_to :user
+  has_many :channels_artworks
 end

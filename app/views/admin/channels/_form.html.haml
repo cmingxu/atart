@@ -1,0 +1,9 @@
+= simple_form_for [:admin, @channel], html: { class: 'form-horizontal' }, defaults: { wrapper_html: { class: 'col-md-6'} }  do |f|
+  = f.input :name, label: "名称"
+  = f.input :en_name, label: "英文名字"
+  = f.input :image, label: "图片", as: :file
+
+  .row
+    = f.submit "保存", class: 'btn btn-primary'
+
+

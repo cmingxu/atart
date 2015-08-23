@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     resources :messages
     resources :bookmarks
     resources :orders
+    resources :channels do
+      patch :toggle, on: :member
+    end
     resources :events do
       delete :remove_marker, on: :member
       post :add_marker, on: :member
