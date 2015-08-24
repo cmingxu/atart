@@ -1,6 +1,5 @@
 class Admin::ChannelsController < Admin::BaseController
-
-  before_action :set_channel, only: [:show, :edit, :update, :destroy]
+  before_action :set_channel, only: [:show, :edit, :update, :destroy, :toggle]
   before_filter do
     @breadcrumb = [OpenStruct.new(href: admin_channels_path, text: "频道管理")]
   end
@@ -32,6 +31,12 @@ class Admin::ChannelsController < Admin::BaseController
     end
 
     redirect_to admin_channel_path(@channel)
+  end
+
+  def toggle
+    @channel.enabled = !@channel.enabled
+    @channel.save
+    head :ok
   end
 
 

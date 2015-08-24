@@ -24,4 +24,12 @@ $(document).ready(function () {
   1+1;
   $('.ckeditor').ckeditor({
   });
+
+  $('.check_box_toggle').change(function () {
+    path = $(this).data('path');
+    $.ajax({
+      url: path,
+      method: 'PATCH'
+    });
+  });
 });

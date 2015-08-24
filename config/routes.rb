@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :messages
     resources :bookmarks
     resources :orders
+    resources :channels_artworks
     resources :channels do
       patch :toggle, on: :member
     end
