@@ -16,8 +16,11 @@
         %td= link_to product.name, edit_admin_product_path(product)
         %td= link_to product.artist.name, edit_admin_artist_path(product.artist)
         %td
+          - product.images.each do |a|
+            = image_tag a.thumb.url, width: 60, height: 30
         %td= product.price
         %td
+          = check_box_tag "", "", product.enabled?, class: 'product_enable_toggle check_box_toggle', data: { path: toggle_admin_product_path(product) }
         %td
   
 = paginate @products

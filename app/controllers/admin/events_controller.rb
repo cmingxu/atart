@@ -1,5 +1,5 @@
 class Admin::EventsController < Admin::BaseController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :add_marker, :remove_marker]
   before_filter do
     @breadcrumb = [OpenStruct.new(href: admin_events_path, text: "现场管理")]
   end
@@ -23,6 +23,18 @@ class Admin::EventsController < Admin::BaseController
   def edit
   end
 
+  def add_marker
+    @event_marker = @event.event_markers.build event_marker_params
+    @event_marker.save
+    redirect_to :back
+  end
+
+  def remove_marker
+    @event_marker = @event.event_markers.find params[:id]
+    @event_marker.destroy
+    redirect_to :back
+  end
+
   # POST /events
   # POST /events.json
   def create
@@ -30,7 +42,7 @@ class Admin::EventsController < Admin::BaseController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to edit_admin_event_path(@event), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -44,7 +56,7 @@ class Admin::EventsController < Admin::BaseController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to edit_admin_event_path(@event), notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -63,6 +75,12 @@ class Admin::EventsController < Admin::BaseController
     end
   end
 
+  def toggle
+    @event.enabled = !@event.enabled
+    @event.save
+    head :ok
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -72,5 +90,9 @@ class Admin::EventsController < Admin::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:name, :gallery, :artist_name, :address, :lng, :lat, :begin_at, :end_at)
+    end
+
+    def event_marker_params
+      params.require(:event_marker).permit!
     end
 end

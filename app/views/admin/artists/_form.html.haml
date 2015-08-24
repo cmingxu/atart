@@ -1,13 +1,6 @@
-= form_for [:admin, @artist], html: { class: 'uk-form uk-form-horizontal' } do |f|
-
-  .uk-form-row
-    = f.label :name, "姓名", class: 'uk-form-label'
-    = f.text_field :name, class: 'uk-form-control'
-  .uk-form-row
-    = f.label :short_desc, "描述", class: 'uk-form-label'
-    = f.text_area :short_desc, class: 'uk-form-control'
-  .uk-form-row
-    = f.label :desc, class: 'uk-form-label'
-    = f.text_area :desc, class: 'uk-form-control'
-  .uk-form-row
-    = f.submit "保存", class: 'uk-button uk-button-primary uk-container-center'
+= simple_form_for [:admin, @artist], html: { class: 'form-horizontal' } do |f|
+  = f.input :name, label: "艺术家姓名"
+  = f.input :short_desc, label: "描述"
+  = f.input :desc, label: "详情"
+  .row.text-center
+    = f.submit "保存", class: 'btn btn-primary'

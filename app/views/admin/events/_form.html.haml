@@ -4,15 +4,16 @@
   = f.input :address, label: "地址"
   = f.input :lat, label: "经纬度"
   = f.input :lng, label: "经纬度"
-  = f.input :begin_at, label: "开始时间", as: :string
-  = f.input :end_at, label: "结束时间", as: :string
+  = f.input :begin_at, label: "开始时间", as: :string, input_html: { class: 'datetimepicker' }, value: @event.begin_at.try(:strftime, '%Y-%m-%d %H:%M')
+  = f.input :end_at, label: "结束时间", as: :string, input_html: { class: 'datetimepicker' }, value: @event.end_at.try(:strftime, '%Y-%m-%d %H:%M')
   = f.input :gallery
 
-  .row
+  .clearfix
+  .row.text-center
     = f.submit "保存", class: 'btn btn-primary'
 
 
-- if @event.gallery
+- if @event.persisted? && @event.gallery
   %table.table
     %thead
       %th X
@@ -27,7 +28,7 @@
         %td= em.word
         %td= em.link
         %td
-          = link_to "删除", remove_marker_admin_event_path(@event), method: :delete
+          = link_to "删除", remove_marker_admin_event_path(@event), method: :delete, data: { confirm: "确信删除此标记？" } 
     = form_for em = @event.event_markers.build,  url: add_marker_admin_event_path(@event) do |f|
       %tr
         %td= f.text_field :x

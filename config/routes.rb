@@ -24,7 +24,9 @@ Rails.application.routes.draw do
     get '/statistics' => 'base#statistics'
     resources :artworks
     resources :artists
-    resources :products
+    resources :products do
+      patch :toggle, on: :member
+    end
     resources :users
     resources :messages
     resources :bookmarks
@@ -36,6 +38,7 @@ Rails.application.routes.draw do
     resources :events do
       delete :remove_marker, on: :member
       post :add_marker, on: :member
+      patch :toggle, on: :member
     end
     resources :comments
   end

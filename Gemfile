@@ -54,6 +54,8 @@ end
 
 gem 'uikit-sass-rails'
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'bower-rails'
 gem 'acts_as_list'

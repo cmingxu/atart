@@ -16,8 +16,9 @@
 //= require ckeditor-jquery
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
 //= require c3
-//= require_tree .
 //
 
 $(document).ready(function () {
@@ -31,5 +32,10 @@ $(document).ready(function () {
       url: path,
       method: 'PATCH'
     });
+  });
+
+  $('.datetimepicker').datetimepicker({
+                    format: 'YYYY/MM/DD HH:mm'
+    
   });
 });

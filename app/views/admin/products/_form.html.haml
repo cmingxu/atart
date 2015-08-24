@@ -3,13 +3,16 @@
   = f.input :name, label: "名称", :as => :string
   = f.input :price, label: "价格", :as => :integer
   = f.input :desc, label: "详情", as: :string
-  = f.input :images, multiple: true, onchange: 'preview_image(this)', as: :file
+  = f.input :images, input_html: { multiple: true, onchange: 'preview_image(this)' }, as: :file
 
-  #image_data
-    - f.object.images.each do |i|
-      = image_tag i.url
-
+  .clearfix
   .row
+    #image_data
+      - f.object.images.each do |i|
+        %br
+        = image_tag i.url
+
+  .row.text-center
     = f.submit "保存", class: 'btn btn-primary'
 
 :javascript

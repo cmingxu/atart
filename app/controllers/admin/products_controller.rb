@@ -1,11 +1,11 @@
 class Admin::ProductsController < Admin::BaseController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :toggle]
   before_filter do
     @breadcrumb = [OpenStruct.new(href: admin_products_path, text: "艺术品管理")]
   end
 
   def index
-    @products = Product.page params[:page]
+    @products = Product.order('updated_at DESC').page params[:page]
   end
 
   def new
@@ -50,7 +50,10 @@ class Admin::ProductsController < Admin::BaseController
     end
   end
 
-  def toggle_state
+  def toggle
+    @product.enabled = !@product.enabled
+    @product.save
+    head :ok
   end
 
   private

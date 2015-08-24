@@ -2,10 +2,11 @@
   = f.input :name, label: "名称"
   = f.input :en_name, label: "英文名字"
   = f.input :image, label: "图片", as: :file
+
   - if @channel.image
     = image_tag @channel.image.thumb.url
-
-  .row
+  .clearfix
+  .row.text-center
     = f.submit "保存", class: 'btn btn-primary'
 
 
@@ -25,7 +26,9 @@
 
 
   = simple_form_for [:admin, @channel.channels_artworks.build] do |f|
-    = f.input :artwork_id
-    = f.submit "提交"
+    = f.input :channel_id, as: :hidden
+    = f.input :artwork_id, label: "作品ID"
+    .row.text-center
+      = f.submit "添加作品", class: 'btn btn-primary'
 
 

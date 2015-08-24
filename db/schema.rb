@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823151328) do
+ActiveRecord::Schema.define(version: 20150824153258) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20150823151328) do
     t.string   "link",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "event_id",   limit: 4
   end
 
   create_table "events", force: :cascade do |t|
@@ -85,8 +86,9 @@ ActiveRecord::Schema.define(version: 20150823151328) do
     t.decimal  "lat",                     precision: 10
     t.datetime "begin_at"
     t.datetime "end_at"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.boolean  "enabled",     limit: 1,                  default: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -123,8 +125,9 @@ ActiveRecord::Schema.define(version: 20150823151328) do
     t.text     "short_desc",     limit: 65535
     t.text     "desc",           limit: 65535
     t.text     "images",         limit: 65535
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
+    t.datetime "created_at",                                                          null: false
+    t.datetime "updated_at",                                                          null: false
+    t.boolean  "enabled",        limit: 1,                             default: true
   end
 
   create_table "simple_captcha_data", force: :cascade do |t|

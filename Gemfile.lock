@@ -66,6 +66,8 @@ GEM
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
+    bootstrap3-datetimepicker-rails (4.15.35)
+      momentjs-rails (>= 2.8.1)
     bower-rails (0.9.2)
     builder (3.2.2)
     byebug (5.0.0)
@@ -183,6 +185,8 @@ GEM
     mini_magick (4.2.7)
     mini_portile (0.6.2)
     minitest (5.7.0)
+    momentjs-rails (2.10.3)
+      railties (>= 3.1)
     multi_json (1.11.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -349,6 +353,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   bootstrap-sass (~> 3.3.5)
+  bootstrap3-datetimepicker-rails (~> 4.15.35)
   bower-rails
   byebug
   c3-rails
@@ -369,6 +374,7 @@ DEPENDENCIES
   kaminari
   mina
   mini_magick
+  momentjs-rails (>= 2.9.0)
   mysql2
   omniauth-qq-connect
   omniauth-wechat-oauth2
