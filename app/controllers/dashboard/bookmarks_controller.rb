@@ -1,6 +1,10 @@
 class Dashboard::BookmarksController < Dashboard::BaseController
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
 
+  before_filter do
+    @breadcrumb = [OpenStruct.new(href: dashboard_bookmarks_path, text: "我的关注")]
+  end
+
   # GET /bookmarks
   # GET /bookmarks.json
   def index

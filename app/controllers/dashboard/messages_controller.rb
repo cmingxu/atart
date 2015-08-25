@@ -1,10 +1,13 @@
 class Dashboard::MessagesController < Dashboard::BaseController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_filter do
+    @breadcrumb = [OpenStruct.new(href: dashboard_messages_path, text: "我的消息")]
+  end
 
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = current_user.messages.page params[:page]
   end
 
   # GET /messages/1
@@ -14,7 +17,7 @@ class Dashboard::MessagesController < Dashboard::BaseController
 
   # GET /messages/new
   def new
-    @message = Message.new
+    @message = current_user.messages.new
   end
 
   # GET /messages/1/edit
@@ -24,7 +27,7 @@ class Dashboard::MessagesController < Dashboard::BaseController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
+    @message = current_user.messages.new(message_params)
 
     respond_to do |format|
       if @message.save
@@ -64,11 +67,11 @@ class Dashboard::MessagesController < Dashboard::BaseController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message
-      @message = Message.find(params[:id])
+      @message = current_user.messages.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:send_from_id, :send_to_id, :content)
+      params.require(:message).permit!
     end
 end

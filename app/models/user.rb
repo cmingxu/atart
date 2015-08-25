@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
   has_many :bookmarks, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :artworks, dependent: :destroy
+  has_many :messages, foreign_key: :send_to_id, dependent: :destroy
 
   mount_uploader :avatar, UserAvatarUploader
 

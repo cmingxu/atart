@@ -1,12 +1,12 @@
 class Admin::EventsController < Admin::BaseController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :add_marker, :remove_marker]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :add_marker, :remove_marker, :toggle]
   before_filter do
     @breadcrumb = [OpenStruct.new(href: admin_events_path, text: "现场管理")]
   end
   # GET /events
   # GET /events.json
   def index
-    @events = Event.page params[:page]
+    @events = Event.order('updated_at DESC').page params[:page]
   end
 
   # GET /events/1

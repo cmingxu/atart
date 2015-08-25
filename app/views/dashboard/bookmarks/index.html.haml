@@ -1,19 +1,17 @@
-%table.uk-table
+%table.table
   %thead
     %tr
-      %th Bookmarkable
-      %th Bookmarkable type
-      %th User
-      %th
-      %th
+      %th ID
+      %th 关注
+      %th 时间
       %th
 
   %tbody
-    - @bookmarks.each do |bookmark|
+    - @bookmarks.each_with_index do |bookmark, index|
       %tr
-        %td= bookmark.bookmarkable_id
-        %td= bookmark.bookmarkable_type
-        %td= bookmark.user_id
+        %td= index + 1
+        -#%td= bookmark.bookmarkable.name, send("#{bookmark.bookmarkable_type.downcase}_path", bookmark)
+        %td= bookmark.created_at.to_s :tf_db_no_sec
         %td
           = link_to bookmark.bookmarkable.name, send("#{bookmark.bookmarkable_type.downcase}_path", bookmark)
           = link_to "删除", dashboard_bookmark_path(bookmark), method: :delete

@@ -1,10 +1,13 @@
 class Dashboard::ArtworksController < Dashboard::BaseController
   before_action :set_artwork, only: [:show, :edit, :update, :destroy]
+  before_filter do
+    @breadcrumb = [OpenStruct.new(href: dashboard_artworks_path, text: "艺术品管理")]
+  end
 
   # GET /artworks
   # GET /artworks.json
   def index
-    @artworks = Artwork.all
+    @artworks = current_user.artworks.page params[:page]
   end
 
   # GET /artworks/1
@@ -14,7 +17,7 @@ class Dashboard::ArtworksController < Dashboard::BaseController
 
   # GET /artworks/new
   def new
-    @artwork = Artwork.new
+    @artwork = current_user.artworks.new
   end
 
   # GET /artworks/1/edit
@@ -24,11 +27,11 @@ class Dashboard::ArtworksController < Dashboard::BaseController
   # POST /artworks
   # POST /artworks.json
   def create
-    @artwork = Artwork.new(artwork_params)
+    @artwork = current_user.artworks.new(artwork_params)
 
     respond_to do |format|
       if @artwork.save
-        format.html { redirect_to @artwork, notice: 'Artwork was successfully created.' }
+        format.html { redirect_to dashbard_artwork_path(@artwork), notice: 'Artwork was successfully created.' }
         format.json { render :show, status: :created, location: @artwork }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class Dashboard::ArtworksController < Dashboard::BaseController
   def update
     respond_to do |format|
       if @artwork.update(artwork_params)
-        format.html { redirect_to @artwork, notice: 'Artwork was successfully updated.' }
+        format.html { redirect_to dashbard_artwork_path(@artwork), notice: 'Artwork was successfully updated.' }
         format.json { render :show, status: :ok, location: @artwork }
       else
         format.html { render :edit }
@@ -64,11 +67,11 @@ class Dashboard::ArtworksController < Dashboard::BaseController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_artwork
-      @artwork = Artwork.find(params[:id])
+      @artwork = current_user.artworks.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artwork_params
-      params.require(:artwork).permit(:name, :desc, :artist_id, :images)
+      params.require(:artwork).permit!
     end
 end

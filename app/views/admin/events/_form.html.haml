@@ -2,8 +2,6 @@
   = f.input :name, label: "名称"
   = f.input :artist_name, label: "艺术家"
   = f.input :address, label: "地址"
-  = f.input :lat, label: "经纬度"
-  = f.input :lng, label: "经纬度"
   = f.input :begin_at, label: "开始时间", as: :string, input_html: { class: 'datetimepicker' }, value: @event.begin_at.try(:strftime, '%Y-%m-%d %H:%M')
   = f.input :end_at, label: "结束时间", as: :string, input_html: { class: 'datetimepicker' }, value: @event.end_at.try(:strftime, '%Y-%m-%d %H:%M')
   = f.input :gallery

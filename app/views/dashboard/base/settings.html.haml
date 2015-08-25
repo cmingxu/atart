@@ -1,13 +1,21 @@
-= image_tag current_user.avatar
-= form_tag dashboard_update_avatar_path, method: :patch, multipart: true do
-  = file_field_tag :avatar
-  %br
-  = submit_tag "更新头像"
+.panel.panel-primary
+  .panel-heading
+    .panel-title
+      %strong 我的头像
+  .panel-body
+    = image_tag current_user.avatar
+    = form_tag dashboard_update_avatar_path, method: :patch, multipart: true, class: '' do
+      = file_field_tag :avatar
+      %br
+      = submit_tag "更新头像", class: 'btn btn-primary pull-right'
 
-= form_tag dashboard_change_password_path, method: :patch do
-  %br
-  = text_field_tag "password"
-  %br
-  = text_field_tag "password_confirmation"
-  = submit_tag "新密码"
+.panel.panel-primary
+  .panel-heading
+    .panel-title
+      %strong 我的密码
+  .panel-body
+    = form_tag dashboard_change_password_path, method: :patch do
+      = text_field_tag "password"
+      = text_field_tag "password_confirmation"
+      = submit_tag "修改密码", class: 'btn btn-primary pull-right'
 

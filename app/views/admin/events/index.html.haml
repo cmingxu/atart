@@ -8,18 +8,24 @@
       %th 画廊
       %th 艺术家
       %th 地址
-      %th 经纬度
-      %th 时间
+      %th 起止时间
+      %th 可见？
       %th 操作
 
   %tbody
     - @events.each do |event|
       %tr
-        %td= event.name
-        %td= event.gallery
+        %td= event.id
+        %td= link_to event.name, edit_admin_event_path(event)
+        %td
+          = image_tag event.gallery.thumb.url
         %td= event.artist_name
         %td= event.address
-        %td= event.lng
-        %td= event.lat
-        %td= event.begin_at
-        %td= event.end_at
+        %td
+          = event.begin_at.to_s :tf_db_no_sec
+          \/
+          = event.end_at.to_s :tf_db_no_sec
+        %td
+          = check_box_tag "", "", event.enabled?, class: 'event_enable_toggle check_box_toggle', data: { path: toggle_admin_event_path(event) }
+        %td
+          = link_to "删除", admin_events_path(event), method: :delete, data: { confirm: "确信要删除?" }
