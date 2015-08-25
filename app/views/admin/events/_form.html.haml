@@ -11,27 +11,75 @@
     = f.submit "保存", class: 'btn btn-primary'
 
 
-- if @event.persisted? && @event.gallery
-  %table.table
-    %thead
-      %th X
-      %th Y
-      %th 文本
-      %th 链接
+.row.text-center
+  - if @event.gallery
+    #gallery{style: 'position: relative;'}
+      = image_tag @event.gallery.url, width: 940, height: 500
 
-    - @event.event_markers.each do |em|
-      %tr
-        %td= em.x
-        %td= em.y
-        %td= em.word
-        %td= em.link
-        %td
-          = link_to "删除", remove_marker_admin_event_path(@event), method: :delete, data: { confirm: "确信删除此标记？" } 
-    = form_for em = @event.event_markers.build,  url: add_marker_admin_event_path(@event) do |f|
-      %tr
-        %td= f.text_field :x
-        %td= f.text_field :y
-        %td= f.text_field :word
-        %td= f.text_field :link
-        %td= f.submit "增加", class: 'btn btn-warning'
 
+.row
+  - if @event.persisted? && @event.gallery
+    %table.table
+      %thead
+        %th X
+        %th Y
+        %th 文本
+        %th 链接
+  
+      - @event.event_markers.each do |em|
+        %tr.event_marker
+          %td= em.x
+          %td= em.y
+          %td= em.word
+          %td= em.link
+          %td
+            = link_to "删除", remove_marker_admin_event_path(@event), method: :delete, data: { confirm: "确信删除此标记？" } 
+      = form_for em = @event.event_markers.build(x: 100, y: 100, link: 'http://baidu.com'),  url: add_marker_admin_event_path(@event) do |f|
+        %tr.event_marker_input
+          %td= f.text_field :x
+          %td= f.text_field :y
+          %td= f.text_field :word
+          %td= f.text_field :link
+          %td= f.submit "增加", class: 'btn btn-warning'
+  
+
+:javascript
+  var markers = [];
+  function draw_markers(){
+    markers = [];
+    $('#gallery .marker').remove();
+    $('.event_marker').each(function(i, node){
+      obj = {};
+      obj.x = $(node).find('td:nth(0)').text();
+      obj.y = $(node).find('td:nth(1)').text();
+      obj.link = $(node).find('td:nth(3)').text();
+      markers.push(obj);
+    });
+
+    obj = {};
+    obj.x = $('.event_marker_input input:nth(0)').val();
+    obj.y = $('.event_marker_input input:nth(1)').val();
+    obj.link = $('.event_marker_input input:nth(3)').val();
+    markers.push(obj);
+
+    markers.forEach(function(marker){
+      div = $("<div class='marker'></div>");
+      div.css('position', 'absolute');
+      div.css('top', marker.y + "px");
+      div.css('left', marker.x + "px");
+      div.css('background-color', 'orange').css('border-radius', '50%').css('border', '1px solid black').css('width', '30px').css('height', '30px').css('cursor', 'pointer');
+      div.mouseover(function(){
+      $(this).animate({'width': '40px', 'height': '40px'}, 'fast')
+      }).mouseout(function(){
+      $(this).animate({'width': '30px', 'height': '30px'}, 'fast')
+      }).click(function(){ window.location.href = marker.link; });
+      $('#gallery').append(div);
+    });
+  }
+
+  $(document).ready(function(){
+    draw_markers();
+    $('.event_marker_input input').on('change', function(){
+      draw_markers();
+    });
+  })
