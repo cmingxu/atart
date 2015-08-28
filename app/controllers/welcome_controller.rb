@@ -18,6 +18,9 @@ class WelcomeController < ApplicationController
   def raise_detail
   end
 
+  def workdetail
+  end
+
   def me
     @footer  = "common/footer"
   end

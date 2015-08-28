@@ -68,6 +68,7 @@ Rails.application.routes.draw do
   get 'onsite-detail' => 'welcome#onsitepage'
   get 'channel-detail' => 'welcome#channelpage'
   get 'raise-detail' => 'welcome#raise_detail'
+  get 'work-detail' => 'welcome#workdetail'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions'
