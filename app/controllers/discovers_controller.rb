@@ -1,6 +1,7 @@
 class DiscoversController < ApplicationController
      
   def hot
+    @artworks = Artwork.hot
   end
 
   def channel

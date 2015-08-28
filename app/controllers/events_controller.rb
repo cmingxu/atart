@@ -4,8 +4,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.includes(:event_marker).page params[:page]
-    @marker = @events.map(&:event_markers).flatten.group_by(:event_id)
+    @events = Event.includes(:event_markers).page params[:page]
+    @markers = @events.map{|e| e.event_markers.map{|em| em.attributes.slice("x", "y", "link", "event_id") } }.flatten.group_by{|a| a["event_id"]}
   end
 
   # GET /events/1

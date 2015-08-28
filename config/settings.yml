@@ -1,6 +1,6 @@
 default: &default
   sitename: ""
-  title: "atart"
+  title: "第一风景"
   domain: ""
   description: ""
 

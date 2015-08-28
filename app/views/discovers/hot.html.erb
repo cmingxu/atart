@@ -1,22 +1,23 @@
 	<div class="page-content">
 		<ul class="item-list">
+      <% @artworks.each do |a| %>
 			<li>
 				<a href="#img-item" class="img">
-					<img width="363" height="206" src="<%= asset_path('demo/atart发现_03.jpg') %>" alt="atart发现_03.jpg') %>">
+        <%= image_tag q.image.url, width: 363, height: 206 %>
 				</a>
 				<a href="#img-item" class="title">
-					at the venice art biennale 2015, a web of thread turns
-					the japan pavilion's roof into a complex and elaborate
-					maze of materials »
+        <%= a.description %>
 				</a>
 				<span class="poster">
 					<img width="39" height="39" src="<%= asset_path('demo/atart商城_18.jpg') %>" alt="" class="avatar">
-					<span class="name">done</span>
+          <%= image_tag q.user.avatar.thumb.url %>
+					<span class="name"><%= q.user.name %></span>
 				</span>
 				<span class="location">
 					ATH
 				</span>
 			</li>
+    <% end %>
 				<li class="video-item">
 					<a href="#img-item" class="img">
 						<img width="363" height="206" src="<%= asset_path('demo/atart发现_03.jpg') %>" alt="atart发现_03.jpg') %>">

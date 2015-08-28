@@ -2,7 +2,7 @@
   <ul>
     <% @events.each do |e| %>
       <li>
-    <a class="title" href="raise.html" style="background-image: url(<%= e.gallery.url %>);">
+      <a class="title event" href="raise.html" id="event-<%= e.id %>" style="background-image: url(<%= e.gallery.url %>);">
       <%= image_tag e.gallery.url %>
       <p class="vertical">
       现<br/>场
@@ -98,5 +98,20 @@
 </div>
 
 <%= javascript_tag do %>
-  var makers = <%= @marks.to_json %>;
+  var markers = <%= raw @markers.to_json %>;
+  for(event_id in markers){
+    ms = markers[event_id];
+    ms.forEach(function (m) {
+      div = $("<div class='marker'></div>");
+      div.css('top', m.y + "px");
+      div.css('left', m.x + "px");
+      div.css('background-color', 'orange').css('border-radius', '50%').css('border', '1px solid black').css('width', '30px').css('height', '30px').css('cursor', 'pointer');
+      div.mouseover(function(){
+      $(this).animate({'width': '40px', 'height': '40px'}, 'fast')
+      }).mouseout(function(){
+      $(this).animate({'width': '30px', 'height': '30px'}, 'fast')
+      }).click(function(){ window.open(m.link, '_blank'); return false; });
+      $('#event-' + event_id).append(div);
+    });
+  }
 <% end %>

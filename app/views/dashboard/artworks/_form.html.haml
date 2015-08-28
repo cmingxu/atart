@@ -1,12 +1,6 @@
-= form_for [:dashboard, @artwork] do |f|
-  .field
-    = f.label :name
-    = f.text_area :name
-  .field
-    = f.label :desc
-    = f.text_area :desc
-  .field
-    = f.label :images
-    = f.text_area :images
-  .actions
-    = f.submit 'Save'
+= simple_form_for [:dashboard, @artwork], class: 'form-horizontal' do |f|
+  = f.input :name, label: "作品名称"
+  = f.input :desc, label: "作品描述"
+  = f.input :images, as: :file
+  .row.text-center
+    = f.submit 'Save', class: 'btn btn-primary'

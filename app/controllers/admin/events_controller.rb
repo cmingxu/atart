@@ -45,6 +45,7 @@ class Admin::EventsController < Admin::BaseController
         format.html { redirect_to edit_admin_event_path(@event), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
+        ap @event.errors
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
