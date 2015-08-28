@@ -15,6 +15,9 @@ class WelcomeController < ApplicationController
   def channelpage
   end
 
+  def raise_detail
+  end
+
   def me
     @footer  = "common/footer"
   end
