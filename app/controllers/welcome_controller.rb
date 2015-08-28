@@ -3,6 +3,10 @@ class WelcomeController < ApplicationController
   def index
   end
 
+  def me
+  end
+
+  # Ready for implementation
   def events
   end
 
@@ -21,7 +25,13 @@ class WelcomeController < ApplicationController
   def workdetail
   end
 
-  def me
-    @footer  = "common/footer"
+  def create_order
   end
+
+  def cart
+  end
+
+  def order_finish
+  end
+
 end

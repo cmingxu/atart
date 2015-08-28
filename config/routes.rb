@@ -64,11 +64,19 @@ Rails.application.routes.draw do
   end
 
   get 'me' => 'welcome#me'
+  
+  # START Template Route for static page. START
+
   get 'location' => 'welcome#location'
   get 'onsite-detail' => 'welcome#onsitepage'
   get 'channel-detail' => 'welcome#channelpage'
   get 'raise-detail' => 'welcome#raise_detail'
   get 'work-detail' => 'welcome#workdetail'
+  get 'create-order' => 'welcome#create_order'
+  get 'cart' => 'welcome#cart'
+  get 'order-finish' => 'welcome#order_finish'
+
+  # END Template Route for static page END
 
   devise_for :users, controllers: {
     sessions: 'users/sessions'
