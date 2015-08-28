@@ -23,8 +23,7 @@
 
 $(document).ready(function () {
   1+1;
-  $('.ckeditor').ckeditor({
-  });
+  $('.ckeditor').ckeditor({});
 
   $('.check_box_toggle').change(function () {
     path = $(this).data('path');
@@ -34,8 +33,7 @@ $(document).ready(function () {
     });
   });
 
-  $('.datetimepicker').datetimepicker({
-                    format: 'YYYY/MM/DD HH:mm'
-    
-  });
+  $('.datetimepicker').datetimepicker({format: 'YYYY/MM/DD HH:mm'});
+
+
 });

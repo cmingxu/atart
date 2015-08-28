@@ -2,16 +2,16 @@
 		<ul class="item-list">
       <% @artworks.each do |a| %>
 			<li>
-				<a href="#img-item" class="img">
-        <%= image_tag q.image.url, width: 363, height: 206 %>
+      <a href="/artworks/<%= a.id %>" class="img">
+        <%= image_tag a.images.try(:first).try(:url), width: 363, height: 206 %>
 				</a>
 				<a href="#img-item" class="title">
-        <%= a.description %>
+        <%= a.desc %>
 				</a>
 				<span class="poster">
 					<img width="39" height="39" src="<%= asset_path('demo/atart商城_18.jpg') %>" alt="" class="avatar">
-          <%= image_tag q.user.avatar.thumb.url %>
-					<span class="name"><%= q.user.name %></span>
+          <%= image_tag a.user.avatar.thumb.url %>
+					<span class="name"><%= a.user.nickname %></span>
 				</span>
 				<span class="location">
 					ATH

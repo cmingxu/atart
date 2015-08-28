@@ -1233,9 +1233,27 @@ body.login-page{
 }
 
 .tab-content{
-	margin-bottom: 50px;
+	margin-bottom: 150px;
+	display: none;
 }
-
+.tab-content.active{
+	display: block;
+}
+.switch-tabs .tab-navs a.tab{
+	display: inline-block;
+	width: 150px;
+	text-align: center;
+	font-size: 16px;
+	height: 32px;
+	line-height: 32px;
+	background: #eaeaea;
+	text-decoration: none;
+	color: #999;
+}
+.switch-tabs .tab-navs .tab:hover, .switch-tabs .tab-navs .tab.active{
+	background: #fb351d;
+	color: #fff;
+}
 .comments ul{
     margin: 0;
     padding: 0;
@@ -1340,4 +1358,108 @@ body.login-page{
 
 .event .marker{
   position: absolute
+}
+.span-right{
+	float: right;
+	width: 400px;
+}
+.raise-detail{
+	font-family: "Helvetica";
+	letter-spacing: 0.23em;
+	font-weight: 100;
+	color: #888888;
+}
+.raise-detail .header-navigation{
+	color: #666666;
+    font-size: 18px;
+}
+.raise-detail .header-navigation a{
+	color: #666666;
+	text-decoration: none;
+}
+.raise-detail .poster{
+	margin: 30px 0;
+}
+.raise-detail .story-title{
+	font-size: 20px;
+}
+.raise-detail .story-description{
+	font-size: 14px;
+}
+.raise-detail .story-content{
+	line-height: 1.7em
+}
+.raise-detail .span-right{
+	letter-spacing: 0;
+}
+.raise-detail .raised-money{
+	font-size: 20px;
+	margin-top: 50px;
+	letter-spacing: 0;
+	color: #333;
+	margin-bottom: 10px;
+}
+.raise-detail .raised-money span{
+	font-size: 36px;
+	letter-spacing: 0;
+}
+.raise-detail .raise-target{
+	font-size: 20px;
+	color: #333;
+	margin-bottom: 50px;
+}
+.raise-declearation{
+	letter-spacing: 0.23em;
+}
+.raise-detail .raise-progress{
+	position: relative;
+	color: #333;
+	font-size: 17px;
+}
+.raise-detail .raise-progress .middle{
+	width: 100px;
+	margin-left: 50px;
+}
+.raise-detail .raise-progress .right{
+	position: absolute;
+	right: 0;
+}
+.raise-progress-wrapper{
+	width: 100%;
+	position: relative;
+	height: 10px;
+	background: #737373;
+	margin-bottom: 30px;
+}
+.raise-progress-wrapper .raise-progress-inner{
+	position: absolute;
+	height: 10px;
+	left: 0;
+	background: #fc7025;
+}
+.support-right-now{
+	text-align: right;
+}
+.large-red-btn{
+	border: 0;
+	width: 200px;
+	height: 45px;
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	background: #fb351d;
+}
+.raise-bottom{
+	position: relative;
+}
+.raise-bottom .right{
+	position: absolute;
+	top: 15px;
+	right: 0;
+	font-size: 24px;
+	color: #333;
+}
+.raise-bottom .full{
+	text-align: center;
+	background: url(<%= asset_path('full-bg.png') %>) repeat-x center;
 }

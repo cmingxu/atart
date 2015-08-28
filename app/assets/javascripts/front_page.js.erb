@@ -27,6 +27,9 @@ function topScroll() {
     footerSNS = $('#footer2-sns'),
     checkViewChange = function(){
       clearTimeout(buffer);
+      if(footerSNS.size() < 0){
+      	return false;
+      }
       buffer = setTimeout(function(){
         var st = win.scrollTop(),
         wh = win.height(),
@@ -102,4 +105,19 @@ function home() {
 $(document).ready(function () {
   home();
   topScroll();
+  $(".switch-tabs .tab-navs .tab").click(function (e) {
+    console.log("xxx");
+    e.preventDefault();
+    $target = $(e.currentTarget);
+    if ($target.hasClass("active")){
+      return false;
+    }
+    id = $target.attr("href");
+    $target.parents(".switch-tabs")
+    .find(".tab-navs a.tab").removeClass("active").end()
+    .find(".tab-content").removeClass("active").end()
+    .find(id+".tab-content").addClass("active");
+    $target.addClass("active");
+    return false;
+  })
 });
