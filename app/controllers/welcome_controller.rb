@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
   def index
   end
 
-  def onsite
+  def events
   end
 
   def onsitepage

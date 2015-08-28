@@ -4,6 +4,7 @@ class DiscoversController < ApplicationController
   end
 
   def channel
+    @channels = Channel.visible
   end
 
   def fund_raising

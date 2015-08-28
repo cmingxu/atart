@@ -1,4 +1,14 @@
 <div class="page-content">
+    <% @channels.each do |c| %>
+      <div class="items">
+      <a href="channel-detail.html" style="background-image: url(<%= c.image.url %>);">
+            <img src="<%= c.image.url %>" alt="">
+            <span class="title"><%= c.en_name %></span>
+            <span class="cn-title"><%= c.name %></span>
+            <span class="shares"><span><%= c.artworks.count %></span> shares</span>
+        </a>
+      </div>
+    <% end %>
     <div class="items">
         <a href="channel-detail.html" style="background-image: url(<%= asset_path('demo/atart频道_03.jpg') %>);">
             <img src="<%= asset_path('demo/atart频道_03.jpg') %>" alt="">
@@ -31,4 +41,5 @@
             <span class="shares"><span>718</span> shares</span>
         </a>
     </div>
+
 </div>

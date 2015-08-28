@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :events, only: [:index, :show]
   resources :products, only: [:index, :show]
   resources :orders, only: [:new, :create, :show] do
@@ -62,7 +63,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'onsite' => 'welcome#onsite'
   get 'me' => 'welcome#me'
   get 'location' => 'welcome#location'
   get 'onsite-detail' => 'welcome#onsitepage'

@@ -21,6 +21,8 @@ class Channel < ActiveRecord::Base
   has_many :channels_artworks
   has_many :artworks, through: :channels_artworks, class_name: :Artwork
 
+  scope :visible, -> { where(enabled: true) }
+
 
   mount_uploader :image, ChannelCoverUploader
 end
