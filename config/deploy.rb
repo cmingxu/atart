@@ -11,6 +11,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :domain, '112.124.57.67'
+set :domain, '182.92.83.182'
 set :deploy_to, '/home/deploy/atart'
 set :repository, 'git@git.coding.net:cmingxu/atart.git'
 
@@ -25,6 +26,7 @@ set :rvm_path, '/home/deploy/.rvm/scripts/rvm'
 set :shared_paths, ['config/database.yml', 'log']
 
 set :rails_env, :staging
+set :rails_env, :production
 
 # Optional settings:
 #   set :user, 'foobar'    # Username in the server to SSH to.
