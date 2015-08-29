@@ -1265,7 +1265,7 @@ body.login-page{
 	right: 15px;
 	color: #999999;
 }
-.onsite-detail .avatar, .raise-detail .avatar{
+.onsite-detail .avatar, .comments .avatar{
     display: block;
     position: absolute;
     left: 15px;
@@ -1276,7 +1276,7 @@ body.login-page{
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
-.onsite-detail .avatar img, .raise-detail .avatar img{
+.onsite-detail .avatar img, .comments .avatar img{
     width: 70px;
     height: 70px;
 }
@@ -1462,4 +1462,156 @@ body.login-page{
 .raise-bottom .full{
 	text-align: center;
 	background: url(<%= asset_path('full-bg.png') %>) repeat-x center;
+}
+.work-detail div.comments{
+	margin-bottom: 150px;
+}
+.work-detail .work-title{
+	font-size: 24px;
+	letter-spacing: .32em;
+}
+.work-detail .work-title small{
+	font-size: 13px;
+	display: inline-block;
+	margin-left: 50px;
+	vertical-align: middle;
+}
+.work-detail .work-title small img{
+	width: 15px;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+.work-meta{
+	position: relative;
+	height: 80px;
+}
+.work-meta .avatar{
+	width: 70px;
+	height: 70px;
+	display: block;
+	float: left;
+}
+.work-meta .avatar img{
+	width: 70px;
+	height: 70px;
+}
+.work-meta .work-information{
+	width: 300px;
+	float: left;
+	padding-left: 20px;
+}
+.work-meta .work-information .username{
+	font-size: 17px;
+	color: #444;
+	font-weight: bold;
+	margin-top: 10px;
+}
+.work-large-banner{
+	height: 480px;
+	width: 100%;
+	position: relative;
+}
+.work-large-banner .work-large-banner-inner{
+	position: absolute; 
+	top: -50%; 
+	left: -50%; 
+	width: 200%; 
+	height: 200%;
+}
+.work-large-banner .work-large-banner-inner img{
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	margin: auto; 
+	min-width: 50%;
+	min-height: 50%;
+}
+.work-meta .add-people{
+	display: inline-block;
+	margin-top: 10px;
+}
+.work-vote{
+	text-align: right;
+}
+.work-vote .vote-detail{
+	display: inline-block;
+	text-align: left;
+}
+.work-vote .vote-detail .vote-actions .vote-action{
+	display: block;
+	float: left;
+}
+.work-vote .vote-detail .vote-actions .vote-action a{
+	display: block;
+	width: 100px;
+	height: 75px;
+	background: #f9412b;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.work-vote .vote-detail .vote-actions .vote-action a.thumb-up{
+	background-image: url(<%= asset_path('thumb-up.png') %>);
+	-webkit-border-radius: 5px 0 0 5px;
+	-moz-border-radius: 5px 0 0 5px;
+	border-radius: 5px 0 0 5px;
+}
+.work-vote .vote-detail .vote-actions .vote-action a.potato{
+	background-image: url(<%= asset_path('potato.png') %>);
+}
+.work-vote .vote-detail .vote-actions .vote-action a.heart{
+	background-image: url(<%= asset_path('heart.png') %>);
+}
+.work-vote .vote-detail .vote-actions .vote-action a.fuck{
+	background-image: url(<%= asset_path('cao.png') %>);
+	-webkit-border-radius: 0 5px 5px 0;
+	-moz-border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 5px 0;
+}
+.work-vote .vote-detail .vote-actions .vote-action .vote-count{
+	text-align: center;
+	color: #f9412b;
+	margin-top: 10px;
+}
+.order-content{
+	width: 80%;
+	margin: 0 auto;	
+	color: #777777;
+	margin-bottom: 300px;
+}
+.order-content .success-img{
+	margin: 50px 0;
+	text-align: center;
+}
+.order-content .actions{
+	text-align: right;
+	margin-top: 30px;
+}
+.order-content .cart-description{
+	font-size: 13px;
+	color: #999999;
+}
+.order-content h3{
+	font-size: 33px;
+	font-weight: 100;
+	text-align: center;
+}
+.order-content p.order-description{
+	text-align: center;
+}
+table.format{
+	width: 100%;
+	border-collapse: collapse;
+}
+table.format,table.format th,table.format td {
+    border: 2px solid #c6c6c6;
+}
+table.format th,table.format td{
+	font-size: 14px;
+	padding: 10px 15px;
+}
+table.format th{
+	background: #f5f5f5;
 }
