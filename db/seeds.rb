@@ -8,5 +8,6 @@
 
 User.create!(email: "cming.xu@gmail.com", password: "cming.xu@gmail.com", roles: ["admin"])
 owner = User.create!(email: "siteowner@siteowner.com", password: "siteowner@siteowner", roles: ["siteowner", "user"])
-User.create!(email: "user@user.com", password: "user@user", roles: ["user"])
+
+User.create!(email: "user@user.com", password: "user@user", roles: ["user", "admin"])
 
