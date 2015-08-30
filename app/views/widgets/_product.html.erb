@@ -1,0 +1,11 @@
+<li>
+<a href="<%= product_path(product) %>" class="img">
+    <%= image_tag product.images.first.try(:url), width: '363', height: '206' %>
+	</a>
+    <%= link_to "#", product.short_desc, class: 'description' %>
+	<span class="location">
+		ATH
+	</span>
+      	<span class="price"><%= product.price %>CNY</span>
+      	<span class="cart"></span>
+</li>

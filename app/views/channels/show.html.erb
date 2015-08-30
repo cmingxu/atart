@@ -1,0 +1,9 @@
+<div class="page-content">
+  <%= render :partial => 'widgets/channel', :locals => { channel: @channel } %>
+    <ul class="item-list">
+      <% @channel.artworks.each do |a| %>
+        <%= render :partial => 'widgets/artwork', :locals => { artwork: a } %>
+      <% end %>
+    </ul>
+</div>
+

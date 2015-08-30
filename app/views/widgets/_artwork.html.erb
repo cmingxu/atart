@@ -1,0 +1,15 @@
+<li>
+<a href="/artworks/<%= artwork.id %>" class="img">
+  <%= image_tag artwork.images.try(:first).try(:url), width: 363, height: 206 %>
+</a>
+<a href="/work-detail" class="title">
+  <%= artwork.desc %>
+</a>
+<span class="poster">
+  <%= image_tag artwork.user.avatar.thumb.url, width: 39, height: 39, class: 'avatar' %>
+  <span class="name"><%= artwork.user.nickname %></span>
+</span>
+<span class="location">
+  ATH
+</span>
+</li>

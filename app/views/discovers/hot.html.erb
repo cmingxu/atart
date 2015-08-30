@@ -1,21 +1,7 @@
 <div class="page-content">
   <ul class="item-list">
     <% @artworks.each do |a| %>
-      <li>
-    <a href="/artworks/<%= a.id %>" class="img">
-      <%= image_tag a.images.try(:first).try(:url), width: 363, height: 206 %>
-    </a>
-    <a href="/work-detail" class="title">
-      <%= a.desc %>
-    </a>
-    <span class="poster">
-      <%= image_tag a.user.avatar.thumb.url, width: 39, height: 39, class: 'avatar' %>
-      <span class="name"><%= a.user.nickname %></span>
-    </span>
-    <span class="location">
-      ATH
-    </span>
-    </li>
+      <%= render :partial => 'widgets/artwork', locals: { artwork: a } %>
   <% end %>
   </ul>
 </div>

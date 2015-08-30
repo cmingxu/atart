@@ -1,0 +1,8 @@
+ <div class="items">
+ <a href="/channels/<%= channel.id %>" style="background-image: url(<%= channel.image.url %>);">
+       <img src="<%= channel.image.url %>" alt="">
+       <span class="title"><%= channel.en_name %></span>
+       <span class="cn-title"><%= channel.name %></span>
+       <span class="shares"><span><%= channel.artworks.count %></span> shares</span>
+   </a>
+ </div>
