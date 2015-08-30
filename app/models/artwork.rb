@@ -18,4 +18,7 @@ class Artwork < ActiveRecord::Base
   has_many :channels_artworks
 
   scope :hot, -> { where('1=1') }
+
+  serialize :images, Array
+  mount_uploaders :images, ProductImageUploader
 end

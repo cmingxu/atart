@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :show]
   resources :products, only: [:index, :show]
+  resources :artworks, only: [:show]
   resources :orders, only: [:new, :create, :show] do
     member do
       get :confirm_order_page

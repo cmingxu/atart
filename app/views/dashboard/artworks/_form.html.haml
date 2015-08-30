@@ -1,6 +1,32 @@
 = simple_form_for [:dashboard, @artwork], class: 'form-horizontal' do |f|
-  = f.input :name, label: "作品名称"
+  = f.input :name, label: "作品名称", as: :string
   = f.input :desc, label: "作品描述"
-  = f.input :images, as: :file
+  = f.input :images, input_html: { multiple: true, onchange: 'preview_image(this)' }, as: :file
+  - if @artwork.images
+    .row
+      #image_data
+        - f.object.images.each do |i|
+          %br
+          = image_tag i.url
   .row.text-center
     = f.submit 'Save', class: 'btn btn-primary'
+
+:javascript
+  function preview_image(input){
+    var image_data = "";
+    var rank_data = "";
+      for(var i=0;i<input.files.length;i++)
+        {
+          var file = input.files[i];
+            if(!/image\/\w+/.test(file.type)){
+              alert("请确保文件为图像类型");
+                return false;
+              }
+              var reader = new FileReader();
+              reader.readAsDataURL(file);
+              reader.onload = function(e){
+                image_data += '<div class="uk-width-1-4"><img src="'+ e.target.result+'" class=""/></div>';
+                $('#image_data').append(image_data)
+              }
+            }
+  }

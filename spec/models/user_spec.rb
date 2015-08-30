@@ -24,6 +24,7 @@
 #  area                   :string(255)
 #  provider               :string(255)
 #  uid                    :string(255)
+#  nickname               :string(255)
 #
 
 require 'rails_helper'

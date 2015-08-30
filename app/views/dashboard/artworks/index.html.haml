@@ -10,10 +10,16 @@
   %tbody
     - @artworks.each do |artwork|
       %tr
+        %td= artwork.id
         %td= artwork.name
         %td= artwork.desc
-        %td= artwork.user_id
-        %td= artwork.images
+        %td= artwork.user.nickname || artwork.user.email
+        %td
+          - (artwork.images || []).each do |i|
+            = image_tag i.thumb.url
+        %td
+          = link_to "编辑", edit_dashboard_artwork_path(artwork)
+          = link_to "删除", dashboard_artwork_path(artwork), method: :delete
 
 
 = paginate @artworks

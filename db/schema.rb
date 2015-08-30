@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828152229) do
+ActiveRecord::Schema.define(version: 20150830080427) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -78,17 +78,18 @@ ActiveRecord::Schema.define(version: 20150828152229) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "gallery",     limit: 255
-    t.string   "artist_name", limit: 255
-    t.string   "address",     limit: 255
-    t.decimal  "lng",                     precision: 10
-    t.decimal  "lat",                     precision: 10
+    t.string   "name",               limit: 255
+    t.string   "gallery",            limit: 255
+    t.string   "artist_name",        limit: 255
+    t.string   "address",            limit: 255
+    t.decimal  "lng",                            precision: 10
+    t.decimal  "lat",                            precision: 10
     t.datetime "begin_at"
     t.datetime "end_at"
-    t.datetime "created_at",                                             null: false
-    t.datetime "updated_at",                                             null: false
-    t.boolean  "enabled",     limit: 1,                  default: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
+    t.boolean  "enabled",            limit: 1,                  default: false
+    t.boolean  "show_in_front_page", limit: 1
   end
 
   create_table "messages", force: :cascade do |t|

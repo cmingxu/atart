@@ -9,6 +9,7 @@
 #  link       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  event_id   :integer
 #
 
 class EventMarker < ActiveRecord::Base

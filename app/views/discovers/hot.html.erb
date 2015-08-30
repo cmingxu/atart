@@ -1,106 +1,21 @@
-	<div class="page-content">
-		<ul class="item-list">
-      <% @artworks.each do |a| %>
-			<li>
-      <a href="/work-detail" class="img">
-        <%= image_tag a.images.try(:first).try(:url), width: 363, height: 206 %>
-				</a>
-				<a href="/work-detail" class="title">
-        <%= a.desc %>
-				</a>
-				<span class="poster">
-					<img width="39" height="39" src="<%= asset_path('demo/atart商城_18.jpg') %>" alt="" class="avatar">
-          <%= image_tag a.user.avatar.thumb.url %>
-					<span class="name"><%= a.user.nickname %></span>
-				</span>
-				<span class="location">
-					ATH
-				</span>
-			</li>
-    <% end %>
-				<li class="video-item">
-					<a href="/work-detail" class="img">
-						<img width="363" height="206" src="<%= asset_path('demo/atart发现_03.jpg') %>" alt="atart发现_03.jpg') %>">
-					</a>
-					<a href="/work-detail" class="title">
-						at the venice art biennale 2015, a web of thread turns
-						the japan pavilion's roof into a complex and elaborate
-						maze of materials »
-					</a>
-					<span class="poster">
-						<img width="39" height="39" src="<%= asset_path('demo/atart商城_18.jpg') %>" alt="" class="avatar">
-						<span class="name">done</span>
-					</span>
-					<span class="location">
-						ATH
-					</span>
-				</li>
-					<li class="voice-item">
-						<a href="/work-detail" class="img">
-							<img width="363" height="206" src="<%= asset_path('demo/atart发现_03.jpg') %>" alt="atart发现_03.jpg') %>">
-						</a>
-						<a href="/work-detail" class="title">
-							at the venice art biennale 2015, a web of thread turns
-							the japan pavilion's roof into a complex and elaborate
-							maze of materials »
-						</a>
-						<span class="poster">
-							<span class="name">done</span>
-						</span>
-					<span class="location">
-						ATH
-					</span>
-				</li>
-
-			<li>
-				<a href="/work-detail" class="img">
-					<img width="363" height="206" src="<%= asset_path('demo/atart发现_03.jpg') %>" alt="atart发现_03.jpg') %>">
-				</a>
-				<a href="/work-detail" class="title">
-					at the venice art biennale 2015, a web of thread turns
-					the japan pavilion's roof into a complex and elaborate
-					maze of materials »
-				</a>
-				<span class="poster">
-					<img width="39" height="39" src="<%= asset_path('demo/atart商城_18.jpg') %>" alt="" class="avatar">
-					<span class="name">done</span>
-				</span>
-				<span class="location">
-					ATH
-				</span>
-			</li>
-				<li class="video-item">
-					<a href="/work-detail" class="img">
-						<img width="363" height="206" src="<%= asset_path('demo/atart发现_03.jpg') %>" alt="atart发现_03.jpg') %>">
-					</a>
-					<a href="/work-detail" class="title">
-						at the venice art biennale 2015, a web of thread turns
-						the japan pavilion's roof into a complex and elaborate
-						maze of materials »
-					</a>
-					<span class="poster">
-						<img width="39" height="39" src="<%= asset_path('demo/atart商城_18.jpg') %>" alt="" class="avatar">
-						<span class="name">done</span>
-					</span>
-					<span class="location">
-						ATH
-					</span>
-				</li>
-					<li class="voice-item">
-						<a href="/work-detail" class="img">
-							<img width="363" height="206" src="<%= asset_path('demo/atart发现_03.jpg') %>" alt="atart发现_03.jpg') %>">
-						</a>
-						<a href="/work-detail" class="title">
-							at the venice art biennale 2015, a web of thread turns
-							the japan pavilion's roof into a complex and elaborate
-							maze of materials »
-						</a>
-						<span class="poster">
-							<span class="name">done</span>
-						</span>
-					<span class="location">
-						ATH
-					</span>
-				</li>
-            </ul>
-          </div>
+<div class="page-content">
+  <ul class="item-list">
+    <% @artworks.each do |a| %>
+      <li>
+    <a href="/artworks/<%= a.id %>" class="img">
+      <%= image_tag a.images.try(:first).try(:url), width: 363, height: 206 %>
+    </a>
+    <a href="/work-detail" class="title">
+      <%= a.desc %>
+    </a>
+    <span class="poster">
+      <%= image_tag a.user.avatar.thumb.url, width: 39, height: 39, class: 'avatar' %>
+      <span class="name"><%= a.user.nickname %></span>
+    </span>
+    <span class="location">
+      ATH
+    </span>
+    </li>
+  <% end %>
+  </ul>
+</div>

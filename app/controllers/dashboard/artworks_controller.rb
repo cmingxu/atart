@@ -59,7 +59,7 @@ class Dashboard::ArtworksController < Dashboard::BaseController
   def destroy
     @artwork.destroy
     respond_to do |format|
-      format.html { redirect_to artworks_url, notice: 'Artwork was successfully destroyed.' }
+      format.html { redirect_to dashboard_artworks_url, notice: 'Artwork was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
