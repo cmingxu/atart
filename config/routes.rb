@@ -77,6 +77,12 @@ Rails.application.routes.draw do
   get 'create-order' => 'welcome#create_order'
   get 'cart' => 'welcome#cart'
   get 'order-finish' => 'welcome#order_finish'
+  # user center
+  get 'user-post' => 'welcome#user_center'
+  get 'user-order' => 'welcome#user_order'
+  get 'user-following' => 'welcome#user_following'
+  get 'user-favs' => 'welcome#user_favs'
+  get 'user-message' => 'welcome#user_message'
 
   # END Template Route for static page END
 
