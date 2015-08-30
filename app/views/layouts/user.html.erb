@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<title><%= Setting.title %></title>
+<%= stylesheet_link_tag 'front_page' %>
+<%= javascript_include_tag 'front_page' %>
+<%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render :partial => 'common/header' %>
+<div class="me-detail-page-content">
+  <div class="page-content">
+
+    <div class="detail">
+      <div class="avatar-box">
+        <%= image_tag current_user.avatar.thumb.url, height: 165, width: 165 %>
+        <a href="">+M design office</a>
+        <a href="" class="add-people">123</a>
+        <a href="" class="people-count">345</a>
+      </div>
+    </div>
+    <div class="user-center clearfix">
+      <div class="user-sidebar">
+        <ul>
+          <li><a class="user-post active" href="/dashboard/artworks">我的发布<span></span></a></li>
+          <li><a class="user-order" href="/dashboard/orders">我的订单<span></span></a></li>
+          <li><a class="user-following" href="/dashboard/bookmarks">我的关注<span></span></a></li>
+          <li><a class="user-favs" href="user-favs">我的收藏<span></span></a></li>
+          <li><a class="user-message" href="/dashboard/messages">消息中心<span></span></a></li>
+        </ul>
+      </div>
+      <div class="user-center-content">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render :partial => 'common/footer' %>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+      <li>
+      <a class="title event" href="/events/<%= event.id %>" id="event-<%= event.id %>" style="background-image: url(<%= event.gallery.url %>);">
+      <%= image_tag event.gallery.url %>
+      <p class="vertical">
+      现<br/>场
+      </p>
+      <span class="desc">
+        <%= event.name %>
+        <br><span class="more">more</span>
+      </span>
+      <a href="" class="location">
+        <span>photo by <%= event.artist_name %> / courtesy fondazione prada</span>
+      </a>
+    </a>
+    </li>

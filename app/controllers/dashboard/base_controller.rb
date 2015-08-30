@@ -1,8 +1,9 @@
 class Dashboard::BaseController < ApplicationController
-  layout "dashboard"
+  layout "user"
   before_filter :authenticate_user!
 
   def index
+    redirect_to dashboard_artworks_path
   end
 
   def settings
