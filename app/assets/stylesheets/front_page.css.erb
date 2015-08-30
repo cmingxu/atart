@@ -1025,7 +1025,7 @@ body.login-page{
     box-sizing: border-box;
     position: relative;
     width: auto;
-    max-width: 1125px;
+    width: 1145px;
     padding: 0 20px;
 }
 
@@ -1713,11 +1713,96 @@ table.format th{
     margin-left: 3%;
     width: 47%;
 }
+@media (max-width: 1145px){
+	.page-content{
+		width: auto;
+	}
+	.span-left{
+		width: 61%;
+	}
+	.span-right{
+		width: 35%;
+	}
+}
 @media (max-width: 768px) {
     .page-content{
     	width: auto;
     	padding-left: 20px;
     	padding-right: 20px;
+    }
+    .span-left, .span-right{
+    	float: none;
+    	width: 100%;
+    }
+    .user-center .user-center-content .item-list li{
+    	width: 95%;
+    }
+    .detail .avatar-box .add-people{
+    	left: 200px;
+    }
+    .item-list li .title{
+    	height: 40px;
+    	overflow: hidden;
+    }
+    .tab-content{
+    	display: block;
+    }
+    .switch-tabs .tab-navs a.tab{
+    	display: none;
+    }
+    #support .comments .title, 
+    #support .comments .add-comment{
+    	display: none;
+    }
+    .tab-content{
+    	margin-bottom: 30px;
+    	border-bottom: 1px solid #dedede;
+    }
+    .comments ul li{
+    	padding-left: 15px;
+    	padding-top: 30px;
+    }
+    .comments ul li .date{
+    	right: 65px;
+    }
+    .raise-bottom .full{
+    	display: none;
+    }
+    .raise-bottom .right{
+    	position: relative;
+    	top: 0;
+    }
+    .onsite-detail .avatar, .comments .avatar{
+    	width: 40px;
+    	height: 40px;
+    	left: auto;
+    	right: 15px;
+    	top: 15px;
+    }
+    .user-center .user-center-content{
+    	width: auto;
+    	float: none;
+    }
+    .order-content{
+    	width: 100%;
+    	overflow: auto;
+    }
+    .work-meta .add-people {
+	    margin-left: 30px;
+	    margin-top: 30px;
+	}
+	.work-meta{
+		height: 130px;
+	}
+	.work-meta .work-information{
+		padding-left: 0;
+	}
+	.work-vote{
+		text-align: left;
+	}
+    .onsite-detail .avatar img, .comments .avatar img{
+    	width: 40px;
+    	height: 40px;
     }
     .comments .add-comment {
     	width: 100%;
@@ -1775,6 +1860,7 @@ table.format th{
 	}
 	.comments p.comments{
 		line-height: 1.5;
+		text-align: justify;
 	}
 	.item-list li {
 	    margin-left: 3%;
