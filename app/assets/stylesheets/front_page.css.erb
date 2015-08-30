@@ -1615,3 +1615,70 @@ table.format th,table.format td{
 table.format th{
 	background: #f5f5f5;
 }
+.user-center .user-sidebar{
+	width: 365px;
+	float: left;
+}
+.user-center .user-sidebar ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.user-center .user-sidebar ul li a{
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px solid #ececec;
+	height: 96px;
+	line-height: 96px;
+	width: 285px;
+	font-size: 22px;
+	text-align: center;
+	color: #333;
+	text-decoration: none;
+	background-position: left;
+	background-repeat: no-repeat;
+}
+.user-center .user-sidebar ul li a span{
+	display: block;
+	width: 96px;
+	height: 96px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-position: right;
+	background-repeat: no-repeat;
+	background-image: url(<%= asset_path('user-caret.png') %>)
+}
+.user-center .user-sidebar ul li a:hover span, .user-center .user-sidebar ul li a.active span{
+	background-image: url(<%= asset_path('user-caret-active.png') %>)	
+}
+.user-center .user-sidebar ul li a.user-post{
+	background-image: url(<%= asset_path('user-post.png') %>);
+}
+.user-center .user-sidebar ul li a.user-order{
+	background-image: url(<%= asset_path('user-order.png') %>);
+}
+.user-center .user-sidebar ul li a.user-following{
+	background-image: url(<%= asset_path('user-following.png') %>);
+}
+.user-center .user-sidebar ul li a.user-favs{
+	background-image: url(<%= asset_path('user-favs.png') %>);
+}
+.user-center .user-sidebar ul li a.user-message{
+	background-image: url(<%= asset_path('user-message.png') %>);
+}
+.user-center .user-center-content{
+	width: 755px;
+	float: right;
+	margin-bottom: 100px;
+}
+.user-center .user-center-content .order-content{
+	width: 100%;
+}
+.user-center .user-center-content .comments ul li{
+	padding-bottom: 15px;
+}
+.user-center .user-center-content .item-list li {
+    margin-left: 3%;
+    width: 47%;
+}
