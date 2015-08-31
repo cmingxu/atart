@@ -67,6 +67,8 @@ Rails.application.routes.draw do
 
   get 'me' => 'welcome#me'
   
+  patch 'add_cart', 'application#add_cart'
+  patch 'remove_cart', 'application#remove_cart'
   # START Template Route for static page. START
 
   get 'location' => 'welcome#location'

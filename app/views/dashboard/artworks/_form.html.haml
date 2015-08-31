@@ -1,5 +1,6 @@
 = simple_form_for [:dashboard, @artwork], class: 'form-horizontal' do |f|
   = f.input :name, label: "作品名称", as: :string
+  = f.input :address, label: "拍摄地址", as: :string
   = f.input :desc, label: "作品描述"
   = f.input :images, input_html: { multiple: true, onchange: 'preview_image(this)' }, as: :file
   - if @artwork.images

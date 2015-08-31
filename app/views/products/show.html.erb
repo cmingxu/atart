@@ -1,20 +1,18 @@
 <div class="work-large-banner">
     <div class="work-large-banner-inner">
-        <%= image_tag @artwork.images.try(:first).try(:url) %>
+        <%= image_tag @product.images.try(:first).try(:url) %>
     </div>
 </div>
 <div class="page-content work-detail clearfix">
-  <p class="work-title"> <%= @artwork.name %> <small>
+  <p class="work-title"> <%= @product.name %> <small>
     <%= image_tag "location.png" %>
-    <%= @artwork.address %>
+    <%= @product.address %>
 </small></p>
     <div class="work-meta">
         <a href="#" class="avatar">
-          <%= image_tag @artwork.user.avatar.thumb.url %>
         </a>
         <div class="work-information">
-            <div class="username"><%= @artwork.user.nickname %></div>
-            <p class="upload-date">上传时间：<%= @artwork.created_at.strftime("%Y-%m-%d") %></p>
+            <p class="upload-date">上传时间：<%= @product.created_at.strftime("%Y-%m-%d") %></p>
         </div>
         <a class="add-people" href="#">
           <%= image_tag "add-people.png" %>
@@ -23,7 +21,7 @@
 
     <div class="onsite-detail">
         <p class="description">
-        <%= @artwork.desc %>
+        <%= @product.desc %>
         </p>
     </div>
 
@@ -100,4 +98,5 @@
 
     </div>
 </div>
+
 
