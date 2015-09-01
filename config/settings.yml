@@ -11,6 +11,9 @@ default: &default
   qq_connect_appid: "101106307"
   qq_connect_appkey: "975f8d8c239db386003163269962e95f"
 
+  weibo_appid: "3681752882"
+  weibo_appkey: "8d8daaea21648dc6ee874c8c4b24b8e0"
+
 
 production:
   <<: *default

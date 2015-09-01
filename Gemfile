@@ -77,6 +77,7 @@ gem 'c3-rails'
 gem 'angularjs-rails'
 gem 'omniauth-qq-connect'
 gem 'omniauth-wechat-oauth2'
+gem 'omniauth-weibo-oauth2'
 gem 'alipay', '~> 0.8.0'
 gem 'simple_form'
 
