@@ -80,4 +80,5 @@ gem 'omniauth-wechat-oauth2'
 gem 'omniauth-weibo-oauth2'
 gem 'alipay', '~> 0.8.0'
 gem 'simple_form'
+gem 'awesome_print'
 
