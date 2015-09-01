@@ -10,6 +10,12 @@ Rails.application.routes.draw do
       patch :confirm_order
       post :notify
     end
+
+    collection do
+      patch :add_cart
+      patch :delete_cart
+      get   :cart
+    end
   end
 
   resource :discover do

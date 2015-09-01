@@ -9,18 +9,12 @@ class ApplicationController < ActionController::Base
   before_filter :load_cart
 
   def load_cart
+    ap session[:cart_text]
     @cart = Cart.from_text(session[:cart_text] || "")
   end
 
   def store_cart
     session[:cart_text] = @cart.to_s
-  end
-
-  def add_cart
-    @cart.add_line_item(LineItem.from_text(params[:text]))
-  end
-
-  def delete_cart
-    @cart.remove_line_item(LineItem.from_text(params[:text]))
+    ap session[:cart_text]
   end
 end

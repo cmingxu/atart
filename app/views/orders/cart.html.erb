@@ -1,0 +1,39 @@
+<div class="page-content work-detail clearfix">
+    <div class="order-content">
+        <p>购物车列表</p>
+        <table class="format">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>相关艺术品</th>
+                    <th>艺术家</th>
+                    <th>价格</th>
+                    <th>数量</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @cart.line_items.each_with_index do |li, index| %>
+                <tr>
+                    <td>#<%= index + 1 %></td>
+                    <td><%= li.product.name %></td>
+                    <td><%= li.product.artist.name %></td>
+                    <td><%= li.price %></td>
+                    <td><%= li.quantity %></td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+        <p class="cart-description">
+            购买说明： 卡特琳娜毕业于Samara艺术学校绘画专业，Petrov-Vodkin艺术学院设计系及Michael Musorin摄影学院，她是当代摄影艺术家之一。
+        </p>
+        <p class="cart-description">
+            购买说明： Samara艺术学卡特琳娜毕业于Samara艺术术家之一,设计系及Michael Musorin摄。
+        </p>
+        <div class="actions">
+            <form action="">
+                <button class="large-red-btn">确认购买</button>                
+            </form>
+        </div>
+
+    </div>
+</div>

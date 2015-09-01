@@ -13,7 +13,7 @@ class Cart
   end
 
   def add_line_item(li)
-    l = self.line_items.select{|li| li.product_id == li.product_id }
+    l = self.line_items.select{|li| li.product_id == li.product_id }.first
 
     if l
       l.quantity += li.quantity
@@ -23,7 +23,7 @@ class Cart
   end
 
   def remove_line_item(li)
-    l = self.line_items.select{|li| li.product_id == li.product_id }
+    l = self.line_items.select{|li| li.product_id == li.product_id }.first
     if li.quantity >= l.quantity
       self.line_items.delete(li)
     else
@@ -47,6 +47,10 @@ class LineItem
 
   def price
     Product.find(@product_id).price * quantity.to_i
+  end
+
+  def product
+    @product ||= Product.find(@product_id)
   end
 
   def self.from_text(str)

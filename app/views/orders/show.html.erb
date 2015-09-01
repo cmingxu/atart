@@ -1,0 +1,35 @@
+<div class="page-content work-detail clearfix">
+    <div class="order-content">
+       <% if @order.new_placed? %>
+        <p>您的订单已生成， 编号#<%= @order.decorated_id %>, 请尽快支付</p>
+      <% end %>
+        <table class="format">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>相关艺术品</th>
+                    <th>艺术家</th>
+                    <th>运费</th>
+                    <th>价格</th>
+                    <th>定金</th>
+                    <th>数量</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#1</td>
+                    <td>葵花籽</td>
+                    <td>艾未未</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="actions">
+            <button class="large-red-btn">微信支付</button>
+            <button class="large-red-btn">支付宝支付</button> 
+        </div>  
+    </div>
+</div>

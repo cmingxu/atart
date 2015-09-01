@@ -12,13 +12,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = current_user.orders.build order_param
-    @product = Product.find params[:product_id]
-    @order.product = @product
+    @order = Order.from_cart(@cart)
+    @order.user = current_user
     if @order.save
       redirect_to order_path(@order), notice: "下订单成功"
     else
-      render :new
+      render cart_orders_path
     end
   end
 
@@ -38,9 +37,26 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find params[:id]
   end
 
   def alipay_notify
+  end
+
+
+  def add_cart
+    @cart.add_line_item(LineItem.from_text(params[:text]))
+    store_cart
+    head :ok
+  end
+
+  def delete_cart
+    @cart.remove_line_item(LineItem.from_text(params[:text]))
+    store_cart
+    head :ok
+  end
+
+  def cart
   end
 
   private

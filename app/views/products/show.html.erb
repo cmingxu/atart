@@ -25,6 +25,10 @@
         </p>
     </div>
 
+    <%= link_to "Add Cart", "#", id: :add_to_cart, data: { product_id: @product.id } %>
+    /
+    <%= link_to "购物车", cart_orders_path %>
+
     <div class="work-vote">
         <div class="vote-detail">
             <p>表个态</p>
@@ -100,3 +104,14 @@
 </div>
 
 
+<%= javascript_tag do %>
+  $(document).ready(function () {
+    $('#add_to_cart').click(function(){
+      $.ajax({
+        url: '/orders/add_cart',
+        method: 'patch',
+        data: "text=" + $('#add_to_cart').data("product-id") + ',1'
+      })
+    })
+  });
+<% end %>
