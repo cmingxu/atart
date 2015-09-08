@@ -10,6 +10,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :integer
+#  address    :string(255)
+#  location   :string(255)
 #
 
 FactoryGirl.define do

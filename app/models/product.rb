@@ -13,14 +13,28 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  enabled        :boolean          default(TRUE)
+#  address        :string(255)
+#  en_name        :string(255)
+#  width          :string(255)
+#  height         :string(255)
+#  thickness      :string(255)
+#  date_back      :string(255)
+#  style          :string(255)
+#  material       :string(255)
+#  position       :integer
 #
 
 class Product < ActiveRecord::Base
+  STYLE = %w(抽象 具体 写意 数字艺术 极简主义 弱象)
+  MATERIAL = %w( 布面油彩 纸本绘画 摄影喷绘 雕塑 装置 描绘 行为艺术 多媒体 印刷版画 绘画 综合材料 )
   validates :artist_id, presence: { message: "艺术家不能空" }
   validates :name, presence: { message: "作品名字不能空" }
   validates :name, uniqueness: { scope: :artist_id, message: "产品名字重复了" }
   validates :price, presence: { message: "价格必须" }
   validates :price, numericality: { message: "价格需是数字" }
+  validates :width, presence: { message: "宽度不能空" }
+  validates :height, presence: { message: "长度不能空" }
+  validates :en_name, presence: { message: "英文名称不能空" }
 
   serialize :images, Array
 

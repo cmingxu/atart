@@ -1,6 +1,11 @@
-= simple_form_for [:admin, @artist], html: { class: 'form-horizontal' } do |f|
+= simple_form_for [:admin, @artist], html: { class: 'form-horizontal', multipart: true }, defaults: { wrapper_html:  { class:  "col-md-6" } } do |f|
   = f.input :name, label: "艺术家姓名"
-  = f.input :short_desc, label: "描述"
-  = f.input :desc, label: "详情"
+  = f.input :en_name, label: "艺术家(英文)"
+  = f.input :name_initial, label: "艺术家首字母"
+  = f.input :avatar, label: "头像", as: :file
+  = f.input :short_desc, label: "描述", as: :text, wrapper_html: { class: "col-md-12" }
+  = f.input :en_short_desc, label: "英文描述", as: :text, wrapper_html: { class: "col-md-12" }
+  = f.input :desc, label: "详情", as: :text, wrapper_html: { class: "col-md-12" }
+  = f.input :en_desc, label: "英文详情", as: :text, wrapper_html: { class: "col-md-12" }
   .row.text-center
     = f.submit "保存", class: 'btn btn-primary'

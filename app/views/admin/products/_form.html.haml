@@ -1,8 +1,16 @@
 = simple_form_for [:admin, @product], html: { class: 'form-horizontal', multipart: true }, defaults: { wrapper_html: { class: 'col-md-6'} }do |f|
-  = f.input :artist_id, collection: Artist.all, value_method: :id
+  = f.input :artist_id, collection: Artist.all, value_method: :id, :label => "艺术家"
   = f.input :name, label: "名称", :as => :string
+  = f.input :en_name, label: "英文名称", :as => :string
+  = f.input :width, label: "宽度", :as => :string
+  = f.input :height, label: "高度", :as => :string
   = f.input :price, label: "价格", :as => :integer
-  = f.input :desc, label: "详情", as: :string
+  = f.input :thickness, label: "厚度", :as => :string
+  = f.input :date_back, label: "年份", :as => :string
+  = f.input :style, collection: Product::STYLE, :label => "风格"
+  = f.input :material, collection: Product::MATERIAL, :label => "材质"
+
+  = f.input :desc, label: "详情", as: :text, wrapper_html: { class: "col-md-12" }
   = f.input :images, input_html: { multiple: true, onchange: 'preview_image(this)' }, as: :file
 
   .clearfix

@@ -13,6 +13,15 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  enabled        :boolean          default(TRUE)
+#  address        :string(255)
+#  en_name        :string(255)
+#  width          :string(255)
+#  height         :string(255)
+#  thickness      :string(255)
+#  date_back      :string(255)
+#  style          :string(255)
+#  material       :string(255)
+#  position       :integer
 #
 
 FactoryGirl.define do
