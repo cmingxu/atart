@@ -1,0 +1,33 @@
+%h1 Listing fund_raise_supports
+
+%table
+  %thead
+    %tr
+      %th Fund raise
+      %th User
+      %th Amount
+      %th Message
+      %th Status
+      %th Pay method
+      %th Pay bank
+      %th
+      %th
+      %th
+
+  %tbody
+    - @fund_raise_supports.each do |fund_raise_support|
+      %tr
+        %td= fund_raise_support.fund_raise_id
+        %td= fund_raise_support.user_id
+        %td= fund_raise_support.amount
+        %td= fund_raise_support.message
+        %td= fund_raise_support.status
+        %td= fund_raise_support.pay_method
+        %td= fund_raise_support.pay_bank
+        %td= link_to 'Show', fund_raise_support
+        %td= link_to 'Edit', edit_fund_raise_support_path(fund_raise_support)
+        %td= link_to 'Destroy', fund_raise_support, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Fund raise support', new_fund_raise_support_path

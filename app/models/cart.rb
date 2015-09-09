@@ -35,6 +35,10 @@ class Cart
     self.line_items.map(&:to_s).join(";")
   end
 
+  def empty
+    self.line_items = []
+  end
+
 end
 
 class LineItem

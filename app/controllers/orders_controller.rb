@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
     @order = Order.from_cart(@cart)
     @order.user = current_user
     if @order.save
+      @cart.empty
       redirect_to order_path(@order), notice: "下订单成功"
     else
       render cart_orders_path
@@ -23,14 +24,15 @@ class OrdersController < ApplicationController
 
   def confirm_order
     @order = Order.find_by_id(@order)
-    Alipay::Service.create_direct_pay_by_user_url(
-      out_trade_no: '20150401000-0001',
-      subject: 'Order Name',
-      price: '10.00',
-      quantity: 12,
+    url = Alipay::Service.create_direct_pay_by_user_url(
+      out_trade_no: @order.decorated_id,
+      subject: @order.product.name,
+      price: @order.price,
+      quantity: 1,
       return_url: order_url(@order),
       notify_url: notify_order_url(@order)
     )
+    render :json => { url: url }
   end
 
   def confirm_order_page
@@ -40,7 +42,10 @@ class OrdersController < ApplicationController
     @order = Order.find params[:id]
   end
 
-  def alipay_notify
+  def notify
+    @order = Order.find params[:id]
+    @order.pay!
+    head :ok
   end
 
 

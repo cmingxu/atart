@@ -10,6 +10,7 @@
   = f.input :style, collection: Product::STYLE, :label => "风格"
   = f.input :material, collection: Product::MATERIAL, :label => "材质"
 
+  = f.input :short_desc, label: "简介", as: :text, wrapper_html: { class: "col-md-12" }
   = f.input :desc, label: "详情", as: :text, wrapper_html: { class: "col-md-12" }
   = f.input :images, input_html: { multiple: true, onchange: 'preview_image(this)' }, as: :file
 

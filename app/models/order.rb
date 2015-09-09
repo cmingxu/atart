@@ -18,6 +18,7 @@
 #  contact_name   :string(255)
 #  contact_phone  :string(255)
 #  remark         :text(65535)
+#  price          :decimal(8, 2)
 #
 
 class Order < ActiveRecord::Base
@@ -46,6 +47,7 @@ class Order < ActiveRecord::Base
     new do |o|
       o.product_id = cart.line_items.first.product_id
       o.artist_id  = cart.line_items.first.product.artist_id
+      o.price = self.product.price
     end
   end
 
@@ -61,7 +63,7 @@ class Order < ActiveRecord::Base
     end
 
     event :pay do
-      transitions from: [:confirmed], to: [:paid]
+      transitions from: [:new_placed, :confirmed], to: [:paid]
     end
 
     event :cancel do
@@ -70,6 +72,15 @@ class Order < ActiveRecord::Base
 
     event :ship do
       transitions from: [:paid], to: [:shiped]
+    end
+  end
+
+  def status_in_readable_format
+    case self.status.to_sym
+    when :new_placed then "未支付"
+    when :paid then "已支付"
+    when :canceled then "已取消"
+    when :shiped then "已配送"
     end
   end
 end

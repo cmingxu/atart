@@ -6,22 +6,41 @@
         <th>序号</th>
         <th>相关艺术品</th>
         <th>艺术家</th>
-        <th>运费</th>
         <th>价格</th>
-        <th>定金</th>
         <th>数量</th>
+        <th>状态</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>#1</td>
-      <td>葵花籽</td>
-      <td>艾未未</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+
+    <% @orders.each_with_index do |order, index| %>
+      <tr>
+      <td><%= index + 1 %></td>
+      <td><%= order.product.name %></td>
+      <td><%= order.product.artist.name %></td>
+      <td><%= order.price %></td>
+      <td><%= 1 %></td>
+      <td>
+      <%= order.status_in_readable_format  %></td>
+    <td>
+      <% if order.new_placed? %>
+          <button class="small-red-btn", id='pay_btn' data-order-id="<%= order.id %>">支付宝支付</button>
+      <% end %>
+    </td>
     </tr>
+  <% end %>
     </tbody>
   </table>
 </div>
+<%= javascript_tag do %>
+  $(document).ready(function(){
+    $('#pay_btn').click(function(){
+    $.ajax({
+      url: "/orders/" + $(this).data('order-id') + "/confirm_order",
+      method: "PATCH",
+    }).done(function(response){
+      if(response.url){ window.location.href = response.url; }
+      })
+      })});
+<% end %>

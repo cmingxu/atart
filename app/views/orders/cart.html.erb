@@ -30,9 +30,9 @@
             购买说明： Samara艺术学卡特琳娜毕业于Samara艺术术家之一,设计系及Michael Musorin摄。
         </p>
         <div class="actions">
-            <form action="">
-                <button class="large-red-btn">确认购买</button>                
-            </form>
+          <%= form_tag orders_path  do %>
+                <button class="large-red-btn" type='submit'>确认购买</button>
+              <% end %>
         </div>
 
     </div>

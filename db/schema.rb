@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908000548) do
+ActiveRecord::Schema.define(version: 20150909155633) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -100,6 +100,34 @@ ActiveRecord::Schema.define(version: 20150908000548) do
     t.boolean  "show_in_front_page", limit: 1
   end
 
+  create_table "fund_raise_supports", force: :cascade do |t|
+    t.integer  "fund_raise_id", limit: 4
+    t.integer  "user_id",       limit: 4
+    t.integer  "amount",        limit: 4
+    t.text     "message",       limit: 65535
+    t.string   "status",        limit: 255
+    t.string   "pay_method",    limit: 255
+    t.string   "pay_bank",      limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "fund_raisings", force: :cascade do |t|
+    t.string   "name",           limit: 255
+    t.string   "en_name",        limit: 255
+    t.string   "image",          limit: 255
+    t.integer  "moderator_id",   limit: 4
+    t.integer  "user_id",        limit: 4
+    t.integer  "target",         limit: 4
+    t.integer  "current_raised", limit: 4
+    t.datetime "begin_at"
+    t.datetime "end_at"
+    t.text     "story",          limit: 65535
+    t.integer  "each_support",   limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
   create_table "messages", force: :cascade do |t|
     t.integer  "send_from_id", limit: 4
     t.integer  "send_to_id",   limit: 4
@@ -124,6 +152,7 @@ ActiveRecord::Schema.define(version: 20150908000548) do
     t.string   "contact_name",   limit: 255
     t.string   "contact_phone",  limit: 255
     t.text     "remark",         limit: 65535
+    t.decimal  "price",                        precision: 8, scale: 2
   end
 
   create_table "products", force: :cascade do |t|

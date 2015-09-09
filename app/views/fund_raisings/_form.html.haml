@@ -1,0 +1,18 @@
+= simple_form_for(@fund_raising) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :en_name
+    = f.input :image
+    = f.input :moderator_id
+    = f.input :user_id
+    = f.input :target
+    = f.input :current_raised
+    = f.input :begin_at
+    = f.input :end_at
+    = f.input :story
+    = f.input :each_support
+
+  .form-actions
+    = f.button :submit

@@ -18,6 +18,7 @@
 #  contact_name   :string(255)
 #  contact_phone  :string(255)
 #  remark         :text(65535)
+#  price          :decimal(8, 2)
 #
 
 require 'rails_helper'

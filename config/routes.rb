@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   resources :events, only: [:index, :show]
   resources :products, only: [:index, :show]
   resources :artworks, only: [:show]
@@ -50,6 +52,9 @@ Rails.application.routes.draw do
       patch :toggle, on: :member
     end
     resources :comments
+    resources :fund_raisings do
+      resources :fund_raise_supports
+    end
   end
 
   namespace :dashboard do

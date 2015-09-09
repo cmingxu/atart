@@ -13,7 +13,9 @@
         %td= artwork.name
         %td= artwork.desc
         %td= artwork.user_id
-        %td= artwork.images
+        %td
+          - artwork.images.each do |i|
+            = image_tag i.thumb.url
 
 
 = paginate @artworks

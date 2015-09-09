@@ -1,0 +1,41 @@
+%h1 Listing fund_raisings
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th En name
+      %th Image
+      %th Moderator
+      %th User
+      %th Target
+      %th Current raised
+      %th Begin at
+      %th End at
+      %th Story
+      %th Each support
+      %th
+      %th
+      %th
+
+  %tbody
+    - @fund_raisings.each do |fund_raising|
+      %tr
+        %td= fund_raising.name
+        %td= fund_raising.en_name
+        %td= fund_raising.image
+        %td= fund_raising.moderator_id
+        %td= fund_raising.user_id
+        %td= fund_raising.target
+        %td= fund_raising.current_raised
+        %td= fund_raising.begin_at
+        %td= fund_raising.end_at
+        %td= fund_raising.story
+        %td= fund_raising.each_support
+        %td= link_to 'Show', fund_raising
+        %td= link_to 'Edit', edit_fund_raising_path(fund_raising)
+        %td= link_to 'Destroy', fund_raising, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Fund raising', new_fund_raising_path

@@ -9,12 +9,10 @@ class ApplicationController < ActionController::Base
   before_filter :load_cart
 
   def load_cart
-    ap session[:cart_text]
     @cart = Cart.from_text(session[:cart_text] || "")
   end
 
   def store_cart
     session[:cart_text] = @cart.to_s
-    ap session[:cart_text]
   end
 end

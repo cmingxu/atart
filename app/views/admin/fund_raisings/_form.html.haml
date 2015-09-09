@@ -1,0 +1,12 @@
+= simple_form_for([:admin, @fund_raising], html: { class: 'form-horizontal', multipart: true }, defaults: { wrapper_html: { class: 'col-md-6' }}) do |f|
+  = f.input :name, label: '名称'
+  = f.input :en_name, label: '名称（英文）'
+  = f.input :target, label: '总数'
+  = f.input :each_support, label: '单笔筹集'
+  = f.input :image, as: :file
+  = f.input :begin_at, label: '开始', input_html: { class: 'datetimepicker' }, value: @fund_raising.begin_at.try(:strftime, '%Y-%m-%d %H:%M')
+  = f.input :end_at, label: '结束',   input_html: { class: 'datetimepicker' }, value: @fund_raising.begin_at.try(:strftime, '%Y-%m-%d %H:%M')
+  = f.input :story, as: :text, label: '故事', wrapper_html: { class: 'col-md-12' } 
+
+  .form-actions
+    = f.button :submit
