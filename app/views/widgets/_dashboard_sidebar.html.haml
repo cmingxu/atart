@@ -4,3 +4,5 @@
   %li= link_to "我的关注", dashboard_bookmarks_path
   %li= link_to "消息中心", dashboard_messages_path
   %li= link_to "账户设置", dashboard_settings_path
+  - if current_user.artist?
+    %li= link_to "众筹", dashboard_fund_raisings_path

@@ -1,5 +1,5 @@
 class Admin::ArtworksController < Admin::BaseController
-  before_action :set_artwork, only: [:show, :edit, :update, :destroy]
+  before_action :set_artwork, only: [:show, :edit, :update, :destroy, :toggle]
   before_filter do
     @breadcrumb = [OpenStruct.new(href: admin_artworks_path, text: "艺术品管理")]
   end
@@ -52,6 +52,12 @@ class Admin::ArtworksController < Admin::BaseController
         format.json { render json: @artwork.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def toggle
+    @artwork.enabled = !@artwork.enabled
+    @artwork.save
+    head :ok
   end
 
   # DELETE /artworks/1

@@ -5,7 +5,7 @@
       <span class="title">第一风景会员</span>
       <a class="register" href="">已有账号？点此登陆</a>
     </div>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
       <span class="login-input username">
         <%= f.email_field :email, placeholder: "邮箱/用户名/已验证手机" %>
       </span>

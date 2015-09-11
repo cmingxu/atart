@@ -26,4 +26,8 @@ class Artwork < ActiveRecord::Base
 
   serialize :images, Array
   mount_uploaders :images, ProductImageUploader
+
+  def cover
+    images.first
+  end
 end

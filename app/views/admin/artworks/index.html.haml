@@ -5,6 +5,7 @@
       %th 上传者
       %th 作品名称
       %th 作品图片
+      %th 发布
       %th 操作
 
   %tbody
@@ -16,6 +17,8 @@
         %td
           - artwork.images.each do |i|
             = image_tag i.thumb.url
+        %td
+          = check_box_tag "", "", artwork.enabled?, class: 'check_box_toggle', data: { path: toggle_admin_artwork_path(artwork) }
 
 
 = paginate @artworks

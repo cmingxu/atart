@@ -1,12 +1,25 @@
 %table.table
   %thead
     %th 序号
-    %th 头像
     %th 用户名
+    %th 头像
     %th 发布
     %th 订单
     %th 注册时间
-    %th 修改时间
+    %th 最后登录时间
+    %th 艺术家？
     %th 操作
-  
+
+  %tbody
+    - @users.each_with_index do |u, index|
+      %tr
+        %td= index + 1
+        %td= u.nickname || u.email
+        %td= image_tag u.avatar.thumb.url
+        %td= u.artworks.count
+        %td= u.orders.count
+        %td= u.created_at.to_s(:tf_db_no_sec)
+        %td= u.last_sign_in_at.try(:to_s, :tf_db_no_sec)
+        %td= check_box_tag "", "", u.artist?, class: 'check_box_toggle', data: { path: make_artist_admin_user_path(u) }
+
 = paginate @users

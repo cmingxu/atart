@@ -42,10 +42,11 @@ class User < ActiveRecord::Base
   has_many :bookmarks, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :artworks, dependent: :destroy
+  has_many :fund_raisings, dependent: :destroy
   has_many :messages, foreign_key: :send_to_id, dependent: :destroy
 
   mount_uploader :avatar, UserAvatarUploader
-
+  serialize :roles
 
   def self.from_omniauth(auth)
     Rails.logger.error auth
@@ -58,20 +59,41 @@ class User < ActiveRecord::Base
   end
 
   before_create do |u|
-    u.roles = 'user'
+    u.roles = ['user']
   end
 
   def user?
-    self.roles =~ Regexp.new('user')
+    self.roles.include? "user"
   end
 
   def admin?
-    self.roles =~ Regexp.new('admin')
+    self.roles.include?("admin")
+  end
+
+  def artist?
+    self.roles.include?("artist")
   end
 
   def make_admin!
-    self.roles += ",admin"
+    self.roles << "admin"
+    self.roles.uniq!
     self.save!
+  end
+
+  def remove_admin!
+    self.roles.delete("admin")
+    self.save
+  end
+
+  def make_artist!
+    self.roles << "artist"
+    self.roles.uniq!
+    self.save!
+  end
+
+  def remove_artist!
+    self.roles.delete("artist")
+    self.save
   end
 
   def roles_in_words

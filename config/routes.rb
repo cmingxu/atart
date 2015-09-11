@@ -33,12 +33,18 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/' => "base#index"
     get '/statistics' => 'base#statistics'
-    resources :artworks
+    resources :artworks do
+      patch :toggle, on: :member
+    end
     resources :artists
     resources :products do
       patch :toggle, on: :member
     end
-    resources :users
+    resources :users do
+      member do
+        patch :make_artist
+      end
+    end
     resources :messages
     resources :bookmarks
     resources :orders
@@ -54,6 +60,9 @@ Rails.application.routes.draw do
     resources :comments
     resources :fund_raisings do
       resources :fund_raise_supports
+      member do
+        patch :toggle
+      end
     end
   end
 
@@ -65,6 +74,9 @@ Rails.application.routes.draw do
     patch "update_avatar" => 'base#update_avatar'
     patch "change_password" => 'base#change_password'
 
+    resources :fund_raisings do
+      resources :fund_raise_supports
+    end
     resources :messages
     resources :artworks
     resources :orders
@@ -98,7 +110,8 @@ Rails.application.routes.draw do
   # END Template Route for static page END
 
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registraions: 'users/registraions'
   }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

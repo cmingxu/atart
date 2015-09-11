@@ -1,18 +1,15 @@
+<%= link_to "新artwork", new_dashboard_artwork_path %>
+
  <ul class="item-list">
+   <% @artworks.each do |artwork| %>
      <li>
-         <a href="#img-item" class="img">
-             <img width="363" height="206" src="assets/demo/atart发现_03.jpg" alt="atart发现_03.jpg">
+         <a href="<%= edit_dashboard_artwork_path(artwork) %>" class="img">
+             <%= image_tag artwork.cover.url, height: 206, width: 363 %>
          </a>
-         <a href="#img-item" class="title">
-             at the venice art biennale 2015, a web of thread turns
-             the japan pavilion's roof into a complex and elaborate
-             maze of materials »
+         <a href="<%= edit_dashboard_artwork_path(artwork) %>" class="title">
+
+           <%= artwork.desc %>
          </a>
-         <span class="poster">
-             <a href=""><img width="39" height="39" src="assets/demo/atart商城_18.jpg" alt="" class="avatar"><span class="name">done</span></a>
-         </span>
-         <span class="location">
-             ATH
-         </span>
      </li>
+   <% end %>
  </ul>

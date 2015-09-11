@@ -3,7 +3,7 @@
 		<div class="login-box">
 			<div class="title-bar">
 				<span class="title">第一风景会员</span>
-				<a class="register" href="">立即注册</a>
+				<a class="register" href="<%= new_user_registration_path %>">立即注册</a>
 			</div>
 
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

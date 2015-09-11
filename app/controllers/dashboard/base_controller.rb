@@ -1,6 +1,13 @@
 class Dashboard::BaseController < ApplicationController
   layout "user"
   before_filter :authenticate_user!
+  before_filter :dashboard_required!
+
+  def dashboard_required!
+    if !current_user.artist?
+      redirect_to root_path and return
+    end
+  end
 
   def index
     redirect_to dashboard_artworks_path

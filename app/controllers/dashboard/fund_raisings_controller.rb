@@ -1,5 +1,5 @@
-class Admin::FundRaisingsController < Admin::BaseController
-  before_action :set_fund_raising, only: [:show, :edit, :update, :destroy, :toggle]
+class Dashboard::FundRaisingsController < Dashboard::BaseController
+  before_action :set_fund_raising, only: [:show, :edit, :update, :destroy]
 
   # GET /fund_raisings
   # GET /fund_raisings.json
@@ -24,11 +24,11 @@ class Admin::FundRaisingsController < Admin::BaseController
   # POST /fund_raisings
   # POST /fund_raisings.json
   def create
-    @fund_raising = FundRaising.new(fund_raising_params)
+    @fund_raising = current_user.fund_raisings.new(fund_raising_params)
 
     respond_to do |format|
       if @fund_raising.save
-        format.html { redirect_to admin_fund_raisings_path, notice: 'Fund raising was successfully created.' }
+        format.html { redirect_to dashboard_fund_raisings_path, notice: 'Fund raising was successfully created.' }
         format.json { render :show, status: :created, location: @fund_raising }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::FundRaisingsController < Admin::BaseController
   def update
     respond_to do |format|
       if @fund_raising.update(fund_raising_params)
-        format.html { redirect_to admin_fund_raisings_path, notice: 'Fund raising was successfully updated.' }
+        format.html { redirect_to dashboard_fund_raisings_path, notice: 'Fund raising was successfully updated.' }
         format.json { render :show, status: :ok, location: @fund_raising }
       else
         format.html { render :edit }
@@ -56,14 +56,9 @@ class Admin::FundRaisingsController < Admin::BaseController
   def destroy
     @fund_raising.destroy
     respond_to do |format|
-      format.html { redirect_to admin_fund_raisings_path, notice: 'Fund raising was successfully destroyed.' }
+      format.html { redirect_to dashboard_fund_raisings_path, notice: 'Fund raising was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-  def toggle
-    @fund_raising.enabled = !@fund_raising.enabled
-    @fund_raising.save
-    head :ok
   end
 
   private

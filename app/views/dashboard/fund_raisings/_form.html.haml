@@ -1,4 +1,4 @@
-= simple_form_for([:admin, @fund_raising], html: { class: 'form-horizontal', multipart: true }, defaults: { wrapper_html: { class: 'col-md-6' }}) do |f|
+= simple_form_for([:dashboard, @fund_raising], html: { class: 'form-horizontal', multipart: true }, defaults: { wrapper_html: { class: 'col-md-6' }}) do |f|
   = f.input :name, label: '名称'
   = f.input :en_name, label: '名称（英文）'
   = f.input :target, label: '总数'
