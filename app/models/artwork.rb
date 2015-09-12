@@ -17,6 +17,7 @@
 class Artwork < ActiveRecord::Base
   validates :name, presence: true
   validates :address, presence: true
+  validates :images, presence: true
 
   has_many :bookmarks, as: :bookmarkable
   belongs_to :user

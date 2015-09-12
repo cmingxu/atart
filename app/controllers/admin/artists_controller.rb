@@ -74,6 +74,6 @@ class Admin::ArtistsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:name, :short_desc, :desc, :artworks_count)
+      params.require(:artist).permit!
     end
 end

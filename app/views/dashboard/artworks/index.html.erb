@@ -4,7 +4,7 @@
    <% @artworks.each do |artwork| %>
      <li>
          <a href="<%= edit_dashboard_artwork_path(artwork) %>" class="img">
-             <%= image_tag artwork.cover.url, height: 206, width: 363 %>
+             <%= image_tag artwork.cover.try(:url), height: 206, width: 363 %>
          </a>
          <a href="<%= edit_dashboard_artwork_path(artwork) %>" class="title">
 
