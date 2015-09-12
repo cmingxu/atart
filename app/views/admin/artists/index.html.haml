@@ -5,6 +5,7 @@
     %tr
       %th 标号
       %th 姓名
+      %th 头像
       %th 商品数量
       %th 操作
 
@@ -13,6 +14,7 @@
       %tr
         %td= link_to artist.id, edit_admin_artist_path(artist)
         %td= link_to artist.name, edit_admin_artist_path(artist)
+        %td= image_tag artist.avatar.thumb.url
         %td= artist.artworks_count
         %td
           = link_to "增加商品", new_admin_product_path(artist_id: artist.id)
