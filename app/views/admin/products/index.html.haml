@@ -14,13 +14,18 @@
       %tr
         %td= link_to product.id, edit_admin_product_path(product)
         %td= link_to product.name, edit_admin_product_path(product)
-        %td= link_to product.artist.name, edit_admin_artist_path(product.artist)
+        %td
+          - if product.artist
+            = link_to product.artist.name, edit_admin_artist_path(product.artist)
         %td
           - product.images.each do |a|
             = image_tag a.thumb.url, width: 60, height: 30
         %td= product.price
         %td
           = check_box_tag "", "", product.enabled?, class: 'product_enable_toggle check_box_toggle', data: { path: toggle_admin_product_path(product) }
+ 
         %td
+          = link_to "修改", edit_admin_product_path(product)
+          = link_to "删除", admin_product_path(product), method: :delete, data: { confirm: "确信要删除当前艺术家" }
   
 = paginate @products

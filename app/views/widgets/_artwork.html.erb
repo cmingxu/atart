@@ -6,8 +6,10 @@
   <%= artwork.desc %>
 </a>
 <span class="poster">
+  <a href='<%= user_path(artwork.user) %>'>
   <%= image_tag artwork.user.avatar.thumb.url, width: 39, height: 39, class: 'avatar' %>
   <span class="name"><%= artwork.user.nickname %></span>
+</a>
 </span>
 <span class="location">
   ATH
