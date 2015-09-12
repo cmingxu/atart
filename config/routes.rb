@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     get '/statistics' => 'base#statistics'
     resources :artworks do
       patch :toggle, on: :member
+      patch :hot, on: :member
     end
     resources :artists
     resources :products do

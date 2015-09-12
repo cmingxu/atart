@@ -6,6 +6,7 @@
       %th 作品名称
       %th 作品图片
       %th 发布
+      %th 热力榜？
       %th 操作
 
   %tbody
@@ -20,5 +21,7 @@
         %td
           = check_box_tag "", "", artwork.enabled?, class: 'check_box_toggle', data: { path: toggle_admin_artwork_path(artwork) }
 
+        %td
+          = check_box_tag "", "", artwork.hot?, class: 'check_box_toggle', data: { path: hot_admin_artwork_path(artwork) }
 
 = paginate @artworks

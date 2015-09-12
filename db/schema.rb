@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150911152011) do
+ActiveRecord::Schema.define(version: 20150912052638) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150911152011) do
     t.string   "address",    limit: 255
     t.string   "location",   limit: 255
     t.boolean  "enabled",    limit: 1
+    t.boolean  "hot",        limit: 1
   end
 
   create_table "bookmarks", force: :cascade do |t|

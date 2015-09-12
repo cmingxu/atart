@@ -59,6 +59,11 @@ class Admin::ArtworksController < Admin::BaseController
     @artwork.save
     head :ok
   end
+  def toggle
+    @artwork.hot = !@artwork.hot
+    @artwork.save
+    head :ok
+  end
 
   # DELETE /artworks/1
   # DELETE /artworks/1.json

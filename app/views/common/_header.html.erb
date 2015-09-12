@@ -33,7 +33,7 @@
                      <li class="<%= action_name == "me" ? 'current' : '' %>"><%= link_to "我的风景", me_path %></li>
                      <li><%= link_to "退出", destroy_user_session_path, method: :delete %></li>
                    <% else %>
-                     <li><%= link_to "我的风景", new_user_session_path %></li>
+                     <li><%= link_to "/dashboard", new_user_session_path %></li>
                    <% end %>
                     </li>
                 </ul>
