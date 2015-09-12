@@ -23,5 +23,8 @@
 
         %td
           = check_box_tag "", "", artwork.hot?, class: 'check_box_toggle', data: { path: hot_admin_artwork_path(artwork) }
+        %td
+          = link_to "修改", edit_admin_artwork_path(artwork)
+          = link_to "删除", admin_artwork_path(artwork), method: :delete, data: { confirm: "确信要删除当前作品？" }
 
 = paginate @artworks

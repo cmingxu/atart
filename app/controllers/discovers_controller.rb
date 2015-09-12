@@ -1,5 +1,8 @@
 class DiscoversController < ApplicationController
-     
+  def base
+    @artworks = Artwork.enabled
+    render :hot
+  end
   def hot
     @artworks = Artwork.enabled.hot
   end

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resource :discover do
     collection do
+      get :base
       get :hot
       get :channel
       get :fund_raising

@@ -16,7 +16,7 @@
         %td= link_to artist.name, edit_admin_artist_path(artist)
         %td= image_tag artist.avatar.thumb.url
         %td
-          = artist.artworks_count
+          = artist.products.count
           (
           = link_to "增加商品", new_admin_product_path(artist_id: artist.id)
           )

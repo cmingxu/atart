@@ -17,7 +17,7 @@
             <div class="pure-menu pure-menu-horizontal custom-can-transform">
                 <ul class="pure-menu-list">
                   <li class="pure-menu-item <%= action_name == 'index' ? 'current' : '' %>"> <%= link_to "首页", root_path %> </li>
-                  <li class="pure-menu-item <%= controller_name == 'discovers' ? 'current' : '' %>"> <%= link_to "发现", hot_discover_path %>
+                  <li class="pure-menu-item <%= controller_name == 'discovers' ? 'current' : '' %>"> <%= link_to "发现", base_discover_path %>
                             <!-- # 二级目录 -->
                             <div class="second-cate">
                                 <ul>
