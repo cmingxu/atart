@@ -5,7 +5,7 @@ class Admin::ChannelsController < Admin::BaseController
   end
 
   def index
-    @channels = Channel.all
+    @channels = Channel.page params[:id]
   end
 
   def new
@@ -39,6 +39,10 @@ class Admin::ChannelsController < Admin::BaseController
     head :ok
   end
 
+  def destroy
+    @channel.destroy
+    redirect_to :back
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

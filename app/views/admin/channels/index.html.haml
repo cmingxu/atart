@@ -1,4 +1,4 @@
-= link_to "New Channel", new_admin_channel_path, class: 'btn btn-primary pull-right'
+= link_to "新频道", new_admin_channel_path, class: 'btn btn-primary pull-right'
 
 %table.table
   %thead
@@ -23,4 +23,7 @@
           = check_box_tag "", "", channel.enabled?, class: 'channel_enable_toggle check_box_toggle', data: { path: toggle_admin_channel_path(channel) }
         %td
           = link_to "编辑", edit_admin_channel_path(channel)
-          = link_to "删除", admin_channels_path(channel), method: :delete, data: { confirm: "确信要删除?" }
+          = link_to "删除", admin_channel_path(channel), method: :delete, data: { confirm: "确信要删除?" }
+
+
+= paginate @channels

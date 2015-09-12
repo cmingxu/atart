@@ -31,7 +31,7 @@ class Admin::ArtworksController < Admin::BaseController
 
     respond_to do |format|
       if @artwork.save
-        format.html { redirect_to @artwork, notice: 'Artwork was successfully created.' }
+        format.html { redirect_to [:admin, @artwork], notice: 'Artwork was successfully created.' }
         format.json { render :show, status: :created, location: @artwork }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class Admin::ArtworksController < Admin::BaseController
   def update
     respond_to do |format|
       if @artwork.update(artwork_params)
-        format.html { redirect_to @artwork, notice: 'Artwork was successfully updated.' }
+        format.html { redirect_to [:admin, @artwork], notice: 'Artwork was successfully updated.' }
         format.json { render :show, status: :ok, location: @artwork }
       else
         format.html { render :edit }
@@ -71,7 +71,7 @@ class Admin::ArtworksController < Admin::BaseController
   def destroy
     @artwork.destroy
     respond_to do |format|
-      format.html { redirect_to artworks_url, notice: 'Artwork was successfully destroyed.' }
+      format.html { redirect_to admin_artworks_url, notice: 'Artwork was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
