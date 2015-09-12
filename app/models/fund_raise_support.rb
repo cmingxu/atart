@@ -16,7 +16,7 @@
 
 class FundRaiseSupport < ActiveRecord::Base
   belongs_to :user
-  belongs_to :fund_raise, classname: "FundRaising"
+  belongs_to :fund_raise, class_name: "FundRaising"
 
   aasm column: :status, :whiny_transitions => false do
     state :new_created, initial: true
