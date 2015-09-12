@@ -1,0 +1,182 @@
+<div class="page-content raise-detail clearfix">
+    <div class="span-left">
+        <div class="header-navigation">
+            <a href="#">众筹</a> | <span><%= @fund_raising.name %></span>
+        </div>
+        <div class="poster">
+          <%= image_tag @fund_raising.image.url %>
+        </div>
+
+        <div class="switch-tabs">
+            <div class="tab-navs">
+                <a class="tab active" href="#story">故事</a>
+                <a class="tab" href="#comments">用户评论</a>
+                <a class="tab" href="#support">支持者</a>            
+            </div>
+            <p class="story-title">
+                卡特琳娜
+            </p>
+            <p class="story-description">
+            发起人： <%= @fund_raising.user.nickname || @fund_raising.user.email %> 发起时间： <%= @fund_raising.begin_at.to_s(:ymd) %> 结束众筹：<%= @fund_raising.end_at.to_s(:ymd) %>
+            </p>
+            <div class="tab-contents">
+                <div class="tab-content active" id="story">
+                    <div class="story-content">
+                      <%= @fund_raising.story_content %>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="comments">
+                <div class="comments">
+                    <p class="title">用户评价 (123)</p>
+                    <div class="add-comment">
+                        <form action="">
+                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <button class="comment-btn">发布评论</button>
+                        </form>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="" class="avatar">
+                                <img src="assets/pic3.png" alt=""/>
+                            </a>
+                            <div class="username">Chris</div>
+                            <p class="comments">眾鳥高飛盡，孤雲獨去閒。那一群群的飛鳥都已經振翅高飛，不知去向。天際僅剩的一片浮雲也十分悠哉地往遠方飄去。相看兩不厭，只有敬亭山。</p>
+                            <div class="actions">
+                                <a href="" class="edit"></a>
+                                <a href="" class="heart"></a>
+                                <a href="" class="reply"></a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="" class="avatar">
+                                <img src="assets/pic3.png" alt=""/>
+                            </a>
+                            <div class="username">Chris</div>
+                            <p class="comments">眾鳥高飛盡，孤雲獨去閒。那一群群的飛鳥都已經振翅高飛，不知去向。天際僅剩的一片浮雲也十分悠哉地往遠方飄去。相看兩不厭，只有敬亭山。</p>
+                            <div class="actions">
+                                <a href="" class="edit"></a>
+                                <a href="" class="heart"></a>
+                                <a href="" class="reply"></a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="" class="avatar">
+                                <img src="assets/pic3.png" alt=""/>
+                            </a>
+                            <div class="username">Chris</div>
+                            <p class="comments">眾鳥高飛盡，孤雲獨去閒。那一群群的飛鳥都已經振翅高飛，不知去向。天際僅剩的一片浮雲也十分悠哉地往遠方飄去。相看兩不厭，只有敬亭山。</p>
+                            <div class="actions">
+                                <a href="" class="edit"></a>
+                                <a href="" class="heart"></a>
+                                <a href="" class="reply"></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-content" id="support">
+                <div class="comments">
+                    <p class="title">用户评价 (123)</p>
+                    <div class="add-comment">
+                        <form action="">
+                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <button class="comment-btn">发布评论</button>
+                        </form>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="" class="avatar">
+                                <img src="assets/pic3.png" alt=""/>
+                            </a>
+                            <p class="date">
+                                2015-08-28
+                            </p>
+                            <div class="username">Chris</div>
+                            <p class="comments">赞助 1 元</p>
+                        </li>
+                        <li>
+                            <a href="" class="avatar">
+                                <img src="assets/pic3.png" alt=""/>
+                            </a>
+                            <p class="date">
+                                2015-08-28
+                            </p>
+                            <div class="username">Chris</div>
+                            <p class="comments">赞助 1 元</p>
+                        </li>
+                        <li>
+                            <a href="" class="avatar">
+                                <img src="assets/pic3.png" alt=""/>
+                            </a>
+                            <p class="date">
+                                2015-08-28
+                            </p>
+                            <div class="username">Chris</div>
+                            <p class="comments">赞助 1 元</p>
+                        </li>
+                        <li>
+                            <a href="" class="avatar">
+                                <img src="assets/pic3.png" alt=""/>
+                            </a>
+                            <p class="date">
+                                2015-08-28
+                            </p>
+                            <div class="username">Chris</div>
+                            <p class="comments">赞助 1 元</p>
+                        </li>
+                        <li>
+                            <a href="" class="avatar">
+                                <img src="assets/pic3.png" alt=""/>
+                            </a>
+                            <p class="date">
+                                2015-08-28
+                            </p>
+                            <div class="username">Chris</div>
+                            <p class="comments">赞助 1 元</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="span-right">
+        <div class="info-list">
+            <div class="raised-money">已筹集：<span>￥<%= @fund_raising.current_raised %></span></div>
+            <div class="raise-target">目标金额为：<span>￥<%= @fund_raising.target %></span></div>
+        </div>
+        <div class="raise-progress">
+            <p class="raise-progress-title">
+                <span class="left">￥<%= @fund_raising.each_support %> 元</span>
+                <span class="middle"><%= ((@fund_raising.current_raised.to_f / @fund_raising.target) * 100).to_i  %>% Founded</span>
+                <span class="right"><%= ((@fund_raising.end_at - Time.now)/1.hours).floor %> hours left</span>
+            </p>
+            <div class="raise-progress-wrapper">
+                <div class="raise-progress-inner" style="width: 85%;"></div>
+            </div>
+        </div>
+        <div class="raise-declearation">
+          <p>项目需在 <%= @fund_raising.end_at.to_s(:tf_db_no_sec) %> 前达到 ￥<%= @fund_raising.target %> 的金额才算成功，否则已支持订单将取消。</p>
+            <p>订单取消时已支持金额将自动退还到您的账号。</p>
+        </div>
+        <div class="support-right-now">
+            <button class="large-red-btn">马上支持</button>
+        </div>
+        <div class="raised-money"><span>￥83906</span></div>
+        <div class="raise-thank">谢谢你！</div>
+        <div class="raise-declearation">
+            <p>您还会获得一个皮影纪念品（高 18cm 牛皮制作皮影）价值 150 元，您会收到本次巡演众筹特别版纪录片，您的名字会出现在特别鸣谢名单中。我还会建立一个群组邀请喜欢皮影的你一同加入，我会不断更新巡演的内容。</p>
+        </div>
+        <div class="support-right-now">
+            <button class="large-red-btn">马上支持</button>
+        </div>
+        <div class="raise-bottom">
+            <div class="raised-money">支持<span>￥83906</span></div>
+            <div class="right">200名支持者</div>
+            <div class="full">
+                <img src="assets/raise-full.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+

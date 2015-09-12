@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
 
-
   resources :users, only: [:show]
   resources :events, only: [:index, :show]
   resources :products, only: [:index, :show]
   resources :artworks, only: [:show]
   resources :channels, only: [:show]
+  resources :fund_raisings, only: [:show]
+
   resources :orders, only: [:new, :create, :show] do
     member do
       get :confirm_order_page
@@ -50,7 +51,11 @@ Rails.application.routes.draw do
     end
     resources :messages
     resources :bookmarks
-    resources :orders
+    resources :orders do
+      member do
+        patch :ship
+      end
+    end
     resources :channels_artworks
     resources :channels do
       patch :toggle, on: :member

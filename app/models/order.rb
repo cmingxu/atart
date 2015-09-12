@@ -51,6 +51,14 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def self.from_product(product)
+    new do |o|
+      o.product_id = product.id
+      o.artist_id  = product.artist_id
+      o.price = product.price
+    end
+  end
+
   aasm column: :status, :whiny_transitions => false do
     state :new_placed, initial: true
     state :confirmed

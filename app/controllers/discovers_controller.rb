@@ -12,6 +12,7 @@ class DiscoversController < ApplicationController
   end
 
   def fund_raising
+    @fund_raisings = FundRaising.enabled
   end
 
   def shop

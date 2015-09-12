@@ -12,6 +12,8 @@
 #  user_id    :integer
 #  address    :string(255)
 #  location   :string(255)
+#  enabled    :boolean
+#  hot        :boolean
 #
 
 class Artwork < ActiveRecord::Base

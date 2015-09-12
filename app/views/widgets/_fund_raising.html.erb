@@ -1,0 +1,23 @@
+<li>
+<a href="<%= fund_raising_path(fund_raising) %>" class="img">
+  <%= image_tag fund_raising.image.url, height: 363, widht: 206 %>.
+</a>
+<p class="title"><%= fund_raising.name %></p>
+<span class="poster">
+  <a href='<%= user_path(fund_raising.user) %>'>
+    <%= image_tag fund_raising.user.avatar.thumb.url, width: 39, height: 39, class: 'avatar' %>
+    <span class="name"><%= fund_raising.user.nickname %></span>
+  </a>
+</span>
+<span class="location">
+  ATH
+</span>
+<span class="progress">
+  <span class="funded">85% funded</span>
+  <span class="val">$32,111 USD</span>
+  <span class="time">6 hoursleft</span>
+  <span class="bar">
+    <span class="done" style="width: 85%;"></span>
+  </span>
+</span>
+</li>

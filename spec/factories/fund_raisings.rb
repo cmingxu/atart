@@ -16,6 +16,7 @@
 #  each_support   :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  enabled        :boolean
 #
 
 FactoryGirl.define do

@@ -19,9 +19,13 @@
       %th
     - @channel.channels_artworks.each do |ca|
       %tr
-        %td= ca.artwork.name
-        %td= ca.artwork.user.name
-        %td= ca.created_at
+        %td
+          = ca.artwork.name
+          (
+          = ca.artwork.id
+          )
+        %td= ca.artwork.user.nickname || ca.artwork.user.email
+        %td= ca.created_at.to_s(:tf_db_no_sec)
         %td= link_to "删除", admin_channels_artwork_path(ca), method: :patch
 
 

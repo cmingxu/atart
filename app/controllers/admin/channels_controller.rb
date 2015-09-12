@@ -20,7 +20,7 @@ class Admin::ChannelsController < Admin::BaseController
       flash[:alert] = "保存失败" + @channel.errors.full_messages.first
     end
 
-    redirect_to admin_channel_path(@channel)
+    redirect_to admin_channels_path
   end
 
   def update
@@ -30,7 +30,7 @@ class Admin::ChannelsController < Admin::BaseController
       flash[:alert] = "保存失败" + @channel.errors.full_messages.first
     end
 
-    redirect_to admin_channel_path(@channel)
+    redirect_to admin_channels_path
   end
 
   def toggle

@@ -1,12 +1,26 @@
 %table.table
   %thead
-    %th 序号
-    %th 头像
-    %th 用户名
-    %th 发布
-    %th 订单
-    %th 注册时间
-    %th 修改时间
+    %th ID
+    %th 用户
+    %th 商品
+    %th 艺术家
+    %th 价格
+    %th 地址
+    %th 状态
     %th 操作
-  
+
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= order.decorated_id
+        %td= link_to ( order.user.nickname || order.user.email), edit_admin_user_path(order.user)
+        %td= link_to order.product.name, edit_admin_product_path(order.product)
+        %td= link_to order.product.artist.name, edit_admin_artist_path(order.product.artist)
+        %td= order.price
+        %td= order.ship_address
+        %td= order.status_in_readable_format
+        %td
+          - if order.paid?
+            = link_to "送货", ship_admin_order_path(order), data: { confirm: "确认送货？", method: :patch }
+
 = paginate @orders

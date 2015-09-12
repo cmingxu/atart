@@ -5,6 +5,7 @@
 <title><%= Setting.title %></title>
 <%= stylesheet_link_tag 'front_page' %>
 <%= javascript_include_tag 'front_page' %>
+<%= javascript_include_tag 'application' %>
 <%= csrf_meta_tags %>
 </head>
 <body>
@@ -27,7 +28,7 @@
           <li><a class="user-post active" href="/dashboard/artworks">我的发布<span></span></a></li>
           <li><a class="user-order" href="/dashboard/orders">我的订单<span></span></a></li>
           <li><a class="user-following" href="/dashboard/bookmarks">我的关注<span></span></a></li>
-          <li><a class="user-favs" href="user-favs">我的收藏<span></span></a></li>
+          <li><a class="user-favs" href='/dashboard/bookmarks'>我的收藏<span></span></a></li>
           <li><a class="user-message" href="/dashboard/messages">消息中心<span></span></a></li>
           <% if current_user.artist?  %>
           <li><a class="user-message" href="/dashboard/fund_raisings">众筹<span></span></a></li>

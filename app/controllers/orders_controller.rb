@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.from_cart(@cart)
+    @order = Order.from_product(Product.find(params[:product_id]))
     @order.user = current_user
     if @order.save
       @cart.empty

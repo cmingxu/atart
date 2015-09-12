@@ -9,14 +9,14 @@
     <%= @artwork.address %>
 </small></p>
     <div class="work-meta">
-        <a href="#" class="avatar">
+        <a href="/users/<%= @artwork.user.id %>" class="avatar">
           <%= image_tag @artwork.user.avatar.thumb.url %>
         </a>
         <div class="work-information">
             <div class="username"><%= @artwork.user.nickname %></div>
             <p class="upload-date">上传时间：<%= @artwork.created_at.strftime("%Y-%m-%d") %></p>
         </div>
-        <a class="add-people" href="#">
+        <a class="add-people" href="/users/<%= @artwork.user.id %>/fav">
           <%= image_tag "add-people.png" %>
       </a>
     </div>

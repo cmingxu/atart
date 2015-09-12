@@ -12,7 +12,11 @@
   %tbody
     - @artworks.each do |artwork|
       %tr
-        %td= artwork.name
+        %td
+          = artwork.name
+          (
+          = artwork.id
+          )
         %td= artwork.desc
         %td= artwork.user_id
         %td

@@ -4,7 +4,7 @@ class FundRaisingsController < ApplicationController
   # GET /fund_raisings
   # GET /fund_raisings.json
   def index
-    @fund_raisings = FundRaising.all
+    @fund_raisings = FundRaising.enabled
   end
 
   # GET /fund_raisings/1
