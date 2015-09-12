@@ -15,6 +15,8 @@
 #
 
 class FundRaiseSupport < ActiveRecord::Base
+  include AASM
+
   belongs_to :user
   belongs_to :fund_raise, class_name: "FundRaising"
 
