@@ -30,10 +30,10 @@
                      </li>
                      <li class="<%= controller_name == "events" ? 'current' : '' %>"> <%= link_to "现场", events_path %> </li>
                      <% if current_user %>
-                     <li class="<%= action_name == "me" ? 'current' : '' %>"><%= link_to "我的风景", me_path %></li>
+                     <li class="<%= action_name == "me" ? 'current' : '' %>"><%= link_to "我的风景", dashboard_path %></li>
                      <li><%= link_to "退出", destroy_user_session_path, method: :delete %></li>
                    <% else %>
-                     <li><%= link_to "/dashboard", new_user_session_path %></li>
+                     <li><%= link_to "我的风景", new_user_session_path %></li>
                    <% end %>
                     </li>
                 </ul>
