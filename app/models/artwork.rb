@@ -22,7 +22,7 @@ class Artwork < ActiveRecord::Base
   belongs_to :user
   has_many :channels_artworks
 
-  scope :hot, -> { where('1=1') }
+  scope :hot, -> { where(hot: true) }
 
   serialize :images, Array
   mount_uploaders :images, ProductImageUploader
