@@ -23,3 +23,4 @@
           = check_box_tag "", "", channel.enabled?, class: 'channel_enable_toggle check_box_toggle', data: { path: toggle_admin_channel_path(channel) }
         %td
           = link_to "编辑", edit_admin_channel_path(channel)
+          = link_to "删除", admin_channels_path(event), method: :delete, data: { confirm: "确信要删除?" }
