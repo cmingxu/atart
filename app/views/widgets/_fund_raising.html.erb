@@ -13,9 +13,9 @@
   ATH
 </span>
 <span class="progress">
-  <span class="funded">85% funded</span>
-  <span class="val">$32,111 USD</span>
-  <span class="time">6 hoursleft</span>
+  <span class="funded"><%= fund_raising.percent_done %>% funded</span>
+  <span class="val">￥ <%= fund_raising.target %></span>
+  <span class="time"><%= fund_raising.left_hour %> hoursleft</span>
   <span class="bar">
     <span class="done" style="width: 85%;"></span>
   </span>

@@ -37,4 +37,12 @@ class FundRaising < ActiveRecord::Base
   has_many :fund_raise_supports
 
   mount_uploader :image, FundRaisingImageUploader
+
+  def left_hour
+    ((self.end_at - Time.now)/1.hours).floor
+  end
+
+  def percent_done
+    ((self.current_raised.to_f / self.target) * 100).to_i
+  end
 end

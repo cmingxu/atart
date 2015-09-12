@@ -6,7 +6,8 @@
   = f.input :image, as: :file
   = f.input :begin_at, label: '开始', input_html: { class: 'datetimepicker' }, value: @fund_raising.begin_at.try(:strftime, '%Y-%m-%d %H:%M')
   = f.input :end_at, label: '结束',   input_html: { class: 'datetimepicker' }, value: @fund_raising.begin_at.try(:strftime, '%Y-%m-%d %H:%M')
-  = f.input :story, as: :text, label: '故事', wrapper_html: { class: 'col-md-12' } 
+  = f.input :story_title, as: :string, label: '故事标题', wrapper_html: { class: 'col-md-12' } 
+  = f.input :story_content, as: :text, label: '故事内容', wrapper_html: { class: 'col-md-12' } 
 
   .form-actions
     = f.button :submit

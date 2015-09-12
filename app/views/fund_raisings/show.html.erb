@@ -11,10 +11,10 @@
             <div class="tab-navs">
                 <a class="tab active" href="#story">故事</a>
                 <a class="tab" href="#comments">用户评论</a>
-                <a class="tab" href="#support">支持者</a>            
+                <a class="tab" href="#support">支持者</a>
             </div>
             <p class="story-title">
-                卡特琳娜
+                <%= @fund_raising.story_title %>
             </p>
             <p class="story-description">
             发起人： <%= @fund_raising.user.nickname || @fund_raising.user.email %> 发起时间： <%= @fund_raising.begin_at.to_s(:ymd) %> 结束众筹：<%= @fund_raising.end_at.to_s(:ymd) %>
@@ -148,8 +148,8 @@
         <div class="raise-progress">
             <p class="raise-progress-title">
                 <span class="left">￥<%= @fund_raising.each_support %> 元</span>
-                <span class="middle"><%= ((@fund_raising.current_raised.to_f / @fund_raising.target) * 100).to_i  %>% Founded</span>
-                <span class="right"><%= ((@fund_raising.end_at - Time.now)/1.hours).floor %> hours left</span>
+                <span class="middle"><%= @fund_raising.percent_done  %>% Founded</span>
+                <span class="right"><%= @fund_raising.left_hour %> hours left</span>
             </p>
             <div class="raise-progress-wrapper">
                 <div class="raise-progress-inner" style="width: 85%;"></div>
