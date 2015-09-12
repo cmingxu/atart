@@ -15,9 +15,11 @@
         %td= link_to artist.id, edit_admin_artist_path(artist)
         %td= link_to artist.name, edit_admin_artist_path(artist)
         %td= image_tag artist.avatar.thumb.url
-        %td= artist.artworks_count
         %td
+          = artist.artworks_count
+          (
           = link_to "增加商品", new_admin_product_path(artist_id: artist.id)
+          )
         %td
           = link_to "修改", edit_admin_artist_path(artist)
           = link_to "删除", admin_artist_path(artist), method: :delete, data: { confirm: "确信要删除当前艺术家？" }

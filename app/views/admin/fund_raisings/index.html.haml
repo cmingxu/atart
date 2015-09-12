@@ -12,13 +12,13 @@
       %th 结束
       %th 发布？
       %th 单笔
-      %th
+      %th 操作
 
   %tbody
     - @fund_raisings.each_with_index do |fund_raising, index|
       %tr
         %td= index + 1
-        %td= fund_raising.name
+        %td= link_to fund_raising.name, edit_admin_fund_raising_path(fund_raising)
         %td= image_tag fund_raising.image.thumb.url
         %td= fund_raising.target
         %td= fund_raising.current_raised
@@ -27,8 +27,7 @@
         %td= check_box_tag "", "", fund_raising.enabled?, class: 'fund_raising_enable_toggle check_box_toggle', data: { path: toggle_admin_fund_raising_path(fund_raising) }
         %td= fund_raising.each_support
         %td
-          = link_to 'Show', admin_fund_raising_path(fund_raising)
-          = link_to 'Edit', edit_admin_fund_raising_path(fund_raising)
-          = link_to 'Destroy', admin_fund_raising_path(fund_raising), :method => :delete, :data => { :confirm => 'Are you sure?' }
+          = link_to '编辑', edit_admin_fund_raising_path(fund_raising)
+          = link_to '删除', admin_fund_raising_path(fund_raising), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
