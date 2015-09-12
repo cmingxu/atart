@@ -29,12 +29,15 @@ class FundRaising < ActiveRecord::Base
   validates :each_support, presence: true
 
   scope :enabled, ->() { where(enabled: true) }
+  scope :not_close, ->() { where(close: false) }
+  scope :close, ->() { where(close: true) }
   scope :time_valid, ->() { where(["begin_at < ? AND ? < end_at ", Time.now, Time.now]) }
 
   belongs_to :user
   belongs_to :moderator
 
-  has_many :fund_raise_supports
+  has_many :fund_raise_supports, dependent: :destroy, foreign_key: :fund_raise_id
+
 
   mount_uploader :image, FundRaisingImageUploader
 

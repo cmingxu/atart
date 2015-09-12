@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912080704) do
+ActiveRecord::Schema.define(version: 20150912091026) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -126,10 +126,11 @@ ActiveRecord::Schema.define(version: 20150912080704) do
     t.datetime "end_at"
     t.text     "story_content",  limit: 65535
     t.integer  "each_support",   limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.boolean  "enabled",        limit: 1
     t.string   "story_title",    limit: 255
+    t.boolean  "close",          limit: 1,     default: false
   end
 
   create_table "messages", force: :cascade do |t|

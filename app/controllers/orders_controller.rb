@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :find_order, only: [:confirm_order_page, :confirm_order, :show]
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:notify]
 
   def new
     @product = Product.find params[:product_id]
@@ -23,7 +23,6 @@ class OrdersController < ApplicationController
   end
 
   def confirm_order
-    @order = Order.find_by_id(@order)
     url = Alipay::Service.create_direct_pay_by_user_url(
       out_trade_no: @order.decorated_id,
       subject: @order.product.name,
