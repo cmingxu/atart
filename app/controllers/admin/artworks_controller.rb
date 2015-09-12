@@ -59,7 +59,8 @@ class Admin::ArtworksController < Admin::BaseController
     @artwork.save
     head :ok
   end
-  def toggle
+
+  def hot
     @artwork.hot = !@artwork.hot
     @artwork.save
     head :ok
