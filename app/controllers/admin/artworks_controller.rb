@@ -1,5 +1,5 @@
 class Admin::ArtworksController < Admin::BaseController
-  before_action :set_artwork, only: [:show, :edit, :update, :destroy, :toggle]
+  before_action :set_artwork, only: [:show, :edit, :update, :destroy, :toggle, :hot]
   before_filter do
     @breadcrumb = [OpenStruct.new(href: admin_artworks_path, text: "艺术品管理")]
   end
