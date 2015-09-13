@@ -9,7 +9,6 @@
       %th 总数
       %th 当前
       %th 开始
-      %th 单笔
       %th
 
   %tbody
@@ -22,7 +21,6 @@
         %td= fund_raising.current_raised
         %td= fund_raising.begin_at.to_s(:tf_db_no_sec)
         %td= fund_raising.end_at.to_s(:tf_db_no_sec)
-        %td= fund_raising.each_support
         %td
           = link_to 'Show', admin_fund_raising_path(fund_raising)
           = link_to 'Edit', edit_admin_fund_raising_path(fund_raising)

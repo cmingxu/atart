@@ -5,10 +5,11 @@ class FundRaiseSupportsController < ApplicationController
   end
 
   def create
-    @fund_raise = FundRaising.find_by_id(params[:fund_raise_id])
+    @fund_raise_term = FundRaisingTerm.find_by_id(params[:fund_raise_term_id])
+    @fund_raise = @fund_raise_term.fund_raising
     frs = @fund_raise.fund_raise_supports.new
     frs.user = current_user
-    frs.amount = @fund_raise.each_support
+    frs.amount = @fund_raise_term.amount
     frs.save
 
     url = Alipay::Service.create_direct_pay_by_user_url(

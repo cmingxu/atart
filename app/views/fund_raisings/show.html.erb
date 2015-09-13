@@ -147,7 +147,7 @@
         </div>
         <div class="raise-progress">
             <p class="raise-progress-title">
-                <span class="left">￥<%= @fund_raising.each_support %> 元</span>
+                <span class="left">￥<%=  %> 元</span>
                 <span class="middle"><%= @fund_raising.percent_done  %>% Founded</span>
                 <span class="right"><%= @fund_raising.left_hour %> hours left</span>
             </p>
@@ -155,17 +155,22 @@
                 <div class="raise-progress-inner" style="width: 85%;"></div>
             </div>
         </div>
+
+
+        <% @fund_raising.fund_raising_terms.each do |frt| %>
+        <div class="raised-money"><span>￥<%= frt.amount %></span></div>
         <div class="raise-declearation">
-          <p>项目需在 <%= @fund_raising.end_at.to_s(:tf_db_no_sec) %> 前达到 ￥<%= @fund_raising.target %> 的金额才算成功，否则已支持订单将取消。</p>
-            <p>订单取消时已支持金额将自动退还到您的账号。</p>
+          <% frt.desc %>
         </div>
         <div class="support-right-now">
-
           <%= form_tag fund_raise_supports_path do %>
-          <%= hidden_field_tag "fund_raise_id", @fund_raising.id %>
-            <button class="large-red-btn">马上支持</button>
+          <%= hidden_field_tag "fund_raise_term_id", frt.id %>
+            <button class="large-red-btn" type='submit'>马上支持</button>
           <% end %>
         </div>
+      <% end %>
+
+
         <div class="raised-money"><span>￥83906</span></div>
         <div class="raise-thank">谢谢你！</div>
         <div class="raise-declearation">
@@ -184,6 +189,10 @@
                 <img src="assets/raise-full.png" alt="">
             </div>
         </div>
+
+
+
+
     </div>
 </div>
 

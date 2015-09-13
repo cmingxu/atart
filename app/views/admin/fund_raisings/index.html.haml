@@ -25,7 +25,6 @@
         %td= fund_raising.begin_at.to_s(:tf_db_no_sec)
         %td= fund_raising.end_at.to_s(:tf_db_no_sec)
         %td= check_box_tag "", "", fund_raising.enabled?, class: 'fund_raising_enable_toggle check_box_toggle', data: { path: toggle_admin_fund_raising_path(fund_raising) }
-        %td= fund_raising.each_support
         %td
           = link_to '编辑', edit_admin_fund_raising_path(fund_raising)
           = link_to '删除', admin_fund_raising_path(fund_raising), :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -74,6 +74,6 @@ class Admin::FundRaisingsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fund_raising_params
-      params.require(:fund_raising).permit(:name, :en_name, :image, :moderator_id, :user_id, :target, :current_raised, :begin_at, :end_at, :story, :each_support)
+      params.require(:fund_raising).permit!
     end
 end

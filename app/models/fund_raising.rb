@@ -26,7 +26,6 @@ class FundRaising < ActiveRecord::Base
   validates :begin_at, presence: true
   validates :end_at, presence: true
   validates :story, presence: true
-  validates :each_support, presence: true
 
   scope :enabled, ->() { where(enabled: true) }
   scope :not_close, ->() { where(close: false) }
@@ -37,6 +36,9 @@ class FundRaising < ActiveRecord::Base
   belongs_to :moderator
 
   has_many :fund_raise_supports, dependent: :destroy, foreign_key: :fund_raise_id
+  has_many :fund_raising_terms
+
+  accepts_nested_attributes_for :fund_raising_terms, allow_destroy: true
 
 
   mount_uploader :image, FundRaisingImageUploader

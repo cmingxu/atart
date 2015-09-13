@@ -89,6 +89,7 @@ Rails.application.routes.draw do
 
     resources :fund_raisings do
       resources :fund_raise_supports
+      resources :fund_raising_terms
     end
     resources :messages
     resources :artworks

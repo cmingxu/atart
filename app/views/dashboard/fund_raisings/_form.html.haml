@@ -2,11 +2,25 @@
   = f.input :name, label: '名称'
   = f.input :en_name, label: '名称（英文）'
   = f.input :target, label: '总数'
-  = f.input :each_support, label: '单笔筹集'
   = f.input :image, as: :file
   = f.input :begin_at, label: '开始', input_html: { class: 'datetimepicker' }, value: @fund_raising.begin_at.try(:strftime, '%Y-%m-%d %H:%M')
   = f.input :end_at, label: '结束',   input_html: { class: 'datetimepicker' }, value: @fund_raising.begin_at.try(:strftime, '%Y-%m-%d %H:%M')
-  = f.input :story, as: :text, label: '故事', wrapper_html: { class: 'col-md-12' } 
+  = f.input :story_title, as: :string, label: '故事', wrapper_html: { class: 'col-md-12' }
+  = f.input :story_content, as: :text, label: '故事', wrapper_html: { class: 'col-md-12' }
+
 
   .form-actions
     = f.button :submit
+
+- @fund_raising.fund_raising_terms.each do |frt|
+  = frt.amount
+  = frt.desc
+
+- if @fund_raising.persisted?
+  = simple_form_for([:dashboard, @fund_raising, @fund_raising_term], html: { class: 'form-horizontal', multipart: true }, defaults: { wrapper_html: { class: 'col-md-6' }}) do |f|
+    = f.input :fund_raising_id, as: :hidden
+    = f.input :amount, label: '金额'
+    = f.input :desc, label: '描述', as: :text
+
+    .form-actions
+      = f.button :submit

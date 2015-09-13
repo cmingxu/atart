@@ -22,10 +22,9 @@
         %td= fund_raising.current_raised
         %td= fund_raising.begin_at.to_s(:tf_db_no_sec)
         %td= fund_raising.end_at.to_s(:tf_db_no_sec)
-        %td= fund_raising.each_support
         %td
-          = link_to 'Show', admin_fund_raising_path(fund_raising)
-          = link_to 'Edit', edit_admin_fund_raising_path(fund_raising)
-          = link_to 'Destroy', admin_fund_raising_path(fund_raising), :method => :delete, :data => { :confirm => 'Are you sure?' }
+          = link_to 'Show', dashboard_fund_raising_path(fund_raising)
+          = link_to 'Edit', edit_dashboard_fund_raising_path(fund_raising)
+          = link_to 'Destroy', dashboard_fund_raising_path(fund_raising), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 

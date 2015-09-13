@@ -1,0 +1,2 @@
+module FundRaisingTermsHelper
+end
