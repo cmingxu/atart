@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-  resources :users, only: [:show]
   resources :events, only: [:index, :show]
   resources :products, only: [:index, :show]
   resources :artworks, only: [:show]
@@ -127,6 +126,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registraions: 'users/registraions'
   }
+
+  resources :users, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

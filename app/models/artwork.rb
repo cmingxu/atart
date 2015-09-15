@@ -29,7 +29,7 @@ class Artwork < ActiveRecord::Base
   scope :enabled, -> { where(enabled: true) }
 
   serialize :images, Array
-  mount_uploaders :images, ProductImageUploader
+  mount_uploader :images, ProductImageUploader
 
   def cover
     images.first

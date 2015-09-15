@@ -42,7 +42,7 @@ class Product < ActiveRecord::Base
   belongs_to :order
   has_many :bookmarks, as: :bookmarkable
 
-  mount_uploaders :images, ProductImageUploader
+  mount_uploader :images, ProductImageUploader
 
   def buyable?
     true

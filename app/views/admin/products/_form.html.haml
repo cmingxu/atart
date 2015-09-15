@@ -12,18 +12,31 @@
 
   = f.input :short_desc, label: "简介", as: :text, wrapper_html: { class: "col-md-12" }
   = f.input :desc, label: "详情", as: :text, wrapper_html: { class: "col-md-12" }
-  = f.input :images, input_html: { multiple: true, onchange: 'preview_image(this)' }, as: :file
+  = f.input :images, input_html: { multiple: true, onchange: 'preview_image(this)', id: 'image_selector' }, as: :file
+
+  - @product.images.each_with_index do |img, i|
+    .col-md-3#image_data_preview
+      = image_tag img.url, width: 140, height: 160, class: 'image_preview', data: { 'index' => i}
+
 
   .clearfix
-  .row
-    #image_data
-      - f.object.images.each do |i|
-        %br
-        = image_tag i.url
 
   .row.text-center
     = f.submit "保存", class: 'btn btn-primary'
 
+- if @product.persisted?
+  :javascript
+    $(document).ready(function(){ 
+      $("body").on('click', ".image_preview", function(){
+        remove_image($(this))
+      })
+    })
+    function remove_image(dom){
+      $.ajax({
+        url: "/admin/products/#{@product.id}/remove_image?i=" + dom.data('index'),
+        method: "PUT"
+      })
+    }
 :javascript
   function preview_image(input){
     var image_data = "";
@@ -38,8 +51,9 @@
               var reader = new FileReader();
               reader.readAsDataURL(file);
               reader.onload = function(e){
-                image_data += '<div class="uk-width-1-4"><img src="'+ e.target.result+'" class=""/></div>';
-                $('#image_data').append(image_data)
+              dom = $( '<div class="col-md-3"><img src="'+ e.target.result+'" class="image_preivew" data-persisted="0" width=160 height=140/></div>');
+              $('#image_data').append(dom);
               }
-            }
+        }
+
   }
