@@ -28,3 +28,22 @@
           = link_to 'Destroy', dashboard_fund_raising_path(fund_raising), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
+
+
+%table.table
+  %thead
+    %tr
+      %th 序号
+      %th 名称
+      %th 状态
+      %th 金额
+      %th
+
+  %tbody
+    - @fund_raise_supports.each_with_index do |frs, index|
+      %tr
+        %td= index + 1
+        %td= frs.fund_raising.name
+        %td= frs.status_in_readable_format
+        %td= frs.amount
+        %td

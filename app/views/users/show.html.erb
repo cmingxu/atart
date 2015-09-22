@@ -3,16 +3,13 @@
 
 		<div class="detail">
             <div class="avatar-box">
-                <img src="<%= asset_path('pic3.png') %>" alt="">
-                <a href="">+M design office</a>
-                <a href="" class="add-people">123</a>
-                <a href="" class="people-count">345</a>
+                <%= image_tag @user.avatar.url %>
+                <a href=""><%= @user.name %></a>
+                <a href="" class="add-people"><%= @user.fav_count %></a>
+                <a href="" class="people-count"><%= @user.fav_other_count %></a>
             </div>
             <div class="desc">
-                卡特琳娜毕业于Samara艺术学校绘画专业，Petrov-Vodkin艺术学院设计系及Michael Musorin摄影学院，她是俄罗斯
-                最优秀的当代摄影艺术家之一。卡特琳娜获得2015年德国Cranach艺术奖第一名；2014年莫斯科国际摄影奖艺术摄影
-                类第一名；2012年洛杉矶国际摄影奖3个类别的第一名；2010年巴黎摄影比赛肖像类第一名；2008年柏林网络国际摄
-                影比赛第一名；2008年莫斯科博物馆奖；2007俄罗斯年度艺术家奖提名。
+              <%= @user.desc %>
             </div>
 		</div>
 

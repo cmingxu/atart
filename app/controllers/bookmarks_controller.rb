@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
 
   def create
     bookmarkable = params[:what].capitalize.constantize.find params[:id]
-    current_user.bookmarks.create :bookmarkable => bookmarkable
+    current_user.bookmarks.create :bookmarkable => bookmarkable if !current_user.bookmarks.exists?(:bookmarkable => bookmarkable)
     redirect_to :back
   end
 end

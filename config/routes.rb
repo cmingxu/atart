@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :artworks, only: [:show]
   resources :channels, only: [:show]
   resources :fund_raisings, only: [:show]
-  resources :fund_raise_supports, only: [:create, :show] do
+  resources :bookmarks, only: [:create]
+  resources :fund_supports, only: [:create, :show] do
     member do
       patch :notify
     end

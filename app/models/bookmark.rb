@@ -13,4 +13,7 @@
 class Bookmark < ActiveRecord::Base
   belongs_to :user
   belongs_to :bookmarkable, polymorphic: true
+
+  scope :user_bookmarks, lambda { where(:bookmarkable_type => "User")}
+  scope :other_bookmarks, lambda { where.not(:bookmarkable_type => "User")}
 end

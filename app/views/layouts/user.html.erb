@@ -18,8 +18,8 @@
       <div class="avatar-box">
         <%= image_tag current_user.avatar.thumb.url, height: 165, width: 165 %>
         <a href="">+M design office</a>
-        <a href="" class="add-people">123</a>
-        <a href="" class="people-count">345</a>
+        <a href="" class="add-people"><%= current_user.fav_count %></a>
+        <a href="" class="people-count"><%= current_user.fav_other_count %></a>
       </div>
     </div>
     <div class="user-center clearfix">
@@ -27,8 +27,8 @@
         <ul>
           <li><a class="user-post active" href="/dashboard/artworks">我的发布<span></span></a></li>
           <li><a class="user-order" href="/dashboard/orders">我的订单<span></span></a></li>
-          <li><a class="user-following" href="/dashboard/bookmarks">我的关注<span></span></a></li>
-          <li><a class="user-favs" href='/dashboard/bookmarks'>我的收藏<span></span></a></li>
+          <li><a class="user-following" href="/dashboard/bookmarks?type=fav">我的关注<span></span></a></li>
+          <li><a class="user-favs" href='/dashboard/bookmarks?type=bookmark'>我的收藏<span></span></a></li>
           <li><a class="user-message" href="/dashboard/messages">消息中心<span></span></a></li>
           <% if current_user.artist?  %>
           <li><a class="user-message" href="/dashboard/fund_raisings">众筹<span></span></a></li>

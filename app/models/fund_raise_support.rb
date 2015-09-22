@@ -19,6 +19,7 @@ class FundRaiseSupport < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :fund_raise, class_name: "FundRaising", foreign_key: :fund_raise_id
+  belongs_to :fund_raising, foreign_key: :fund_raise_id
 
   def decorated_id
     "104" + sprintf("%05d", self.id)
@@ -51,5 +52,12 @@ class FundRaiseSupport < ActiveRecord::Base
     end
 
     self.fund_raise.save
+  end
+
+  def status_in_readable_format
+    case self.status.to_sym
+    when :new_created then "未支付"
+    when :paid then "已支付"
+    end
   end
 end

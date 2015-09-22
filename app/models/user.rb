@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :artworks, dependent: :destroy
   has_many :fund_raisings, dependent: :destroy
+  has_many :fund_raise_supports, dependent: :destroy
   has_many :messages, foreign_key: :send_to_id, dependent: :destroy
 
   mount_uploader :avatar, UserAvatarUploader
@@ -98,5 +99,17 @@ class User < ActiveRecord::Base
 
   def roles_in_words
     [self.user? ? "注册用户" : nil,  self.admin? ? "管理员" : nil].compact
+  end
+
+  def name
+    self.nickname || self.email
+  end
+
+  def fav_count
+    Bookmark.where(bookmarkable: self).count
+  end
+
+  def fav_other_count
+    self.bookmarks.user_bookmarks.count
   end
 end

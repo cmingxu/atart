@@ -1,4 +1,4 @@
-class FundRaiseSupportsController < ApplicationController
+class FundSupportsController < ApplicationController
   before_filter :authenticate_user!, except: [:notify]
 
   def show
@@ -17,8 +17,8 @@ class FundRaiseSupportsController < ApplicationController
       subject: frs.fund_raise.name,
       price: frs.amount,
       quantity: 1,
-      return_url: fund_raise_support_url(@fund_raise),
-      notify_url: notify_fund_raise_support_url(@fund_raise)
+      return_url: fund_support_url(@fund_raise),
+      notify_url: notify_fund_support_url(@fund_raise)
     )
 
     redirect_to url

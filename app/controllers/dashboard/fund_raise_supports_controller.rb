@@ -56,7 +56,7 @@ class FundRaiseSupportsController < Admin::BaseController
   def destroy
     @fund_raise_support.destroy
     respond_to do |format|
-      format.html { redirect_to fund_raise_supports_url, notice: 'Fund raise support was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Fund raise support was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

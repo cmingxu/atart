@@ -163,7 +163,7 @@
           <% frt.desc %>
         </div>
         <div class="support-right-now">
-          <%= form_tag fund_raise_supports_path do %>
+          <%= form_tag fund_supports_path do %>
           <%= hidden_field_tag "fund_raise_term_id", frt.id %>
             <button class="large-red-btn" type='submit'>马上支持</button>
           <% end %>
@@ -177,7 +177,7 @@
             <p>您还会获得一个皮影纪念品（高 18cm 牛皮制作皮影）价值 150 元，您会收到本次巡演众筹特别版纪录片，您的名字会出现在特别鸣谢名单中。我还会建立一个群组邀请喜欢皮影的你一同加入，我会不断更新巡演的内容。</p>
         </div>
         <div class="support-right-now">
-          <%= form_tag fund_raise_supports_path do %>
+          <%= form_tag fund_supports_path do %>
           <%= hidden_field_tag "fund_raise_id", @fund_raising.id %>
             <button class="large-red-btn" type='submit'>马上支持</button>
           <% end %>

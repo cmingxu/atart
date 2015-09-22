@@ -32,6 +32,6 @@ class Artwork < ActiveRecord::Base
   mount_uploader :images, ProductImageUploader
 
   def cover
-    images.first
+    images
   end
 end

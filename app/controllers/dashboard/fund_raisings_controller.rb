@@ -4,7 +4,8 @@ class Dashboard::FundRaisingsController < Dashboard::BaseController
   # GET /fund_raisings
   # GET /fund_raisings.json
   def index
-    @fund_raisings = FundRaising.page params[:page]
+    @fund_raisings = current_user.fund_raisings.page params[:page]
+    @fund_raise_supports = current_user.fund_raise_supports
   end
 
   # GET /fund_raisings/1

@@ -8,7 +8,11 @@ class Dashboard::BookmarksController < Dashboard::BaseController
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-    @bookmarks = current_user.bookmarks.page params[:page]
+    if params[:type] == "bookmark"
+      @bookmarks = current_user.bookmarks.other_bookmarks.page params[:page]
+    else
+      @bookmarks = current_user.bookmarks.user_bookmarks.page params[:page]
+    end
   end
 
   # GET /bookmarks/1
